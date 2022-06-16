@@ -1,25 +1,7 @@
-@import url(../css/global.css);
+@import url(global.css);
 
-/* Descrição texto da página inicial */
-.cabecalho-descricao {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  width: 41.9%;
-  height: 290px;
-  margin-top: 168px;
-  margin-left: 140px;
-}
-
-.descricao-titulo {
-  font-size: 5em;
-  font-weight: bold;
-  color: #fff;
-}
-
-.descricao-subtitulo {
-  width: 70.3%;
-  padding-top: 28px;
-  font-size: 1.93em;
-  color: #fff;
+.home {
+  background: url(../imagens/home/home.jpg);
+  width: 100%;
+  height: 788px;
 }
