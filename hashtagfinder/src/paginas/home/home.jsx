@@ -1,6 +1,6 @@
 import React from 'react';
-import Reset from '../../css/reset.css';
-import Cabecalho_Imagem from '../../imagens/cabecalho/cabecalho.jpg';
+import '../../css/reset.css';
+import '../../css/global.css';
 
 const Home = () => {
   return (
@@ -19,8 +19,12 @@ const Home = () => {
             </div>
           </nav>
 
-          <div className='cabecalho-imagem'>
-            <img src={Cabecalho_Imagem} />
+          <div className='cabecalho-descricao'>
+            <h1>Encontre hashtags de maneira fácil</h1>
+            <h2>
+              Digite o que deseja no campo de buscas e confira os resultados do
+              Twitter abaixo
+            </h2>
           </div>
         </div>
       </header>
