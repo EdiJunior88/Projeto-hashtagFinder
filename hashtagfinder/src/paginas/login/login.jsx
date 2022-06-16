@@ -16,8 +16,8 @@ const Login = () => {
             </div>
 
             <div className="cabecalho-botao">
-                <img src={HomeLogo} alt="icone da home" />
-                <p>Home</p>
+              <img src={HomeLogo} alt="icone da home" />
+              <p>Home</p>
             </div>
           </nav>
         </div>
@@ -36,9 +36,7 @@ const Login = () => {
             <input type="text" />
           </div>
           <div className="formulario-botao">
-            <button className="formulario-botao-acessar">
-                Acessar
-            </button>
+            <button className="formulario-botao-acessar">Acessar</button>
           </div>
         </form>
       </div>
