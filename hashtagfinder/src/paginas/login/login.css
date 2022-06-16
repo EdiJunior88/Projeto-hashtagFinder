@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+
+html {
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  font-weight: lighter;
+}
+
+body {
+  background: url(../../imagens/login/login-bg.jpg);
+  background-repeat: no-repeat;
+  width: 414px;
+  height: 100vh;
+}
+
+.container-cabecalho-login {
+  background-repeat: no-repeat;
+  height: 180px;
+}
+
+.cabecalho {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px 0 20px;
+}
+
+.cabecalho-titulo {
+  text-align: left;
+  font-size: 19px;
+  color: #fff;
+}
+
+.texto-negrito {
+  font-weight: bold;
+}
+
+.cabecalho-botao {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 30px;
+  background-color: #d842bd;
+  color: #fff;
+  border-radius: 15px;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.cabecalho-botao img {
+  width: 20px;
+  height: 20px;
+  padding-right: 10px;
+}
+
+.cabecalho-botao p {
+  font-weight: 600;
+  font-size: 10px;
+}
+
+.container-formulario {
+  width: 250px;
+  height: 300px;
+  margin: 0 auto;
+  padding: 62px 30px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 14px;
+}
+
+.formulario-titulo {
+  font-size: 34px;
+  color: #3634f7;
+  text-align: center;
+  font-weight: bold;
+}
+
+.formulario-campo-usuario,
+.formulario-campo-senha {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  color: #292929;
+  font-size: 18px;
+  background: transparent;
+  border-bottom: 1px solid #bebebe;
+}
+
+.formulario-campo-usuario input,
+.formulario-campo-senha input {
+  padding-top: 10px;
+  border: 0px;
+  outline: 0px;
+}
+
+.formulario-botao {
+  padding-top: 40px;
+  text-align: center;
+}
+
+.formulario-botao-acessar {
+  width: 213px;
+  height: 58px;
+  text-transform: uppercase;
+  background-color: #3633f7;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 34px;
+  border: none;
+  cursor: pointer;
+}
