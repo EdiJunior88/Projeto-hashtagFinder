@@ -36,7 +36,9 @@ const Login = () => {
             <input type="text" />
           </div>
           <div className="formulario-botao">
-            <button className="formulario-botao-acessar">Acessar</button>
+            <button className="formulario-botao-acessar">
+                Acessar
+            </button>
           </div>
         </form>
       </div>
