@@ -1,31 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+@import url(../css/reset.css);
 
-html {
+* {
   box-sizing: border-box;
   font-family: 'Rubik', sans-serif;
   font-weight: lighter;
 }
 
-.container-cabecalho {
-  background: url(../imagens/cabecalho/cabecalho.jpg);
-  background-repeat: no-repeat;
-  height: 100vh;
-}
-
-.cabecalho {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px 64px 0 64px;
-}
-
-.cabecalho-titulo {
-  font-size: 35px;
-  color: #FFF;
-}
-
-.texto-negrito {
-  font-weight: bold;
+:root {
+  --cor-botao-sobre: #D842BD;
+  --cor-botao-login: #3633F7;
 }

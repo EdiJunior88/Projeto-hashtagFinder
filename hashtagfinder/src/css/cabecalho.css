@@ -1,0 +1,53 @@
+@import url('../css/global.css');
+
+/* Título (logo) da página e Botões */
+.container-cabecalho {
+  background: url(../imagens/cabecalho/cabecalho.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 790px;
+}
+
+.cabecalho {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 64px 0 64px;
+}
+
+.cabecalho-titulo {
+  font-size: 35px;
+  color: #FFF;
+}
+
+.texto-negrito {
+  font-weight: bold;
+}
+
+.botao-sobre,
+.botao-login {
+  width: 170px;
+  height: 49px;
+  border-radius: 25px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #FFF;
+  border: none;
+}
+
+.botao-sobre {
+  margin-right: 35px;
+  background: var(--cor-botao-sobre);
+}
+
+.botao-login {
+  background: var(--cor-botao-login);
+}
+
+.botao-icone {
+  padding-right: 12px;
+  width: 15%;
+}
