@@ -2,46 +2,26 @@ import React from "react";
 import "../../css/reset.css";
 import "../../css/global.css";
 import "../login/login.css";
-import HomeLogo from "../../imagens/icones/icon-home.svg";
+import Formulario from "../../componentes/formulario-login/formulario";
+import Cabecalho from "../../componentes/cabecalho/cabecalho"
+import BotaoHome from "../../componentes/botao-home/botaoHome";
 
-const Login = () => {
+export default function Login () {
   return (
     <>
+      <Cabecalho />
       <header>
         <div className="container-cabecalho-login">
-          <nav className="cabecalho">
+          <div className="cabecalho">
             <div className="cabecalho-titulo">
               <span>hashtag</span>
               <span className="texto-negrito">finder</span>
             </div>
-
-            <div className="cabecalho-botao">
-              <img src={HomeLogo} alt="icone da home" />
-              <p>Home</p>
-            </div>
-          </nav>
+            <BotaoHome />
+          </div>
         </div>
       </header>
-
-      <div className="container-formulario">
-        <h1 className="formulario-titulo">Login</h1>
-        <form action="" className="formulario">
-          <div className="formulario-campo-usuario">
-            <label htmlFor="">Usuário</label>
-            <input type="text" />
-          </div>
-
-          <div className="formulario-campo-senha">
-            <label htmlFor="">Senha</label>
-            <input type="text" />
-          </div>
-          <div className="formulario-botao">
-            <button className="formulario-botao-acessar">Acessar</button>
-          </div>
-        </form>
-      </div>
+      <Formulario />
     </>
   );
 };
-
-export default Login;

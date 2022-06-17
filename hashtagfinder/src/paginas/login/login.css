@@ -29,99 +29,18 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 20px 0 20px;
+  padding: 36px 64px 0px 64px;
 }
 
 .cabecalho-titulo {
   text-align: left;
   font-size: 19px;
   color: #fff;
-  margin-left: 10px;
+  margin-left: 35px;
 }
 
 .texto-negrito {
   font-weight: bold;
-}
-
-.cabecalho-botao {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 120px;
-  height: 30px;
-  margin-right: 10px;
-  background-color: #d842bd;
-  color: #fff;
-  border-radius: 25px;
-  border: none;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.cabecalho-botao img {
-  width: 20px;
-  height: 20px;
-  padding-right: 10px;
-}
-
-.cabecalho-botao p {
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.container-formulario {
-  width: 250px;
-  height: 300px;
-  margin: 0 auto;
-  padding: 62px 30px;
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  border-radius: 14px;
-}
-
-.formulario-titulo {
-  font-size: 34px;
-  color: #3634f7;
-  text-align: center;
-  font-weight: bold;
-}
-
-.formulario-campo-usuario,
-.formulario-campo-senha {
-  display: flex;
-  flex-direction: column;
-  padding-top: 40px;
-  color: #292929;
-  font-size: 18px;
-  background: transparent;
-  border-bottom: 1px solid #bebebe;
-}
-
-.formulario-campo-usuario input,
-.formulario-campo-senha input {
-  padding-top: 10px;
-  border: 0px;
-  outline: 0px;
-}
-
-.formulario-botao {
-  padding-top: 40px;
-  text-align: center;
-}
-
-.formulario-botao-acessar {
-  width: 213px;
-  height: 58px;
-  text-transform: uppercase;
-  background-color: #3633f7;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 34px;
-  border: none;
-  cursor: pointer;
 }
 
 /* Versão Desktop */
@@ -135,24 +54,4 @@ body {
   .cabecalho-titulo {
     font-size: 35px;
   }
-
-  .cabecalho-botao {
-    width: 150px;
-    height: 40px;
-    
-  }
-
-  .cabecalho-botao p {
-    font-size: 16px;
-  }
-
-  .container-formulario {
-    width: 420px;
-    height: 410px;
-  }
-
-  .formulario-titulo {
-    padding-top: 50px;
-  }
-
 }
