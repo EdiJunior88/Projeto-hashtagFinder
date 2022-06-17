@@ -1,0 +1,44 @@
+.container {
+  width: 100%;
+}
+
+.container-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 36px 64px 0px 64px;
+}
+
+.cabecalho-titulo {
+  font-size: 2.2em;
+}
+
+.titulo-negrito {
+  font-weight: bold;
+}
+
+.botao-sobre,
+.botao-login {
+  width: 170px;
+  height: 49px;
+  border-radius: 25px;
+  border: none;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.botao-sobre {
+  background: var(--cor-botao-sobre);
+  margin-right: 35px;
+}
+
+.botao-login {
+  background: var(--cor-botao-login);
+}
+
+.icone-botao {
+  width: 7.6%;
+  padding-right: 14px;
+}

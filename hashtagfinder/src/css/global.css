@@ -2,7 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
 
 * {
-  box-sizing: border-box;
+  box-sizing: content-box;
   font-family: 'Rubik', sans-serif;
   font-weight: lighter;
+  color: var(--cor-padrao-texto);
+}
+
+:root {
+  --cor-padrao-texto: #fff;
+  --cor-botao-sobre: #d842bd;
+  --cor-botao-login: #3633f7;
 }
