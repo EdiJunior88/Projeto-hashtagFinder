@@ -45,3 +45,13 @@ section.container {
 .campo-busca-icone {
   padding-left: 60px;
 }
+
+/* Responsividade - Tela 770 pixels */
+@media (max-width: 770px) {
+  .campo-busca-input {
+    width: 70%;
+    font-size: 2.2em;
+    padding-left: 22px;
+  }
+}
+

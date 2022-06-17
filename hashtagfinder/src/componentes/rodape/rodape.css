@@ -10,3 +10,10 @@
   flex-wrap: wrap;
   font-size: 1.56em;
 }
+
+/* Responsividade - Tela 770 pixels */
+@media (max-width: 770px) {
+  .container-rodape {
+    height: 134px;
+  }
+}

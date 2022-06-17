@@ -1,5 +1,5 @@
 .container-descricao {
-  width: 41.7%;
+  width: 804px;
   height: 290px;
   display: flex;
   flex-direction: column;
@@ -22,4 +22,32 @@
   font-size: 1.9em;
   padding-top: 28px;
   width: 76%;
+}
+
+/* Responsividade - Tela 1000 pixels */
+@media (max-width: 1000px) {
+  nav.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container-descricao {
+    width: 80%;
+    margin-left: 0px;
+  }
+
+  .descricao-titulo {
+    font-size: 5rem;
+  }
+}
+
+/* Responsividade - Tela 770 pixels */
+@media (max-width: 770px) {
+  .descricao-titulo {
+    font-size: 4rem;
+  }
+
+  .descricao-subtitulo {
+    font-size: 1.7rem;
+  }
 }
