@@ -1,0 +1,25 @@
+.container-descricao {
+  width: 41.7%;
+  height: 290px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 140px;
+  margin-top: 168px;
+}
+
+.descricao-titulo,
+.descricao-subtitulo {
+  line-height: 1.1em;
+}
+
+.descricao-titulo {
+  font-size: 5.1em;
+  font-weight: bold;
+}
+
+.descricao-subtitulo {
+  font-size: 1.9em;
+  padding-top: 28px;
+  width: 76%;
+}
