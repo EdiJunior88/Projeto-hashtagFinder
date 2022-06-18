@@ -15,7 +15,7 @@ section.container {
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  box-shadow: 8px 14px 30px #5538EE29;
+  box-shadow: 8px 14px 30px #5538ee29;
 }
 
 .campo-busca,
@@ -55,3 +55,26 @@ section.container {
   }
 }
 
+/* Responsividade - Tela 414 pixels */
+@media (max-width: 414px) {
+  section.container {
+    margin-top: 72px;
+    margin-bottom: 127px;
+  }
+
+  .campo-busca {
+    width: 80%;
+    height: 51px;
+  }
+
+  .campo-busca-icone {
+    width: 10%;
+    padding-left: 21.3px;
+  }
+
+  .campo-busca-input {
+    width: 81%;
+    font-size: 1.06em;
+    padding-left: 14px;
+  }
+}

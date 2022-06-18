@@ -9,11 +9,20 @@
   flex-direction: row;
   flex-wrap: wrap;
   font-size: 1.56em;
+  position: relative;
 }
 
 /* Responsividade - Tela 770 pixels */
 @media (max-width: 770px) {
   .container-rodape {
     height: 134px;
+  }
+}
+
+/* Responsividade - Tela 414 pixels */
+@media (max-width: 414px) {
+  .container-rodape {
+    height: 68px;
+    font-size: 0.62em;
   }
 }
