@@ -1,28 +1,22 @@
 import React from 'react';
-import '../../css/global.css';
-import '../../css/home.css';
+import Busca from '../../componentes/busca/busca';
 import Cabecalho from '../../componentes/cabecalho/cabecalho';
+import Descricao from '../../componentes/descricao/descricao';
+import Galeria from '../../componentes/galeria/galeria';
+import Rodape from '../../componentes/rodape/rodape';
+import '../../css/global.css'
+import './home.css'
 
-const Home = () => {
+function Home() {
   return (
-    <>
-      {
-        <Cabecalho />
-      }
-
-      {
-        <div className='cabecalho-descricao'>
-          <h1 className='descricao-titulo'>
-            Encontre hashtags de maneira fácil
-          </h1>
-          <h2 className='descricao-subtitulo'>
-            Digite o que deseja no campo de buscas e confira os resultados do
-            Twitter abaixo
-          </h2>
-        </div>
-      }
-    </>
+    <div className='home'>
+      <Cabecalho />
+      <Descricao />
+      <Busca />
+      <Galeria />
+      <Rodape />
+    </div>
   );
-};
+}
 
 export default Home;
