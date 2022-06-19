@@ -23,13 +23,16 @@ footer {
 }
 
 :root {
-  --cor-padrao-texto: #fff;
-  --cor-botao-sobre: #d842bd;
+  --cor-padrao-texto: #FFF;
+  --cor-botao-sobre: #D842BD;
   --cor-botao-login: #3633f7;
   --cor-texto-busca: #8D9DA2;
   --cor-fundo-rodape: #D842BD;
   --cor-fundo-botao-galeria: #FFF;
   --cor-texto-descricao-galeria: #3634F7;
   --cor-sombra-galeria: #5538EE29;
-
+  --cor-borda-twitter: #5538EE24;
+  --cor-sombra-twitter: #5538EE14;
+  --cor-usuario-twitter: #292929;
+  --cor-twitter-link: #3634F7;
 }

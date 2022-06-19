@@ -8,7 +8,9 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/bundle';
 
+/* Estilização personalizda para o SwiperJS */
 import './galeria.css';
+import Twitter from '../twitter/twitter';
 
 export default function Galeria() {
   return (
@@ -58,6 +60,9 @@ export default function Galeria() {
           </SwiperSlide>
         </Swiper>
       </div>
+
+      {/* Componente em que mostram os últimos 10 twitters */}
+      <Twitter />
     </section>
   );
 }
