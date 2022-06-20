@@ -1,0 +1,77 @@
+.containerFormulario {
+    width: 250px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 62px 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 14px;
+  }
+  
+  .formularioTitulo {
+    font-size: 34px;
+    color: #3634f7;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .formularioUsuario,
+  .formularioSenha {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    color: #292929;
+    font-size: 18px;
+    background: transparent;
+    border-bottom: 1px solid #E9E9F0;
+  }
+  
+  .formularioUsuario input,
+  .formularioSenha input {
+    padding-top: 10px;
+    border: 0px;
+    outline: 0px;
+    color: #292929
+  }
+
+  .formularioUsuario label,
+  .formularioSenha label {
+    color: #292929;
+  }
+  
+  .formularioBotaoDiv {
+    padding-top: 40px;
+    text-align: center;
+  }
+  
+  .formularioBotaoAcessar {
+    width: 213px;
+    height: 58px;
+    text-transform: uppercase;
+    background-color: #3633f7;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 34px;
+    border: none;
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 415px) {
+    body {
+      width: 100%;
+      max-width: 100%;
+    }
+  
+    .containerFormulario {
+      width: 420px;
+      height: 410px;
+    }
+  
+    .formularioTitulo{
+      padding-top: 50px;
+    }
+  
+  }
+  

@@ -1,0 +1,43 @@
+.botaoHome {
+  margin-right: 16px;
+}
+
+.botaoHome button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 106px;
+  height: 30px;
+  background-color: #d842bd;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  border-radius: 25px;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.iconeHome {
+  width: 12%;
+  padding-right: 14px;
+}
+
+@media screen and (min-width: 415px) {
+  body {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .iconeHome {
+    width: 15%;
+  }
+
+  .botaoHome button {
+    width: 170px;
+    height: 49px;
+    font-size: 1.1em;
+  }
+}

@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+
+/* Versão Mobile */
+
+html {
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  font-weight: lighter;
+}
+
+body {
+  background: url(../../imagens/login/login-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 414px;
+  height: 100vh;
+}
+
+.containerCabecalho {
+  background-repeat: no-repeat;
+  height: 180px;
+}
+
+.cabecalho {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36px 16px 0px 16px;
+}
+
+.cabecalhoTitulo {
+  text-align: left;
+  font-size: 19px;
+  color: #fff;
+  margin-left: 16px;
+}
+
+.tituloNegrito {
+  font-weight: bold;
+}
+
+/* Versão Desktop */
+
+@media screen and (min-width: 415px) {
+  body {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cabecalhoTitulo {
+    font-size: 35px;
+  }
+}
