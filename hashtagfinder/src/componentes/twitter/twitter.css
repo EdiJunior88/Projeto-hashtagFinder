@@ -1,0 +1,140 @@
+.container.twitter-flex {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  flex-wrap: wrap;
+  padding: 0px 9%;
+  gap: 20px;
+  width: 100%;
+}
+
+.container-twitter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 735px;
+  min-width: none;
+}
+
+.twitter {
+  display: flex;
+  border: 1px solid var(--cor-borda-twitter);
+  border-radius: 15px;
+  box-shadow: 0px 5px 10px var(--cor-sombra-twitter);
+}
+
+.container-twitter-foto,
+.container-twitter-descricao {
+  padding: 23px;
+}
+
+.container-twitter-foto {
+  display: flex;
+}
+
+.twitter-foto {
+  width: 82px;
+  height: 82px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.twitter-nome,
+.twitter-descricao,
+.twitter-link {
+  color: #000;
+}
+
+.container-twitter-nome-usuario {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.twitter-nome {
+  font-size: 1.68em;
+  font-weight: 500;
+  padding-right: 17px;
+}
+
+.twitter-usuario {
+  opacity: 43%;
+  color: var(--cor-usuario-twitter);
+}
+
+.container-twitter-descricao {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-bottom: 41px;
+}
+
+.twitter-descricao {
+  font-size: 1.18em;
+  line-height: 1.2em;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.twitter-link {
+  font-size: 1.25em;
+  font-weight: 500;
+  color: var(--cor-twitter-link);
+  text-decoration: none;
+}
+
+/* Responsividade - Tela 1305 pixels */
+@media screen and (min-width: 1305px) {
+  .container-twitter {
+    width: 100%;
+  }
+}
+
+/* Responsividade - Tela entre 1000 a 1582 pixels */
+@media screen and (min-width: 1000px) and (max-width: 1582px) {
+  .container-twitter {
+    width: 100%;
+  }
+}
+
+/* Responsividade - Tela 999px pixels */
+@media screen and (max-width: 999px) {
+  .container.twitter-flex {
+    grid-template-columns: 1fr;
+  }
+
+  .container-twitter {
+    width: 100%;
+  }
+}
+
+/* Responsividade - Tela 414 pixels */
+@media screen and (max-width: 414px) {
+  .container-twitter-foto,
+  .container-twitter-descricao {
+    padding: 23px 14px;
+  }
+
+  .twitter-foto {
+    width: 54px;
+    height: 54px;
+  }
+
+  .twitter-nome,
+  .twitter-descricao {
+    font-size: 0.75em;
+  }
+
+  .twitter-usuario {
+    font-size: 0.5em;
+  }
+
+  .twitter-descricao {
+    padding-bottom: 15px;
+  }
+
+  .twitter-link {
+    font-size: 0.56em;
+  }
+}

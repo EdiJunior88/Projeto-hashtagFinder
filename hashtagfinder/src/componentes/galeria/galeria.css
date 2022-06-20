@@ -1,0 +1,101 @@
+section.galeria {
+  margin: 0px;
+}
+
+.descricao-galeria-texto {
+  margin-top: 185px;
+  margin-bottom: 114px;
+  text-align: center;
+  color: var(--cor-texto-descricao-galeria);
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.swiper {
+  padding-bottom: 56px;
+  margin-left: 157px;
+  margin-right: 157px;
+}
+
+.swiper img {
+  width: 287px;
+  height: 287px;
+  box-shadow: 8px 14px 30px var(--cor-sombra-galeria);
+  border-radius: 21px;
+  padding: 5px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.swiper-slider {
+  display: flex;
+  justify-content: center;
+  margin-right: 45px;
+}
+
+.swiper-slide {
+  width: max-content;
+}
+
+.swiper-button-prev {
+  color: transparent;
+  background-color: var(--cor-fundo-botao-galeria);
+  background-image: url('../../imagens/icones/icon-arrow-left.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  box-shadow: 8px 14px 30px var(--color-box-shadow);
+  top: 40%;
+}
+
+.swiper-button-next {
+  color: transparent;
+  background-color: var(--cor-fundo-botao-galeria);
+  background-image: url('../../imagens/icones/icon-arrow-right.svg');
+  transform: scaleX(-1);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  box-shadow: 8px 14px 30px var(--color-box-shadow);
+  top: 40%;
+}
+
+swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  height: 15px;
+  width: 15px;
+}
+
+/* Responsividade - Tela 414 pixels */
+@media screen and (max-width: 414px) {
+  .descricao-galeria-texto {
+    font-size: 1.37em;
+    margin-top: 181px;
+    margin-bottom: 32px;
+  }
+
+  /*galeria*/
+
+  .swiper {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+
+  .swiper-backface-hidden .swiper-slide img {
+    height: 227px;
+    width: 159px;
+    margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .swiper-backface-hidden .swiper-slide img{
+    width: 100px;
+    height: 250px;
+  }
+}
