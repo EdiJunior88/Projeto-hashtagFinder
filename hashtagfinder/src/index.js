@@ -8,6 +8,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-// teste 123
-//testeeeee
