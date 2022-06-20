@@ -15,7 +15,7 @@ export default function Cabecalho() {
 
         <div className="container-botao">
           <div className="cabecalho-botao">
-            <button className="botao-sobre">
+            <button className="botao-sobre" onButton>
               <img className="icone-botao" src={IconeSobre} alt="icone sobre" />
               SOBRE
             </button>
