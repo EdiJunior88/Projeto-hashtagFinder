@@ -1,23 +1,22 @@
 .container.twitter-flex {
-  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 187px;
+  gap: 20px;
+}
+
+.container-twitter {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-content: center;
   align-items: center;
-  padding: 0px 187px 0px 187px;
-  margin-top: 65px;
-}
-
-.container-twitter {
-  padding-top: 60px;
+  width: 735px;
 }
 
 .twitter {
   display: flex;
-  width: 735px;
-  height: 253px;
+  width: 100%;
   border: 1px solid var(--cor-borda-twitter);
   border-radius: 15px;
   box-shadow: 0px 5px 10px var(--cor-sombra-twitter);
@@ -25,19 +24,11 @@
 
 .container-twitter-foto,
 .container-twitter-descricao {
-  padding-top: 42px;
-  padding-bottom: 42px;
+  padding: 23px;
 }
 
 .container-twitter-foto {
   display: flex;
-  padding-left: 53px;
-  padding-right: 23px;
-}
-
-.container-twitter-descricao {
-  width: 490px;
-  height: 170px;
 }
 
 .twitter-foto {
@@ -53,6 +44,12 @@
   color: #000;
 }
 
+.container-twitter-nome-usuario {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
 .twitter-nome {
   font-size: 1.68em;
   font-weight: 500;
@@ -61,6 +58,12 @@
 
 .twitter-usuario {
   color: var(--cor-usuario-twitter);
+}
+
+.container-twitter-descricao {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .twitter-descricao {

@@ -17,7 +17,8 @@ function Home() {
       <Busca />
       <Galeria />
       <Rodape />
-      <ul>
+      
+      {/* <ul>
         <li>
         <Link to="/sobre">Sobre</Link>
 
@@ -25,7 +26,7 @@ function Home() {
         <li>
             <Link to="/login">Login</Link>
           </li>
-      </ul>
+      </ul> */}
     </div>
   );
 }
