@@ -70,3 +70,32 @@ swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
   height: 15px;
   width: 15px;
 }
+
+/* Responsividade - Tela 414 pixels */
+@media screen and (max-width: 414px) {
+  .descricao-galeria-texto {
+    font-size: 1.37em;
+    margin-top: 181px;
+    margin-bottom: 32px;
+  }
+
+  /*galeria*/
+
+  .swiper {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+
+  .swiper-backface-hidden .swiper-slide img {
+    height: 227px;
+    width: 159px;
+    margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .swiper-backface-hidden .swiper-slide img{
+    width: 100px;
+    height: 250px;
+  }
+}

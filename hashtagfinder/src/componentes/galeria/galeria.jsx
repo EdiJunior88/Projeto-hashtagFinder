@@ -21,7 +21,7 @@ export default function Galeria() {
 
       <div className='container-galeria'>
         <Swiper
-          slidesPerView={5}
+          slidesPerView={3}
           slidesPerGroup={3}
           loop={false}
           loopFillGroupWithBlank={true}

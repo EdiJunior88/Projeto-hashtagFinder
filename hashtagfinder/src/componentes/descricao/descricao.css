@@ -57,7 +57,7 @@
 }
 
 /* Responsividade - Tela 414 pixels */
-@media (max-width: 414px) {
+@media screen and (max-width: 414px) {
   .container-descricao {
     height: 135px;
     margin-top: 72px;
@@ -70,5 +70,4 @@
   .descricao-subtitulo {
     font-size: 1em;
   }
-
 }
