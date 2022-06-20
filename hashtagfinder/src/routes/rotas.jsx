@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from '../paginas/home/home';
 import Login from '../paginas/login/login';
-import Sobre from '../paginas/sobre/Sobre';
+import Sobre from '../paginas/sobre/sobre';
 
 const Rotas = () => {
   return (
