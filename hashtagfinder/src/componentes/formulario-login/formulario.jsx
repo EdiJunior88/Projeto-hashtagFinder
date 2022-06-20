@@ -1,24 +1,24 @@
 import React from "react";
 import "../../css/reset.css"
-import "../../componentes/formulario-login/formulario.css"
+import styles from "../../componentes/formulario-login/formulario.module.css"
 
 const Formulario = () => {
   return (
     <>
-      <div className="container-formulario">
-        <h1 className="formulario-titulo">Login</h1>
+      <div className={styles.containerFormulario}>
+        <h1 className={styles.formularioTitulo}>Login</h1>
         <form action="" className="formulario">
-          <div className="formulario-campo-usuario">
+          <div className={styles.formularioUsuario}>
             <label>Usuário</label>
             <input type="text" />
           </div>
 
-          <div className="formulario-campo-senha">
+          <div className={styles.formularioSenha}>
             <label>Senha</label>
-            <input type="text" />
+            <input type="password" />
           </div>
-          <div className="formulario-botao">
-            <button className="formulario-botao-acessar">
+          <div className={styles.formularioBotaoDiv}>
+            <button className={styles.formularioBotaoAcessar}>
                 Acessar
             </button>
           </div>

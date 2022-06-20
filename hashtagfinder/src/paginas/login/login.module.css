@@ -18,28 +18,27 @@ body {
   height: 100vh;
 }
 
-.container-cabecalho-login {
+.containerCabecalho {
   background-repeat: no-repeat;
   height: 180px;
 }
 
 .cabecalho {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 36px 64px 0px 64px;
+  padding: 36px 16px 0px 16px;
 }
 
-.cabecalho-titulo {
+.cabecalhoTitulo {
   text-align: left;
   font-size: 19px;
   color: #fff;
-  margin-left: 35px;
+  margin-left: 16px;
 }
 
-.texto-negrito {
+.tituloNegrito {
   font-weight: bold;
 }
 
@@ -51,7 +50,7 @@ body {
     max-width: 100%;
   }
 
-  .cabecalho-titulo {
+  .cabecalhoTitulo {
     font-size: 35px;
   }
 }

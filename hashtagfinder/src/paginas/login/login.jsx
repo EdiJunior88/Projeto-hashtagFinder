@@ -1,21 +1,19 @@
 import React from "react";
 import "../../css/reset.css";
 import "../../css/global.css";
-import "../login/login.css";
+import styles from "../login/login.module.css";
 import Formulario from "../../componentes/formulario-login/formulario";
-import Cabecalho from "../../componentes/cabecalho/cabecalho"
 import BotaoHome from "../../componentes/botao-home/botaoHome";
 
 export default function Login () {
   return (
     <>
-      <Cabecalho />
       <header>
-        <div className="container-cabecalho-login">
-          <div className="cabecalho">
-            <div className="cabecalho-titulo">
+        <div className={styles.containerCabecalho}>
+          <div className={styles.cabecalho}>
+            <div className={styles.cabecalhoTitulo}>
               <span>hashtag</span>
-              <span className="texto-negrito">finder</span>
+              <span className={styles.tituloNegrito}>finder</span>
             </div>
             <BotaoHome />
           </div>

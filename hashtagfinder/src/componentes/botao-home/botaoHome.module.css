@@ -1,8 +1,8 @@
-.botao-home {
-  margin-right: 35px;
+.botaoHome {
+  margin-right: 16px;
 }
 
-.botao-home button {
+.botaoHome button {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -12,16 +12,16 @@
   background-color: #d842bd;
   color: #fff;
   font-weight: 600;
-  font-size: 0.5em;
-  letter-spacing: 0.15em;
+  font-size: 12px;
+  letter-spacing: 0.12em;
   border-radius: 25px;
   border: none;
   text-transform: uppercase;
   cursor: pointer;
 }
 
-.icone-home {
-  width: 7.6%;
+.iconeHome {
+  width: 12%;
   padding-right: 14px;
 }
 
@@ -31,11 +31,11 @@
     max-width: 100%;
   }
 
-  .icone-home {
+  .iconeHome {
     width: 15%;
   }
 
-  .botao-home button {
+  .botaoHome button {
     width: 170px;
     height: 49px;
     font-size: 1.1em;

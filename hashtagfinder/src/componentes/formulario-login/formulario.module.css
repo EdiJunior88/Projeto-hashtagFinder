@@ -1,4 +1,4 @@
-.container-formulario {
+.containerFormulario {
     width: 250px;
     height: 300px;
     margin: 0 auto;
@@ -9,42 +9,43 @@
     border-radius: 14px;
   }
   
-  .formulario-titulo {
+  .formularioTitulo {
     font-size: 34px;
     color: #3634f7;
     text-align: center;
     font-weight: bold;
   }
   
-  .formulario-campo-usuario,
-  .formulario-campo-senha {
+  .formularioUsuario,
+  .formularioSenha {
     display: flex;
     flex-direction: column;
     padding-top: 40px;
     color: #292929;
     font-size: 18px;
     background: transparent;
-    border-bottom: 1px solid #bebebe;
+    border-bottom: 1px solid #E9E9F0;
   }
   
-  .formulario-campo-usuario input,
-  .formulario-campo-senha input {
+  .formularioUsuario input,
+  .formularioSenha input {
     padding-top: 10px;
     border: 0px;
     outline: 0px;
+    color: #292929
   }
 
-  .formulario-campo-usuario label,
-  .formulario-campo-senha label {
+  .formularioUsuario label,
+  .formularioSenha label {
     color: #292929;
   }
   
-  .formulario-botao {
+  .formularioBotaoDiv {
     padding-top: 40px;
     text-align: center;
   }
   
-  .formulario-botao-acessar {
+  .formularioBotaoAcessar {
     width: 213px;
     height: 58px;
     text-transform: uppercase;
@@ -63,12 +64,12 @@
       max-width: 100%;
     }
   
-    .container-formulario {
+    .containerFormulario {
       width: 420px;
       height: 410px;
     }
   
-    .formulario-titulo {
+    .formularioTitulo{
       padding-top: 50px;
     }
   
