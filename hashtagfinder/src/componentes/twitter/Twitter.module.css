@@ -109,7 +109,14 @@
   }
 }
 
-/* Responsividade - Tela 414 pixels */
+/* Responsividade - Tela entre 491 a 914 pixels */
+@media screen and (min-width: 491px) and (max-width: 914px) {
+  .container.TwitterFlex {
+    margin-top: 62px;
+  }
+}
+
+/* Responsividade - Tela entre 350 a 490 pixels */
 @media screen and (min-width: 350px) and (max-width: 490px) {
   .container.TwitterFlex {
     margin-top: 50px;
