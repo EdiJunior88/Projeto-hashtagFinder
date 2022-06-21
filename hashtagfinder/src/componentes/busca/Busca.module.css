@@ -56,6 +56,10 @@ section.container {
 
 /* Responsividade - Tela 914 pixels */
 @media (max-width: 914px) {
+  section.container {
+    margin-top: 94px;
+  }
+
   .campoBusca,
   .campoBuscaInput {
     height: 80px;
@@ -69,7 +73,7 @@ section.container {
 /* Responsividade - Tela entre 415 a 732 pixels */
 @media screen and (min-width: 415px) and (max-width: 732px) {
   section.container {
-    margin-top: 94px;
+    margin-top: 72px;
   }
 
   .campoBusca,
