@@ -120,17 +120,17 @@ swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
 /* Galeria */
 @media screen and (min-width: 414px) and (max-width: 490px) {
   .swiper-backface-hidden .swiper-slide {
-    margin-right: -53px;
+    margin-right: 25px;
   }
 
   .swiper-backface-hidden .swiper-slide:nth-child(1) {
-    margin-left: -70px;
+    margin-left: 11px;
   }
 
   .swiper-backface-hidden .swiper-slide img {
     height: 250px;
     margin-left: auto;
-    width: 150px;
+    width: 130px;
   }
 
   .swiper {
