@@ -12,10 +12,9 @@ body {
   background: url(../../imagens/login/login-bg.jpg);
   background-repeat: no-repeat;
   background-position: center center;
-  background-repeat: no-repeat;
   background-size: cover;
   width: 414px;
-  height: 100vh;
+  height: 100%;
 }
 
 .containerCabecalho {
@@ -41,6 +40,10 @@ body {
 .tituloNegrito {
   font-weight: bold;
 }
+
+/* .linkHome {
+  text-decoration: none;
+} */
 
 /* Versão Desktop */
 
