@@ -26,19 +26,15 @@
   padding-right: 14px;
 }
 
-@media screen and (min-width: 415px) {
-  body {
-    width: 100%;
-    max-width: 100%;
-  }
-
+/* Responsividade - Tela 720 pixels */
+@media screen and (min-width: 720px) {
   .iconeRosa {
     width: 20%;
   }
 
   .botaoRosa button {
-    width: 170px;
+    width: 130px;
     height: 49px;
-    font-size: 1.1em;
+    font-size: 0.9em;
   }
 }
