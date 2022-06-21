@@ -1,16 +1,17 @@
-.botaoHome {
+@import url(../../css/global.css);
+
+.botaoAzul {
   margin-right: 16px;
 }
 
-.botaoHome button {
+.botaoAzul button {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 106px;
   height: 30px;
-  background-color: #d842bd;
-  color: #fff;
+  background-color: var(--cor-botao-azul);
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.12em;
@@ -20,7 +21,7 @@
   cursor: pointer;
 }
 
-.iconeHome {
+.iconeAzul {
   width: 30%;
   padding-right: 14px;
 }
@@ -31,11 +32,11 @@
     max-width: 100%;
   }
 
-  .iconeHome {
+  .iconeAzul {
     width: 20%;
   }
 
-  .botaoHome button {
+  .botaoAzul button {
     width: 170px;
     height: 49px;
     font-size: 1.1em;

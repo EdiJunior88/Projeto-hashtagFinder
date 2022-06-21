@@ -2,7 +2,7 @@
   width: 100%;
 }
 
-.container-cabecalho {
+.containerCabecalho {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -11,16 +11,16 @@
   padding: 36px 64px 0px 64px;
 }
 
-.cabecalho-titulo {
+.cabecalhoTitulo {
   font-size: 2.2em;
 }
 
-.titulo-negrito {
+.tituloNegrito {
   font-weight: bold;
 }
 
-.botao-sobre,
-.botao-login {
+.botaoSobre,
+.botaoLogin {
   width: 170px;
   height: 49px;
   border-radius: 25px;
@@ -31,41 +31,41 @@
   cursor: pointer;
 }
 
-.botao-sobre {
+.botaoSobre {
   background: var(--cor-botao-sobre);
   margin-right: 35px;
 }
 
-.botao-login {
+.botaoLogin {
   background: var(--cor-botao-login);
 }
 
-.icone-botao {
+.iconeBotao {
   padding-right: 14px;
 }
 
 /* Responsividade - Tela 414 pixels */
 @media (max-width: 414px) {
-  .container-cabecalho {
+  .containerCabecalho {
     padding: 37px 16px 0px 16px;
   }
 
-  .cabecalho-titulo {
+  .cabecalhoTitulo {
     font-size: 1.18em;
   }
 
-  .botao-sobre,
-  .botao-login {
+  .botaoSobre,
+  .botaoLogin {
     width: 106px;
     height: 30px;
     font-size: 0.6em;
   }
 
-  .botao-sobre {
+  .botaoSobre {
     margin-right: 13px;
   }
 
-  .icone-botao {
+  .iconeBotao {
     width: 24%;
   }
 }

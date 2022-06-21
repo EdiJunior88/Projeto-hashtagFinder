@@ -4,7 +4,7 @@ import '../../css/reset.css';
 import '../../css/global.css';
 import styles from '../login/login.module.css';
 import Formulario from '../../componentes/formulario-login/formulario';
-import BotaoHome from '../../componentes/botao-home/botaoHome';
+import BotaoHome from '../../componentes/botoes/botaoHome';
 
 export default function Login() {
   return (
