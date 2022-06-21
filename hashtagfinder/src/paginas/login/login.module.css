@@ -3,9 +3,16 @@
 .fundoLogin {
   background: url(../../imagens/login/login-bg.jpg);
   background-repeat: no-repeat;
+<<<<<<< HEAD
   background-size: cover;
   width: 100%;
   height: 100vh;
+=======
+  background-position: center center;
+  background-size: cover;
+  width: 414px;
+  height: 100%;
+>>>>>>> 1b0fb4edd5251dee700fa1a0d087bc5a0e700382
 }
 
 .containerCabecalho {
@@ -32,7 +39,11 @@
   font-weight: bold;
 }
 
-/* Versão Mobile */
+/* .linkHome {
+  text-decoration: none;
+} */
+
+/* Versão Desktop */
 
 @media screen and (min-width: 415px) {
   .cabecalhoTitulo {
