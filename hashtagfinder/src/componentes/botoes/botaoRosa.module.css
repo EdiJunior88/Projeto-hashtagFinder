@@ -22,14 +22,14 @@
 }
 
 .iconeRosa {
-  width: 30%;
+  width: 26%;
   padding-right: 14px;
 }
 
 /* Responsividade - Tela 720 pixels */
 @media screen and (min-width: 720px) {
   .iconeRosa {
-    width: 20%;
+    width: 22%;
   }
 
   .botaoRosa button {
