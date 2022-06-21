@@ -22,15 +22,14 @@ section.galeria {
   height: 287px;
   box-shadow: 8px 14px 30px var(--cor-sombra-galeria);
   border-radius: 21px;
-  padding: 5px;
   object-fit: cover;
   cursor: pointer;
 }
 
-.swiper-slider {
+.swiper-slide {
+  width: 120px;
   display: flex;
   justify-content: center;
-  margin-right: 45px;
 }
 
 .swiper-slide {
@@ -71,6 +70,14 @@ swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
   width: 15px;
 }
 
+/* Responsividade - Tela 1200 pixels */
+@media screen and (max-width: 1200px) {
+  .swiper {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
 /* Responsividade - Tela 1000 pixels */
 @media screen and (max-width: 1000px) {
   .descricao-galeria-texto {
@@ -78,40 +85,75 @@ swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
   }
 }
 
-/* Responsividade - Tela entre 733 a 914 pixels */
-@media screen and (min-width: 733px) and (max-width: 914px) {
+/* Responsividade - Tela entre 663 a 914 pixels */
+@media screen and (min-width: 663px) and (max-width: 914px) {
   .descricao-galeria-texto {
     margin: 92px 0px;
     font-size: 1.4em;
   }
-}
 
-/* Responsividade - Tela entre 415 a 732 pixels */
-@media screen and (min-width: 415px) and (max-width: 732px) {
-  .descricao-galeria-texto {
-    margin: 72px 0px;
-    font-size: 1.3em;
+  .swiper img {
+    width: 200px;
+    height: 200px;
   }
 }
 
+/* Responsividade - Tela entre 415 a 733 pixels */
+@media screen and (min-width: 415px) and (max-width: 733px) {
+  .descricao-galeria-texto {
+    margin: 92px 0px;
+    font-size: 1.4em;
+  }
+
+  .swiper-slide {
+    width: -webkit-max-content;
+    width: max-content;
+  }
+
+  .swiper img {
+    width: 159px;
+    height: 227px;
+  }
+}
+
+/* Responsividade - Tela entre 415 a 490 pixels */
+/* Galeria */
+@media screen and (min-width: 414px) and (max-width: 490px) {
+  .swiper-backface-hidden .swiper-slide {
+    margin-right: -53px;
+  }
+
+  .swiper-backface-hidden .swiper-slide:nth-child(1) {
+    margin-left: -70px;
+  }
+
+  .swiper-backface-hidden .swiper-slide img {
+    height: 250px;
+    margin-left: auto;
+    width: 150px;
+  }
+
+  .swiper {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next,
+  .swiper-button-disabled,
+  .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    background: transparent;
+  }
+}
 
 /* Responsividade - Tela 414 pixels */
+/* Descrição Texto Twitter + Galeria */
 @media screen and (max-width: 414px) {
   .descricao-galeria-texto {
     font-size: 1.37em;
     margin-top: 181px;
     margin-bottom: 32px;
-  }
-
-  /*galeria*/
-  .swiper {
-    margin-left: 25px;
-    margin-right: 25px;
-  }
-
-  .swiper-backface-hidden .swiper-slide img {
-    height: 227px;
-    width: 159px;
-    margin-left: auto;
   }
 }

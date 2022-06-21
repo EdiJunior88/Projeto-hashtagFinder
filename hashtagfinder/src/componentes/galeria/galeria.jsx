@@ -21,8 +21,8 @@ export default function Galeria() {
 
       <div className='container-galeria'>
         <Swiper
-          slidesPerView={3}
-          slidesPerGroup={3}
+          slidesPerView={2}
+          slidesPerGroup={1}
           loop={false}
           loopFillGroupWithBlank={true}
           pagination={{
@@ -57,6 +57,9 @@ export default function Galeria() {
           </SwiperSlide>
           <SwiperSlide>
             <img src='https://swiperjs.com/demos/images/nature-10.jpg' alt='' />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src='https://www.w3schools.com/css/img_5terre.jpg' alt='' />
           </SwiperSlide>
         </Swiper>
       </div>
