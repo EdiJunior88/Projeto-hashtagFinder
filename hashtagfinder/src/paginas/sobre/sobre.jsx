@@ -7,7 +7,7 @@ const Sobre = () => {
     <>
       <header>
       <Cabecalho/>
-        <div class="fundo">
+        <div className="fundo">
           <h1>Sobre o Projeto</h1>
           <Link to="/">retornar a página inicial</Link>
 
@@ -17,7 +17,7 @@ const Sobre = () => {
       <main>
         <section>
           <article>
-            <div class="sobre">
+            <div className="sobre">
               <h2>O que é</h2>
               <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut,
@@ -27,22 +27,48 @@ const Sobre = () => {
               </p>
             </div>
 
-            <img src="" alt="" />
+            <img alt="" />
           </article>
         </section>
       </main>
 
-      <section class="quemSomos">
+      <section className="quemSomos">
         <h2>Quem Somos</h2>
 
         <div className="membros">
-          <img src="" alt="foto" />
-          <div class="informacaoMembros">
+          <img alt="foto" />
+          <div className="informacaoMembros">
             <h3>Nome Aqui</h3>
             <p>Informação Sobre os membros</p>
           </div>
-          <div class="containerIcones">
-            <img src="" alt="icone" className="icones">
+          <div className="containerIcones">
+            <img alt="icone" className="icones">
+              {/* <a href="http://" target="_blank"></a> */}
+            </img>
+          </div>
+        </div>
+
+        <div className="membros">
+          <img alt="foto" />
+          <div className="informacaoMembros">
+            <h3>Nome Aqui</h3>
+            <p>Informação Sobre os membros</p>
+          </div>
+          <div className="containerIcones">
+            <img alt="icone" className="icones">
+              {/* <a href="http://" target="_blank"></a> */}
+            </img>
+          </div>
+        </div>
+
+        <div className="membros">
+          <img alt="foto" />
+          <div className="informacaoMembros">
+            <h3>Nome Aqui</h3>
+            <p>Informação Sobre os membros</p>
+          </div>
+          <div className="containerIcones">
+            <img alt="icone" className="icones">
               {/* <a href="http://" target="_blank"></a> */}
             </img>
           </div>
@@ -50,37 +76,11 @@ const Sobre = () => {
 
         <div className="membros">
           <img src="" alt="foto" />
-          <div class="informacaoMembros">
+          <div className="informacaoMembros">
             <h3>Nome Aqui</h3>
             <p>Informação Sobre os membros</p>
           </div>
-          <div class="containerIcones">
-            <img src="" alt="icone" className="icones">
-              {/* <a href="http://" target="_blank"></a> */}
-            </img>
-          </div>
-        </div>
-
-        <div className="membros">
-          <img src="" alt="foto" />
-          <div class="informacaoMembros">
-            <h3>Nome Aqui</h3>
-            <p>Informação Sobre os membros</p>
-          </div>
-          <div class="containerIcones">
-            <img src="" alt="icone" className="icones">
-              {/* <a href="http://" target="_blank"></a> */}
-            </img>
-          </div>
-        </div>
-
-        <div className="membros">
-          <img src="" alt="foto" />
-          <div class="informacaoMembros">
-            <h3>Nome Aqui</h3>
-            <p>Informação Sobre os membros</p>
-          </div>
-          <div class="containerIcones">
+          <div className="containerIcones">
             <img src="" alt="icone" className="icones">
               {/* <a href="http://" target="_blank"></a> */}
             </img>

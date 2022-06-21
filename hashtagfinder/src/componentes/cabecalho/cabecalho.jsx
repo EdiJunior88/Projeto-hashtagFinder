@@ -11,8 +11,11 @@ export default function Cabecalho() {
           <span>hashtag</span>
           <span className={styles.tituloNegrito}>finder</span>
         </div>
-       <BotaoSobre pagina={'Sobre'} />
-       <BotaoLogin pagina={'Login'} />
+
+        <div className={styles.containerCabecalhoBotoes}>
+          <BotaoSobre pagina={'Sobre'} />
+          <BotaoLogin pagina={'Login'} />
+        </div>
       </div>
     </header>
   );

@@ -5,31 +5,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 100%;
-}
-
-.containerCabecalho {
-  background-repeat: no-repeat;
-  height: 180px;
-}
-
-.cabecalho {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 36px 16px 0px 16px;
-}
-
-.cabecalhoTitulo {
-  text-align: left;
-  font-size: 19px;
-  color: #fff;
-  margin-left: 16px;
-}
-
-.tituloNegrito {
-  font-weight: bold;
+  height: 100vh;
 }
 
 /* Versão Mobile */

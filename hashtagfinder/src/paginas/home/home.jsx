@@ -7,6 +7,8 @@ import Rodape from '../../componentes/rodape/rodape';
 import { Link } from 'react-router-dom';
 
 import styles from './Home.module.css';
+import BotaoSobre from '../../componentes/botoes/botaoSobre';
+import BotaoLogin from '../../componentes/botoes/botaoLogin';
 
 function Home() {
   return (
