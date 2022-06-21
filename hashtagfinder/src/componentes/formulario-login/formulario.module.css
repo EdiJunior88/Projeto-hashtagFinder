@@ -2,6 +2,7 @@
     width: 340px;
     height: 460px;
     margin: 0 auto;
+    margin-top: 150px;
     padding: 62px 30px;
     display: flex;
     flex-direction: column;
@@ -70,7 +71,7 @@
     }
   
     .formularioTitulo{
-      padding-top: 50px;
+      padding-top: 10px;
     }
   
   }

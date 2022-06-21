@@ -3,7 +3,7 @@ import styles from '../../componentes/cabecalho/Cabecalho.module.css';
 import styles2 from './login.module.css';
 import Formulario from '../../componentes/formulario-login/formulario';
 import BotaoHome from '../../componentes/botoes/botaoHome';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export default function Login() {
   return (
