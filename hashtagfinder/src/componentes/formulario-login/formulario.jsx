@@ -24,7 +24,6 @@ const Formulario = () => {
           </div>
         </form>
       </div>
-      ;
     </>
   );
 };

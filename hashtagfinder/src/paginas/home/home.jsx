@@ -12,21 +12,17 @@ import "./home.css";
 function Home() {
   return (
     <div className="home">
+
+import styles from './Home.module.css'
+
+function Home() {
+  return (
+    <div className={styles.home}>
       <Cabecalho />
       <Descricao />
       <Busca />
       <Galeria />
       <Rodape />
-
-      {/* <ul>
-        <li>
-        <Link to="/sobre">Sobre</Link>
-
-        </li>
-        <li>
-            <Link to="/login">Login</Link>
-          </li>
-      </ul> */}
     </div>
   );
 }
