@@ -1,4 +1,4 @@
-.container-rodape {
+.containerRodape {
   width: 100%;
   height: 202px;
   background: var(--cor-fundo-rodape);
@@ -13,16 +13,23 @@
   margin-top: 184px;
 }
 
-/* Responsividade - Tela 770 pixels */
-@media (max-width: 770px) {
-  .container-rodape {
-    height: 134px;
+@media screen and (min-width: 906px) and (max-width: 1400px) {
+  .containerRodape {
+    height: 124px;
+    font-size: 1.3em;
+  }
+}
+
+@media screen and (min-width: 415px) and (max-width: 905px) {
+  .containerRodape {
+    height: 90px;
+    font-size: 1em;
   }
 }
 
 /* Responsividade - Tela 414 pixels */
 @media (max-width: 414px) {
-  .container-rodape {
+  .containerRodape {
     height: 68px;
     font-size: 0.62em;
     margin-top: 56px;

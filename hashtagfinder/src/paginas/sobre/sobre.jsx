@@ -12,9 +12,17 @@ const Sobre = () => {
   return (
     <div className="Sobre">
       <header>
+<<<<<<< HEAD
         <Cabecalho />
         <div className="titulo">
           <h1>Sobre o projeto</h1>
+=======
+      <Cabecalho/>
+        <div className="fundo">
+          <h1>Sobre o Projeto</h1>
+          <Link to="/">retornar a página inicial</Link>
+
+>>>>>>> 69eac633d06f69d97de8b9db10b35054672723fc
         </div>
 
         {/* <div class="fundo"> */}
@@ -23,6 +31,7 @@ const Sobre = () => {
       </header>
 
       <main>
+<<<<<<< HEAD
         <section class="artigo">
           <div class="subtitulo">
             <h2>O que é</h2>
@@ -63,6 +72,36 @@ const Sobre = () => {
           </div>
           <div class="containerIcones">
             <img src={IconeGitHub} alt="icone" className="icones">
+=======
+        <section>
+          <article>
+            <div className="sobre">
+              <h2>O que é</h2>
+              <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut,
+              eaque modi fuga quisquam corporis eveniet necessitatibus enim
+              dolorem laudantium, quibusdam esse asperiores voluptatum incidunt
+              soluta, laborum expedita? Numquam, tenetur veritatis?
+              </p>
+            </div>
+
+            <img alt="" />
+          </article>
+        </section>
+      </main>
+
+      <section className="quemSomos">
+        <h2>Quem Somos</h2>
+
+        <div className="membros">
+          <img alt="foto" />
+          <div className="informacaoMembros">
+            <h3>Nome Aqui</h3>
+            <p>Informação Sobre os membros</p>
+          </div>
+          <div className="containerIcones">
+            <img alt="icone" className="icones">
+>>>>>>> 69eac633d06f69d97de8b9db10b35054672723fc
               {/* <a href="http://" target="_blank"></a> */}
             </img>
             <img src={IconeEmail} alt="icone" className="icones"></img>
@@ -71,6 +110,7 @@ const Sobre = () => {
         </div>
 
         <div className="membros">
+<<<<<<< HEAD
           <img src={Perfil} alt="foto" />
           <div class="informacaoMembros">
             <h3>Sarah Rúbia</h3>
@@ -85,10 +125,22 @@ const Sobre = () => {
             <img src={IconeGitHub} alt="icone" className="icones"></img>
             <img src={IconeEmail} alt="icone" className="icones"></img>
             <img src={IconeLikedIn} alt="icone" className="icones"></img>
+=======
+          <img alt="foto" />
+          <div className="informacaoMembros">
+            <h3>Nome Aqui</h3>
+            <p>Informação Sobre os membros</p>
+          </div>
+          <div className="containerIcones">
+            <img alt="icone" className="icones">
+              {/* <a href="http://" target="_blank"></a> */}
+            </img>
+>>>>>>> 69eac633d06f69d97de8b9db10b35054672723fc
           </div>
         </div>
 
         <div className="membros">
+<<<<<<< HEAD
           <img src={Perfil} alt="foto" />
           <div class="informacaoMembros">
             <h3>Anderson Nascimento</h3>
@@ -103,10 +155,22 @@ const Sobre = () => {
             <img src={IconeGitHub} alt="icone" className="icones"></img>
             <img src={IconeEmail} alt="icone" className="icones"></img>
             <img src={IconeLikedIn} alt="icone" className="icones"></img>
+=======
+          <img alt="foto" />
+          <div className="informacaoMembros">
+            <h3>Nome Aqui</h3>
+            <p>Informação Sobre os membros</p>
+          </div>
+          <div className="containerIcones">
+            <img alt="icone" className="icones">
+              {/* <a href="http://" target="_blank"></a> */}
+            </img>
+>>>>>>> 69eac633d06f69d97de8b9db10b35054672723fc
           </div>
         </div>
 
         <div className="membros">
+<<<<<<< HEAD
           <img src={Perfil} alt="foto" />
           <div class="informacaoMembros">
             <h3>Washington Santos</h3>
@@ -121,6 +185,17 @@ const Sobre = () => {
             <img src={IconeGitHub} alt="icone" className="icones"></img>
             <img src={IconeEmail} alt="icone" className="icones"></img>
             <img src={IconeLikedIn} alt="icone" className="icones"></img>
+=======
+          <img src="" alt="foto" />
+          <div className="informacaoMembros">
+            <h3>Nome Aqui</h3>
+            <p>Informação Sobre os membros</p>
+          </div>
+          <div className="containerIcones">
+            <img src="" alt="icone" className="icones">
+              {/* <a href="http://" target="_blank"></a> */}
+            </img>
+>>>>>>> 69eac633d06f69d97de8b9db10b35054672723fc
           </div>
         </div>
       </section>

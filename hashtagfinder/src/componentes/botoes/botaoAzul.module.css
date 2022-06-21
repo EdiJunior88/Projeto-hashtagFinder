@@ -1,16 +1,17 @@
-.botaoHome {
-  margin-right: 16px;
-}
+@import url(../../css/global.css);
 
-.botaoHome button {
+/* .botaoAzul {
+  margin-right: 16px;
+} */
+
+.botaoAzul button {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 106px;
   height: 30px;
-  background-color: #d842bd;
-  color: #fff;
+  background-color: var(--cor-botao-azul);
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.12em;
@@ -20,24 +21,20 @@
   cursor: pointer;
 }
 
-.iconeHome {
-  width: 12%;
+.iconeAzul {
+  width: 26%;
   padding-right: 14px;
 }
 
-@media screen and (min-width: 415px) {
-  body {
-    width: 100%;
-    max-width: 100%;
+/* Responsividade - Tela 720 pixels */
+@media screen and (min-width: 720px) {
+  .iconeAzul {
+    width: 22%;
   }
 
-  .iconeHome {
-    width: 15%;
-  }
-
-  .botaoHome button {
-    width: 170px;
+  .botaoAzul button {
+    width: 130px;
     height: 49px;
-    font-size: 1.1em;
+    font-size: 0.9em;
   }
 }

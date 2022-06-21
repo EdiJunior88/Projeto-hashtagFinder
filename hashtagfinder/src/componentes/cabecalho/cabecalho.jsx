@@ -1,29 +1,20 @@
 import React from 'react';
-
-import './cabecalho.css';
-import IconeSobre from '../../imagens/icones/icon-info-circle.svg';
-import IconeLogin from '../../imagens/icones/icon-user-alt.svg';
+import styles from './Cabecalho.module.css';
+import BotaoSobre from '../botoes/botaoSobre';
+import BotaoLogin from '../botoes/botaoLogin';
 
 export default function Cabecalho() {
   return (
-    <header className="container">
-      <div className="container-cabecalho">
-        <div className="cabecalho-titulo">
+    <header className={styles.container}>
+      <div className={styles.containerCabecalho}>
+        <div className={styles.cabecalhoTitulo}>
           <span>hashtag</span>
-          <span className="titulo-negrito">finder</span>
+          <span className={styles.tituloNegrito}>finder</span>
         </div>
 
-        <div className="container-botao">
-          <div className="cabecalho-botao">
-            <button className="botao-sobre">
-              <img className="icone-botao" src={IconeSobre} alt="icone sobre" />
-              SOBRE
-            </button>
-            <button className="botao-login">
-              <img className="icone-botao" src={IconeLogin} alt="icone sobre" />
-              LOGIN
-            </button>
-          </div>
+        <div className={styles.containerCabecalhoBotoes}>
+          <BotaoSobre pagina={'Sobre'} />
+          <BotaoLogin pagina={'Login'} />
         </div>
       </div>
     </header>

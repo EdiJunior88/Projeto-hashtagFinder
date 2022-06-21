@@ -1,11 +1,11 @@
 import React from 'react';
-import './rodape.css';
+import styles from './Rodape.module.css';
 
 export default function Rodape() {
   return (
-    <footer className='container'>
-      <div className='container-rodape'>
-        <div className='rodape'>
+    <footer className={styles.container}>
+      <div className={styles.containerRodape}>
+        <div className={styles.Rodape}>
           <p>&copy;Newtab Academy 2022. Todos os direitos reservados</p>
         </div>
       </div>
