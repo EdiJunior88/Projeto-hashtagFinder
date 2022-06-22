@@ -43,6 +43,7 @@
   color: black;
   font-size: 1.56em;
   line-height: 1.5em;
+  text-indent: 1.5em;
 }
 
 .quemSomos {
@@ -121,15 +122,64 @@
 
 .containerIcones img {
   padding: 0px 9px;
+  cursor: pointer;
 }
 
-/* Responsividade - Tela 1100 pixels */
-@media screen and (max-width: 1100px) {
+/* Responsividade - Tela entre 650 a 1100 pixels */
+@media screen and (min-width: 650px) and (max-width: 1100px) {
   .container {
     gap: 20px 45px;
   }
 
   .containerMembros {
     width: 36.4%;
+  }
+}
+
+/* Responsividade - Tela entre 350 a 650 pixels */
+@media screen and (min-width: 350px) and (max-width: 650px) {
+  .fundo {
+    height: 206px;
+    background: url(../../imagens/sobre/about-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .titulo {
+    margin: 46px 0px;
+  }
+
+  .tituloTexto {
+    font-size: 2.3em;
+    text-align: center;
+    margin: 0px;
+  }
+
+  .artigo {
+    flex-direction: column;
+    margin: 55px auto auto;
+  }
+
+  .blocoParagrafoTexto {
+    font-size: 0.97em;
+  }
+
+  .subtituloTexto {
+    font-size: 1.37em;
+  }
+
+  .subtitulo2Texto {
+    color: blue;
+    font-size: 1.37em;
+    margin-bottom: 46px;
+    margin-left: 36px;
+  }
+
+  .quemSomos {
+    margin-top: 112px;
+  }  
+
+  .containerMembros {
+    width: 90%;
   }
 }
