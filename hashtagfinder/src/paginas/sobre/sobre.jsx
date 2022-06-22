@@ -10,19 +10,11 @@ import IconeLikedIn from '../../imagens/icones/icon-linkedin.svg';
 
 const Sobre = () => {
   return (
-    <div className="Sobre">
+    <div className='Sobre'>
       <header>
-<<<<<<< HEAD
         <Cabecalho />
-        <div className="titulo">
+        <div className='titulo'>
           <h1>Sobre o projeto</h1>
-=======
-      <Cabecalho/>
-        <div className="fundo">
-          <h1>Sobre o Projeto</h1>
-          <Link to="/">retornar a página inicial</Link>
-
->>>>>>> 69eac633d06f69d97de8b9db10b35054672723fc
         </div>
 
         {/* <div class="fundo"> */}
@@ -31,13 +23,12 @@ const Sobre = () => {
       </header>
 
       <main>
-<<<<<<< HEAD
-        <section class="artigo">
-          <div class="subtitulo">
+        <section class='artigo'>
+          <div class='subtitulo'>
             <h2>O que é</h2>
           </div>
 
-          <div class="bloco-paragrafo">
+          <div class='bloco-paragrafo'>
             <p>
               Ao contrário da crença popular, o Lorem Ipsum não é simplesmente
               texto aleatório. Tem raízes numa peça de literatura clássica em
@@ -48,20 +39,20 @@ const Sobre = () => {
               do mundo na literatura clássica, descobriu a sua origem.
             </p>
           </div>
-          <div class="bloco-imagem">
-            <img src={Figura} alt="illustration"></img>
+          <div class='bloco-imagem'>
+            <img src={Figura} alt='illustration'></img>
           </div>
         </section>
       </main>
 
-      <section class="quemSomos">
-        <div class="subtitulo2">
+      <section class='quemSomos'>
+        <div class='subtitulo2'>
           <h2>Quem Somos</h2>
         </div>
 
-        <div className="membros">
-          <img src={Perfil} alt="foto" />
-          <div class="informacaoMembros">
+        <div className='membros'>
+          <img src={Perfil} alt='foto' />
+          <div class='informacaoMembros'>
             <h3>Edivaldo Reis</h3>
             <p>
               O Lorem Ipsum é um texto modelo da indústria tipográfica e de
@@ -70,49 +61,18 @@ const Sobre = () => {
               caracteres de um texto para criar um espécime de livro.
             </p>
           </div>
-          <div class="containerIcones">
-            <img src={IconeGitHub} alt="icone" className="icones">
-=======
-        <section>
-          <article>
-            <div className="sobre">
-              <h2>O que é</h2>
-              <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut,
-              eaque modi fuga quisquam corporis eveniet necessitatibus enim
-              dolorem laudantium, quibusdam esse asperiores voluptatum incidunt
-              soluta, laborum expedita? Numquam, tenetur veritatis?
-              </p>
-            </div>
-
-            <img alt="" />
-          </article>
-        </section>
-      </main>
-
-      <section className="quemSomos">
-        <h2>Quem Somos</h2>
-
-        <div className="membros">
-          <img alt="foto" />
-          <div className="informacaoMembros">
-            <h3>Nome Aqui</h3>
-            <p>Informação Sobre os membros</p>
-          </div>
-          <div className="containerIcones">
-            <img alt="icone" className="icones">
->>>>>>> 69eac633d06f69d97de8b9db10b35054672723fc
+          <div class='containerIcones'>
+            <img src={IconeGitHub} alt='icone' className='icones'>
               {/* <a href="http://" target="_blank"></a> */}
             </img>
-            <img src={IconeEmail} alt="icone" className="icones"></img>
-            <img src={IconeLikedIn} alt="icone" className="icones"></img>
+            <img src={IconeEmail} alt='icone' className='icones'></img>
+            <img src={IconeLikedIn} alt='icone' className='icones'></img>
           </div>
         </div>
 
-        <div className="membros">
-<<<<<<< HEAD
-          <img src={Perfil} alt="foto" />
-          <div class="informacaoMembros">
+        <div className='membros'>
+          <img src={Perfil} alt='foto' />
+          <div class='informacaoMembros'>
             <h3>Sarah Rúbia</h3>
             <p>
               O Lorem Ipsum é um texto modelo da indústria tipográfica e de
@@ -121,28 +81,16 @@ const Sobre = () => {
               caracteres de um texto para criar um espécime de livro.
             </p>
           </div>
-          <div class="containerIcones">
-            <img src={IconeGitHub} alt="icone" className="icones"></img>
-            <img src={IconeEmail} alt="icone" className="icones"></img>
-            <img src={IconeLikedIn} alt="icone" className="icones"></img>
-=======
-          <img alt="foto" />
-          <div className="informacaoMembros">
-            <h3>Nome Aqui</h3>
-            <p>Informação Sobre os membros</p>
-          </div>
-          <div className="containerIcones">
-            <img alt="icone" className="icones">
-              {/* <a href="http://" target="_blank"></a> */}
-            </img>
->>>>>>> 69eac633d06f69d97de8b9db10b35054672723fc
+          <div class='containerIcones'>
+            <img src={IconeGitHub} alt='icone' className='icones'></img>
+            <img src={IconeEmail} alt='icone' className='icones'></img>
+            <img src={IconeLikedIn} alt='icone' className='icones'></img>
           </div>
         </div>
 
-        <div className="membros">
-<<<<<<< HEAD
-          <img src={Perfil} alt="foto" />
-          <div class="informacaoMembros">
+        <div className='membros'>
+          <img src={Perfil} alt='foto' />
+          <div class='informacaoMembros'>
             <h3>Anderson Nascimento</h3>
             <p>
               O Lorem Ipsum é um texto modelo da indústria tipográfica e de
@@ -151,28 +99,16 @@ const Sobre = () => {
               caracteres de um texto para criar um espécime de livro.
             </p>
           </div>
-          <div class="containerIcones">
-            <img src={IconeGitHub} alt="icone" className="icones"></img>
-            <img src={IconeEmail} alt="icone" className="icones"></img>
-            <img src={IconeLikedIn} alt="icone" className="icones"></img>
-=======
-          <img alt="foto" />
-          <div className="informacaoMembros">
-            <h3>Nome Aqui</h3>
-            <p>Informação Sobre os membros</p>
-          </div>
-          <div className="containerIcones">
-            <img alt="icone" className="icones">
-              {/* <a href="http://" target="_blank"></a> */}
-            </img>
->>>>>>> 69eac633d06f69d97de8b9db10b35054672723fc
+          <div class='containerIcones'>
+            <img src={IconeGitHub} alt='icone' className='icones'></img>
+            <img src={IconeEmail} alt='icone' className='icones'></img>
+            <img src={IconeLikedIn} alt='icone' className='icones'></img>
           </div>
         </div>
 
-        <div className="membros">
-<<<<<<< HEAD
-          <img src={Perfil} alt="foto" />
-          <div class="informacaoMembros">
+        <div className='membros'>
+          <img src={Perfil} alt='foto' />
+          <div class='informacaoMembros'>
             <h3>Washington Santos</h3>
             <p>
               O Lorem Ipsum é um texto modelo da indústria tipográfica e de
@@ -181,21 +117,10 @@ const Sobre = () => {
               caracteres de um texto para criar um espécime de livro.
             </p>
           </div>
-          <div class="containerIcones">
-            <img src={IconeGitHub} alt="icone" className="icones"></img>
-            <img src={IconeEmail} alt="icone" className="icones"></img>
-            <img src={IconeLikedIn} alt="icone" className="icones"></img>
-=======
-          <img src="" alt="foto" />
-          <div className="informacaoMembros">
-            <h3>Nome Aqui</h3>
-            <p>Informação Sobre os membros</p>
-          </div>
-          <div className="containerIcones">
-            <img src="" alt="icone" className="icones">
-              {/* <a href="http://" target="_blank"></a> */}
-            </img>
->>>>>>> 69eac633d06f69d97de8b9db10b35054672723fc
+          <div class='containerIcones'>
+            <img src={IconeGitHub} alt='icone' className='icones'></img>
+            <img src={IconeEmail} alt='icone' className='icones'></img>
+            <img src={IconeLikedIn} alt='icone' className='icones'></img>
           </div>
         </div>
       </section>
