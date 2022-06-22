@@ -4,13 +4,11 @@ import Cabecalho from '../../componentes/cabecalho/cabecalho';
 import Descricao from '../../componentes/descricao/descricao';
 import Galeria from '../../componentes/galeria/galeria';
 import Rodape from '../../componentes/rodape/rodape';
-import { Link } from 'react-router-dom';
 
 import styles from './Home.module.css';
-import BotaoSobre from '../../componentes/botoes/botaoSobre';
-import BotaoLogin from '../../componentes/botoes/botaoLogin';
+import '../../css/global.css';
 
-function Home() {
+const Home = () => {
   return (
     <div className={styles.home}>
       <Cabecalho />
@@ -20,6 +18,6 @@ function Home() {
       <Rodape />
     </div>
   );
-}
+};
 
 export default Home;

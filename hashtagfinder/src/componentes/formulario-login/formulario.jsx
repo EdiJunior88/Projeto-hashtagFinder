@@ -4,8 +4,8 @@ import styles from "../../componentes/formulario-login/formulario.module.css"
 
 const Formulario = () => {
   return (
-    <>
-      <div className={styles.containerFormulario}>
+    <div className={styles.containerFormulario}>
+      <div className={styles.formulario}>
         <h1 className={styles.formularioTitulo}>Login</h1>
         <form action="" className="formulario">
           <div className={styles.formularioUsuario}>
@@ -24,7 +24,7 @@ const Formulario = () => {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

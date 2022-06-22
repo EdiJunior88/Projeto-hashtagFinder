@@ -1,8 +1,9 @@
-import Cabecalho from '../../componentes/cabecalho/cabecalho';
 import Container from '../../componentes/container/Container';
 import styles from './Lista.module.css';
-import BotaoHome from '../../componentes/botoes/botaoHome';
 import styles2 from '../../componentes/cabecalho/Cabecalho.module.css';
+import BotaoHome from '../../componentes/botoes/botaoHome';
+import BotaoSair from '../../componentes/botoes/botaoSair';
+import { Link } from 'react-router-dom';
 
 function Lista() {
   const lista = [
@@ -32,23 +33,31 @@ function Lista() {
       hora: '20:00',
     },
   ];
+
   return (
     <div className={styles.fundo}>
       <header className={styles2.container}>
         <div className={styles2.containerCabecalho}>
           <div className={styles2.cabecalhoTitulo}>
-            <span>hashtag</span>
-            <span className={styles2.tituloNegrito}>finder</span>
+            <Link
+              to='/'
+              text='Link para Home'
+              className='linkHome'
+              style={{ textDecoration: 'none' }}>
+              <span>hashtag</span>
+              <span className={styles2.tituloNegrito}>finder</span>
+            </Link>
           </div>
 
           <div className={styles2.containerCabecalhoBotoes}>
             <BotaoHome pagina={'Home'} />
+            <BotaoSair pagina={'Sair'} />
           </div>
         </div>
       </header>
 
       <Container>
-        <h1>Buscas realizadas</h1>
+        <h1 className={styles.titulo}>Buscas realizadas</h1>
         <div className={styles.listagem}>
           <div className={`${styles.header} ${styles.alinhamento}`}>
             <div>Hashtag</div>

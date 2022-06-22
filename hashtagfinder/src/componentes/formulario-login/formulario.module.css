@@ -1,78 +1,99 @@
 .containerFormulario {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 150px;
+  padding-bottom: 236px;
+}
+
+.formulario {
+  width: 553px;
+  height: 608px;
+  padding: 62px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 14px;
+}
+
+.formularioTitulo {
+  font-size: 2.12em;
+  color: var(--cor-texto-formulario-titulo);
+  text-align: center;
+  font-weight: bold;
+}
+
+.formularioUsuario,
+.formularioSenha {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  color: var(--cor-texto-formulario);
+  font-size: 1.06em;
+  font-weight: 600;
+  background: transparent;
+  border-bottom: 1px solid #e9e9f0;
+}
+
+.formularioUsuario input,
+.formularioSenha input {
+  padding-top: 10px;
+  border: 0px;
+  outline: 0px;
+  color: var(--cor-texto-formulario);
+}
+
+.formularioUsuario label,
+.formularioSenha label {
+  color: var(--cor-texto-formulario);
+}
+
+.formularioBotaoDiv {
+  padding-top: 40px;
+  text-align: center;
+}
+
+.formularioBotaoAcessar {
+  width: 213px;
+  height: 58px;
+  text-transform: uppercase;
+  background-color: var(--cor-botao-formulario);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 34px;
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 500px) and (max-width: 721px) {
+  .containerFormulario {
+    padding-bottom: 218px;
+  }
+
+  .formulario {
+    width: 420px;
+    height: 560px;
+  }
+
+  .formularioTitulo {
+    padding-top: 10px;
+  }
+}
+
+@media screen and (min-width: 414px) and (max-width: 500px) {
+  .containerFormulario {
+    padding-bottom: 218px;
+  }
+
+  .formulario {
     width: 340px;
     height: 460px;
-    margin: 0 auto;
-    margin-top: 150px;
-    padding: 62px 30px;
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    border-radius: 14px;
   }
-  
+
   .formularioTitulo {
-    font-size: 34px;
-    color: #3634f7;
-    text-align: center;
-    font-weight: bold;
+    padding: 0px;
+    margin: 0px;
   }
-  
-  .formularioUsuario,
-  .formularioSenha {
-    display: flex;
-    flex-direction: column;
-    padding-top: 40px;
-    color: #292929;
-    font-size: 18px;
-    background: transparent;
-    border-bottom: 1px solid #E9E9F0;
-  }
-  
-  .formularioUsuario input,
-  .formularioSenha input {
-    padding-top: 10px;
-    border: 0px;
-    outline: 0px;
-    color: #292929
-  }
-
-  .formularioUsuario label,
-  .formularioSenha label {
-    color: #292929;
-  }
-  
-  .formularioBotaoDiv {
-    padding-top: 40px;
-    text-align: center;
-  }
-  
-  .formularioBotaoAcessar {
-    width: 213px;
-    height: 58px;
-    text-transform: uppercase;
-    background-color: #3633f7;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 34px;
-    border: none;
-    cursor: pointer;
-  }
-
-  @media screen and (min-width: 415px) {
-    body {
-      width: 100%;
-      max-width: 100%;
-    }
-  
-    .containerFormulario {
-      width: 420px;
-      height: 560px;
-    }
-  
-    .formularioTitulo{
-      padding-top: 10px;
-    }
-  
-  }
-  
+}
