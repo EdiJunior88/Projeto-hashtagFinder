@@ -36,4 +36,12 @@ footer {
   --cor-sombra-twitter: #5538EE14;
   --cor-usuario-twitter: #292929;
   --cor-twitter-link: #3634F7;
+
+  /* Página Sobre */
+  --cor-titulo-pagina-sobre: #3634F7;
+  --cor-texto-pagina-sobre: #292929;
+  --cor-borda-cartao-membro: #5538EE24;
+  --cor-sombra-cartao-membro: #5538EE14;
+  --cor-nome-cartao-membro: #292929;
+
 }

@@ -21,7 +21,7 @@
   font-size: 2.7em;
   font-weight: bold;
   padding-bottom: 25px;
-  color: blue;
+  color: var(--cor-titulo-pagina-sobre);
 }
 
 .artigo {
@@ -40,7 +40,7 @@
 }
 
 .blocoParagrafoTexto {
-  color: black;
+  color: var(--cor-texto-pagina-sobre);
   font-size: 1.56em;
   line-height: 1.5em;
   text-indent: 1.5em;
@@ -80,7 +80,8 @@
 .containerMembros {
   width: 20.7%;
   height: auto;
-  border: 1px solid black;
+  border: 1px solid var(--cor-borda-cartao-membro);
+  box-shadow: 0px 5px 10px var(--cor-sombra-cartao-membro);
   border-radius: 10px;
 }
 
@@ -102,7 +103,7 @@
 }
 
 .informacaoMembrosTitulo {
-  color: black;
+  color: var(--cor-nome-cartao-membro);
   font-size: 2em;
   font-weight: bold;
   text-align: center;
@@ -110,7 +111,7 @@
 }
 
 .informacaoMembrosTexto {
-  color: black;
+  color: var(--cor-texto-pagina-sobre);
   font-size: 1.18em;
   line-height: 1.3em;
   text-align: center;
@@ -177,7 +178,7 @@
 
   .quemSomos {
     margin-top: 112px;
-  }  
+  }
 
   .containerMembros {
     width: 90%;

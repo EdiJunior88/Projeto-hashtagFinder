@@ -52,7 +52,7 @@ const Sobre = () => {
                 <img className={styles.membroFoto} src={Perfil} alt='foto' />
                 <div className={styles.informacaoMembros}>
                   <h3 className={styles.informacaoMembrosTitulo}>
-                    Edivaldo Reis
+                    Anderson Nascimento
                   </h3>
                   <p className={styles.informacaoMembrosTexto}>
                     O Lorem Ipsum é um texto modelo da indústria tipográfica e
@@ -112,7 +112,7 @@ const Sobre = () => {
                 <img className={styles.membroFoto} src={Perfil} alt='foto' />
                 <div className={styles.informacaoMembros}>
                   <h3 className={styles.informacaoMembrosTitulo}>
-                    Edivaldo Reis
+                    Washington Nascimento
                   </h3>
                   <p className={styles.informacaoMembrosTexto}>
                     O Lorem Ipsum é um texto modelo da indústria tipográfica e
@@ -142,7 +142,7 @@ const Sobre = () => {
                 <img className={styles.membroFoto} src={Perfil} alt='foto' />
                 <div className={styles.informacaoMembros}>
                   <h3 className={styles.informacaoMembrosTitulo}>
-                    Edivaldo Reis
+                    Sarah Rúbia
                   </h3>
                   <p className={styles.informacaoMembrosTexto}>
                     O Lorem Ipsum é um texto modelo da indústria tipográfica e
@@ -167,7 +167,6 @@ const Sobre = () => {
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
