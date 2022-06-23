@@ -10,9 +10,9 @@ const Rotas = () => {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="https://edijunior88.github.io/Projeto-hashtagFinder/sobre" element={<Sobre />} />
-        <Route path="https://edijunior88.github.io/Projeto-hashtagFinder/login" element={<Login />} />
-        <Route path="https://edijunior88.github.io/Projeto-hashtagFinder/lista" element={<Lista />} />
+        <Route path="/sobre" element={<Sobre />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/lista" element={<Lista />} />
       </Routes>
     </BrowserRouter>
   );
