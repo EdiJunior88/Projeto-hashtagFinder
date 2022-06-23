@@ -2,7 +2,7 @@
   "name": "hashtagfinder",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://EdiJunior88.io/Projeto-hashtagFinder",
+  "homepage": "https://edijunior88.github.io/Projeto-hashtagFinder",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",

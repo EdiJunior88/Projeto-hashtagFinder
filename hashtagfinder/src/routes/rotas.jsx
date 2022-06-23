@@ -7,12 +7,12 @@ import Lista from "../paginas/lista/Lista";
 
 const Rotas = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/sobre" element={<Sobre />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/lista" element={<Lista />} />
+        <Route exact path="/sobre" element={<Sobre />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/lista" element={<Lista />} />
       </Routes>
     </BrowserRouter>
   );
