@@ -21,7 +21,7 @@ export default function Galeria() {
 
       <div className='container-galeria'>
         <Swiper
-          slidesPerView={2}
+          slidesPerView={3}
           slidesPerGroup={1}
           loop={false}
           loopFillGroupWithBlank={true}
@@ -65,7 +65,6 @@ export default function Galeria() {
       </div>
 
       {/* Componente em que mostram os últimos 10 twitters */}
-      <Twitter />
     </section>
   );
 }

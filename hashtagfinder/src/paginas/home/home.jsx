@@ -1,25 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Busca from '../../componentes/busca/busca';
 import Cabecalho from '../../componentes/cabecalho/cabecalho';
 import Descricao from '../../componentes/descricao/descricao';
 import Galeria from '../../componentes/galeria/galeria';
 import Rodape from '../../componentes/rodape/rodape';
-import { Link } from 'react-router-dom';
 
 import styles from './Home.module.css';
-import BotaoSobre from '../../componentes/botoes/botaoSobre';
-import BotaoLogin from '../../componentes/botoes/botaoLogin';
+import '../../css/global.css';
+import Twitter from '../../componentes/twitter/twitter';
 
-function Home() {
+const Home = () => {
+  const [tweets, setTweets] = useState(null);
+
   return (
     <div className={styles.home}>
       <Cabecalho />
       <Descricao />
       <Busca />
-      <Galeria />
+      <Galeria />,
+      <section>
+        {tweets?.map(
+          ({
+            usuario,
+            twitterUsuario,
+            twitterTexto,
+            twitterID,
+            fotoPerfil,
+          }) => {
+            return (
+              <Twitter
+                fotoPerfil={fotoPerfil}
+                usuario={usuario}
+                twitterUsuario={twitterUsuario}
+                twitterTexto={twitterTexto}
+                twitterID={twitterID}
+                key={twitterID}
+              />
+            );
+          }
+        )}
+      </section>
       <Rodape />
     </div>
   );
-}
+};
 
 export default Home;

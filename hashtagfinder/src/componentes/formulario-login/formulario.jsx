@@ -35,8 +35,8 @@ export default function Formulario() {
     });
 
   return (
-    <>
-      <div className={styles.containerFormulario}>
+    <div className={styles.containerFormulario}>
+      <div className={styles.formulario}>
         <h1 className={styles.formularioTitulo}>Login</h1>
         <form action="" className="formulario">
           <div className={styles.formularioUsuario}>
@@ -53,6 +53,6 @@ export default function Formulario() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }

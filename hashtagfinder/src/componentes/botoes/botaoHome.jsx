@@ -20,13 +20,3 @@ export default function BotaoHome(props) {
     </div>
   );
 }
-
-{
-  /* <Link
-to='/'
-text='link para home'
-className='linkHome'
-style={{ textDecoration: 'none' }}>
-<BotaoHome pagina={'Home'} />
-</Link> */
-}

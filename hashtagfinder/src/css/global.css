@@ -24,16 +24,37 @@ footer {
 }
 
 :root {
-  --cor-padrao-texto: #FFF;
-  --cor-botao-rosa: #D842BD;
+  /* Cores Globais */
+  --cor-padrao-texto: #fff;
+  --cor-botao-rosa: #d842bd;
   --cor-botao-azul: #3633f7;
-  --cor-texto-busca: #8D9DA2;
-  --cor-fundo-rodape: #D842BD;
-  --cor-fundo-botao-galeria: #FFF;
-  --cor-texto-descricao-galeria: #3634F7;
-  --cor-sombra-galeria: #5538EE29;
-  --cor-borda-twitter: #5538EE24;
-  --cor-sombra-twitter: #5538EE14;
+  --cor-texto-busca: #8d9da2;
+
+  /* Página HOME - GALERIA */
+  --cor-fundo-botao-galeria: #fff;
+  --cor-texto-descricao-galeria: #3634f7;
+  --cor-sombra-galeria: #5538ee29;
+  --cor-borda-twitter: #5538ee24;
+  --cor-sombra-twitter: #5538ee14;
   --cor-usuario-twitter: #292929;
-  --cor-twitter-link: #3634F7;
+  --cor-twitter-link: #3634f7;
+  --cor-fundo-rodape: #d842bd;
+
+  /* Página Sobre */
+  --cor-titulo-pagina-sobre: #3634f7;
+  --cor-texto-pagina-sobre: #292929;
+  --cor-borda-cartao-membro: #5538ee24;
+  --cor-sombra-cartao-membro: #5538ee14;
+  --cor-nome-cartao-membro: #292929;
+
+  /* Página LOGIN */
+  --cor-texto-formulario-titulo: #3634f7;
+  --cor-texto-formulario: #292929;
+  --cor-botao-formulario: #3633f7;
+
+  /* Página LISTA */
+  --cor-titulo-tabela-lista: #3633f7;
+  --cor-fundo-tabela-lista: #fff;
+  --cor-fundo-titulo-tabela-lista: #f1f1f1;
+  --cor-texto-tabela-lista: #d842bd;
 }

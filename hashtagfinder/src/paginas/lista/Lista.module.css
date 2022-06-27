@@ -1,53 +1,57 @@
-h1{
-    font-size: 2em;
-    font-weight: 500;
-    margin-top: 50px;
-    margin-bottom: 30px;
+.fundo {
+  background: url(../../imagens/login/login-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
 }
 
-.listagem{
-    background-color: rgb(13, 96, 168);
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    border-radius: 20px;
-    
+.titulo {
+  font-size: 2em;
+  font-weight: 500;
+  margin-top: 50px;
+  margin-bottom: 49px;
+  text-align: center;
 }
 
-.header{   
-    padding: 20px 0;
-    background-color: #e6e6e6;
-    border-radius: 20px 20px 0 0;
-
-}
-.header div{
-    color: #3634f7;
-    font-weight: 500;
+.listagem {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cor-fundo-tabela-lista);
+  border-radius: 20px;
 }
 
-.linha{
-    padding: 10px 0;
-    border-top: 1px solid #e6e6e6;
-}
-.linha div{
-    color: #d842bd;
+.header {
+  padding: 20px 0;
+  background-color: var(--cor-fundo-titulo-tabela-lista);
+  border-radius: 20px 20px 0 0;
 }
 
-.alinhamento{
-    display: flex;
-    justify-content: end;
-    
+.header div {
+  color: var(--cor-titulo-tabela-lista);
+  font-weight: 500;
 }
 
-.alinhamento div{
-    width: 100px;
-    
+.linha {
+  padding: 10px 0;
+  border-top: 1px solid var(--cor-fundo-titulo-tabela-lista);
 }
 
-.alinhamento div:first-child{
-    margin-right: auto;
-    padding-left: 40px;
-    width: 100%;
-
+.linha div {
+  color: var(--cor-texto-tabela-lista);
 }
 
+.alinhamento {
+  display: flex;
+  justify-content: end;
+}
+
+.alinhamento div {
+  width: 100px;
+}
+
+.alinhamento div:first-child {
+  margin-right: auto;
+  padding-left: 40px;
+  width: 100%;
+}

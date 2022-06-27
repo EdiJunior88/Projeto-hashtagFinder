@@ -1,98 +1,178 @@
 import React from 'react';
 import Cabecalho from '../../componentes/cabecalho/cabecalho';
-import { Link } from "react-router-dom";
+import Figura from '../../imagens/icones/about-illustration.svg';
+import Perfil from '../../imagens/foto-perfil/foto.jpg';
+import IconeGitHub from '../../imagens/icones/icon-github.svg';
+import IconeEmail from '../../imagens/icones/icon-envelope.svg';
+import IconeLikedIn from '../../imagens/icones/icon-linkedin.svg';
+import Rodape from '../../componentes/rodape/rodape';
+import styles from '../../paginas/sobre/Sobre.module.css';
 
 const Sobre = () => {
   return (
-    <>
-      <header>
-      <Cabecalho/>
-        <div className="fundo">
-          <h1>Sobre o Projeto</h1>
-          <Link to="/">retornar a página inicial</Link>
-
+    <div className={styles.sobre}>
+      <header className={styles.fundo}>
+        <Cabecalho />
+        <div className={styles.titulo}>
+          <h1 className={styles.tituloTexto}>Sobre o projeto</h1>
         </div>
       </header>
 
       <main>
-        <section>
-          <article>
-            <div className="sobre">
-              <h2>O que é</h2>
-              <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut,
-              eaque modi fuga quisquam corporis eveniet necessitatibus enim
-              dolorem laudantium, quibusdam esse asperiores voluptatum incidunt
-              soluta, laborum expedita? Numquam, tenetur veritatis?
+        <section className={styles.artigo}>
+          <div className={styles.subtitulo}>
+            <h2 className={styles.subtituloTexto}>O que é</h2>
+
+            <div className={styles.blocoParagrafo}>
+              <p className={styles.blocoParagrafoTexto}>
+                Ao contrário da crença popular, o Lorem Ipsum não é simplesmente
+                texto aleatório. Tem raízes numa peça de literatura clássica em
+                Latim, de 45 AC, tornando-o com mais de 2000 anos. Richard
+                McClintock, um professor de Latim no Colégio Hampden-Sydney, na
+                Virgínia, procurou uma das palavras em Latim mais obscuras
+                (consectetur) numa passagem Lorem Ipsum, e atravessando as
+                cidades do mundo na literatura clássica, descobriu a sua origem.
               </p>
             </div>
+          </div>
 
-            <img alt="" />
-          </article>
+          <div className={styles.blocoImagem}>
+            <img src={Figura} alt='illustration'></img>
+          </div>
         </section>
       </main>
 
-      <section className="quemSomos">
-        <h2>Quem Somos</h2>
+      <section className={styles.quemSomos}>
+        <div className={styles.subtitulo2}>
+          <h2 className={styles.subtitulo2Texto}>Quem Somos</h2>
 
-        <div className="membros">
-          <img alt="foto" />
-          <div className="informacaoMembros">
-            <h3>Nome Aqui</h3>
-            <p>Informação Sobre os membros</p>
-          </div>
-          <div className="containerIcones">
-            <img alt="icone" className="icones">
-              {/* <a href="http://" target="_blank"></a> */}
-            </img>
-          </div>
-        </div>
+          <div className={styles.container}>
+            <div className={styles.containerMembros}>
+              <div className={styles.containerCartaoMembros}>
+                <img className={styles.membroFoto} src={Perfil} alt='foto' />
+                <div className={styles.informacaoMembros}>
+                  <h3 className={styles.informacaoMembrosTitulo}>
+                    Anderson Nascimento
+                  </h3>
+                  <p className={styles.informacaoMembrosTexto}>
+                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
+                    de impressão. O Lorem Ipsum tem vindo a ser o texto padrão
+                    usado por estas indústrias desde o ano de 1500.
+                  </p>
+                </div>
+                <div className={styles.containerIcones}>
+                  <img
+                    src={IconeGitHub}
+                    alt='icone'
+                    className={styles.icones}></img>
+                  <img
+                    src={IconeEmail}
+                    alt='icone'
+                    className={styles.icones}></img>
+                  <img
+                    src={IconeLikedIn}
+                    alt='icone'
+                    className={styles.icones}></img>
+                </div>
+              </div>
+            </div>
 
-        <div className="membros">
-          <img alt="foto" />
-          <div className="informacaoMembros">
-            <h3>Nome Aqui</h3>
-            <p>Informação Sobre os membros</p>
-          </div>
-          <div className="containerIcones">
-            <img alt="icone" className="icones">
-              {/* <a href="http://" target="_blank"></a> */}
-            </img>
-          </div>
-        </div>
+            <div className={styles.containerMembros}>
+              <div className={styles.containerCartaoMembros}>
+                <img className={styles.membroFoto} src={Perfil} alt='foto' />
+                <div className={styles.informacaoMembros}>
+                  <h3 className={styles.informacaoMembrosTitulo}>
+                    Edivaldo Reis
+                  </h3>
+                  <p className={styles.informacaoMembrosTexto}>
+                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
+                    de impressão. O Lorem Ipsum tem vindo a ser o texto padrão
+                    usado por estas indústrias desde o ano de 1500.
+                  </p>
+                </div>
+                <div className={styles.containerIcones}>
+                  <img
+                    src={IconeGitHub}
+                    alt='icone'
+                    className={styles.icones}></img>
+                  <img
+                    src={IconeEmail}
+                    alt='icone'
+                    className={styles.icones}></img>
+                  <img
+                    src={IconeLikedIn}
+                    alt='icone'
+                    className={styles.icones}></img>
+                </div>
+              </div>
+            </div>
 
-        <div className="membros">
-          <img alt="foto" />
-          <div className="informacaoMembros">
-            <h3>Nome Aqui</h3>
-            <p>Informação Sobre os membros</p>
-          </div>
-          <div className="containerIcones">
-            <img alt="icone" className="icones">
-              {/* <a href="http://" target="_blank"></a> */}
-            </img>
-          </div>
-        </div>
+            <div className={styles.containerMembros}>
+              <div className={styles.containerCartaoMembros}>
+                <img className={styles.membroFoto} src={Perfil} alt='foto' />
+                <div className={styles.informacaoMembros}>
+                  <h3 className={styles.informacaoMembrosTitulo}>
+                    Washington Nascimento
+                  </h3>
+                  <p className={styles.informacaoMembrosTexto}>
+                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
+                    de impressão. O Lorem Ipsum tem vindo a ser o texto padrão
+                    usado por estas indústrias desde o ano de 1500.
+                  </p>
+                </div>
+                <div className={styles.containerIcones}>
+                  <img
+                    src={IconeGitHub}
+                    alt='icone'
+                    className={styles.icones}></img>
+                  <img
+                    src={IconeEmail}
+                    alt='icone'
+                    className={styles.icones}></img>
+                  <img
+                    src={IconeLikedIn}
+                    alt='icone'
+                    className={styles.icones}></img>
+                </div>
+              </div>
+            </div>
 
-        <div className="membros">
-          <img src="" alt="foto" />
-          <div className="informacaoMembros">
-            <h3>Nome Aqui</h3>
-            <p>Informação Sobre os membros</p>
-          </div>
-          <div className="containerIcones">
-            <img src="" alt="icone" className="icones">
-              {/* <a href="http://" target="_blank"></a> */}
-            </img>
+            <div className={styles.containerMembros}>
+              <div className={styles.containerCartaoMembros}>
+                <img className={styles.membroFoto} src={Perfil} alt='foto' />
+                <div className={styles.informacaoMembros}>
+                  <h3 className={styles.informacaoMembrosTitulo}>
+                    Sarah Rúbia
+                  </h3>
+                  <p className={styles.informacaoMembrosTexto}>
+                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
+                    de impressão. O Lorem Ipsum tem vindo a ser o texto padrão
+                    usado por estas indústrias desde o ano de 1500.
+                  </p>
+                </div>
+                <div className={styles.containerIcones}>
+                  <img
+                    src={IconeGitHub}
+                    alt='icone'
+                    className={styles.icones}></img>
+                  <img
+                    src={IconeEmail}
+                    alt='icone'
+                    className={styles.icones}></img>
+                  <img
+                    src={IconeLikedIn}
+                    alt='icone'
+                    className={styles.icones}></img>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <footer>
-        <span>Newtab Academy &copy; 2022</span>
-      </footer>
-    </>
+      <Rodape />
+    </div>
   );
-}
+};
 
 export default Sobre;
