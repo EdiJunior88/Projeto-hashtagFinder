@@ -6,15 +6,15 @@ export default function Formulario() {
 
   //  Validação e-mail e senha
 
-  function validarEmail(email) {
-    const emailRegex =  /^([a-zA-Z][^<>\"!@[\]#$%¨&*()~^:;ç,\-´`=+{}º\|/\\?]{1,})@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    return emailRegex.test(String(email).toLowerCase())
-  }
+  // function validarEmail(email) {
+  //   const emailRegex =  /^([a-zA-Z][^<>\"!@[\]#$%¨&*()~^:;ç,\-´`=+{}º\|/\\?]{1,})@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  //   return emailRegex.test(String(email).toLowerCase())
+  // }
 
-  function validarSenha(senha) {
-    const senhaRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/
-    return senhaRegex.test(String(senha))
-  }
+  // function validarSenha(senha) {
+  //   const senhaRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/
+  //   return senhaRegex.test(String(senha))
+  // }
   
   // Configuração airtable
   
@@ -31,7 +31,7 @@ export default function Formulario() {
   base("Login")
     .find('recnZdZzygRimrOMB', function(err, record) {
       if (err) { console.error(err); return; }
-      console.log('Retrieved', record.fields['Squad', 'Email']);
+      console.log('Retrieved', record.fields);
     });
 
   return (
