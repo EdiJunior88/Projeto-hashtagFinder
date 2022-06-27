@@ -1,8 +1,13 @@
 import React from 'react';
 import styles from './Twitter.module.css';
-import FotoPerfil from '../../imagens/foto-perfil/foto.jpg';
 
-export default function Twitter() {
+const Twitter = ({
+  fotoPerfil,
+  usuario,
+  twitterUsuario,
+  twitterTexto,
+  twitterID,
+}) => {
   return (
     <section className={`${styles.container} ${styles.TwitterFlex}`}>
       <div className={styles.containerTwitter}>
@@ -10,270 +15,34 @@ export default function Twitter() {
           <div className={styles.containerTwitterFoto}>
             <img
               className={styles.twitterFoto}
-              src={FotoPerfil}
+              src={fotoPerfil}
               alt='foto perfil'
             />
           </div>
 
           <div className={styles.containerTwitterDescricao}>
             <div className={styles.containerTwitterNomeUsuario}>
-              <span className={styles.twitterNome}>UserName</span>
-              <span className={styles.twitterUsuario}>@twitterusername</span>
+              <span className={styles.twitterNome}>{usuario}</span>
+              <span className={styles.twitterUsuario}>
+                <a
+                  href={'https://twitter.com/${twitterUsuario}'}
+                  target='_blank'>
+                  @{twitterUsuario}
+                </a>
+              </span>
             </div>
-            <p className={styles.twitterDescricao}>
-              Lorem ipsum dolor sit amet. Ut odit necessitatibus quo dolorem
-              placeat est provident accusantium qui iure explicabo. Sit
-              consequatur provident et quod
-            </p>
-            <a className={styles.twitterLink} href='#'>
-              Ver mais no Twitter
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.containerTwitter}>
-        <div className={styles.twitter}>
-          <div className={styles.containerTwitterFoto}>
-            <img
-              className={styles.twitterFoto}
-              src={FotoPerfil}
-              alt='foto perfil'
-            />
-          </div>
-
-          <div className={styles.containerTwitterDescricao}>
-            <div className={styles.containerTwitterNomeUsuario}>
-              <span className={styles.twitterNome}>UserName</span>
-              <span className={styles.twitterUsuario}>@twitterusername</span>
-            </div>
-            <p className={styles.twitterDescricao}>
-              Lorem ipsum dolor sit amet. Ut odit necessitatibus quo dolorem
-              placeat est provident accusantium qui iure explicabo. Sit
-              consequatur provident et quod
-            </p>
-            <a className={styles.twitterLink} href='#'>
-              Ver mais no Twitter
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.containerTwitter}>
-        <div className={styles.twitter}>
-          <div className={styles.containerTwitterFoto}>
-            <img
-              className={styles.twitterFoto}
-              src={FotoPerfil}
-              alt='foto perfil'
-            />
-          </div>
-
-          <div className={styles.containerTwitterDescricao}>
-            <div className={styles.containerTwitterNomeUsuario}>
-              <span className={styles.twitterNome}>UserName</span>
-              <span className={styles.twitterUsuario}>@twitterusername</span>
-            </div>
-            <p className={styles.twitterDescricao}>
-              Lorem ipsum dolor sit amet. Ut odit necessitatibus quo dolorem
-              placeat est provident accusantium qui iure explicabo. Sit
-              consequatur provident et quod
-            </p>
-            <a className={styles.twitterLink} href='#'>
-              Ver mais no Twitter
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.containerTwitter}>
-        <div className={styles.twitter}>
-          <div className={styles.containerTwitterFoto}>
-            <img
-              className={styles.twitterFoto}
-              src={FotoPerfil}
-              alt='foto perfil'
-            />
-          </div>
-
-          <div className={styles.containerTwitterDescricao}>
-            <div className={styles.containerTwitterNomeUsuario}>
-              <span className={styles.twitterNome}>UserName</span>
-              <span className={styles.twitterUsuario}>@twitterusername</span>
-            </div>
-            <p className={styles.twitterDescricao}>
-              Lorem ipsum dolor sit amet. Ut odit necessitatibus quo dolorem
-              placeat est provident accusantium qui iure explicabo. Sit
-              consequatur provident et quod
-            </p>
-            <a className={styles.twitterLink} href='#'>
-              Ver mais no Twitter
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.containerTwitter}>
-        <div className={styles.twitter}>
-          <div className={styles.containerTwitterFoto}>
-            <img
-              className={styles.twitterFoto}
-              src={FotoPerfil}
-              alt='foto perfil'
-            />
-          </div>
-
-          <div className={styles.containerTwitterDescricao}>
-            <div className={styles.containerTwitterNomeUsuario}>
-              <span className={styles.twitterNome}>UserName</span>
-              <span className={styles.twitterUsuario}>@twitterusername</span>
-            </div>
-            <p className={styles.twitterDescricao}>
-              Lorem ipsum dolor sit amet. Ut odit necessitatibus quo dolorem
-              placeat est provident accusantium qui iure explicabo. Sit
-              consequatur provident et quod
-            </p>
-            <a className={styles.twitterLink} href='#'>
-              Ver mais no Twitter
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.containerTwitter}>
-        <div className={styles.twitter}>
-          <div className={styles.containerTwitterFoto}>
-            <img
-              className={styles.twitterFoto}
-              src={FotoPerfil}
-              alt='foto perfil'
-            />
-          </div>
-
-          <div className={styles.containerTwitterDescricao}>
-            <div className={styles.containerTwitterNomeUsuario}>
-              <span className={styles.twitterNome}>UserName</span>
-              <span className={styles.twitterUsuario}>@twitterusername</span>
-            </div>
-            <p className={styles.twitterDescricao}>
-              Lorem ipsum dolor sit amet. Ut odit necessitatibus quo dolorem
-              placeat est provident accusantium qui iure explicabo. Sit
-              consequatur provident et quod
-            </p>
-            <a className={styles.twitterLink} href='#'>
-              Ver mais no Twitter
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.containerTwitter}>
-        <div className={styles.twitter}>
-          <div className={styles.containerTwitterFoto}>
-            <img
-              className={styles.twitterFoto}
-              src={FotoPerfil}
-              alt='foto perfil'
-            />
-          </div>
-
-          <div className={styles.containerTwitterDescricao}>
-            <div className={styles.containerTwitterNomeUsuario}>
-              <span className={styles.twitterNome}>UserName</span>
-              <span className={styles.twitterUsuario}>@twitterusername</span>
-            </div>
-            <p className={styles.twitterDescricao}>
-              Lorem ipsum dolor sit amet. Ut odit necessitatibus quo dolorem
-              placeat est provident accusantium qui iure explicabo. Sit
-              consequatur provident et quod
-            </p>
-            <a className={styles.twitterLink} href='#'>
-              Ver mais no Twitter
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.containerTwitter}>
-        <div className={styles.twitter}>
-          <div className={styles.containerTwitterFoto}>
-            <img
-              className={styles.twitterFoto}
-              src={FotoPerfil}
-              alt='foto perfil'
-            />
-          </div>
-
-          <div className={styles.containerTwitterDescricao}>
-            <div className={styles.containerTwitterNomeUsuario}>
-              <span className={styles.twitterNome}>UserName</span>
-              <span className={styles.twitterUsuario}>@twitterusername</span>
-            </div>
-            <p className={styles.twitterDescricao}>
-              Lorem ipsum dolor sit amet. Ut odit necessitatibus quo dolorem
-              placeat est provident accusantium qui iure explicabo. Sit
-              consequatur provident et quod
-            </p>
-            <a className={styles.twitterLink} href='#'>
-              Ver mais no Twitter
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.containerTwitter}>
-        <div className={styles.twitter}>
-          <div className={styles.containerTwitterFoto}>
-            <img
-              className={styles.twitterFoto}
-              src={FotoPerfil}
-              alt='foto perfil'
-            />
-          </div>
-
-          <div className={styles.containerTwitterDescricao}>
-            <div className={styles.containerTwitterNomeUsuario}>
-              <span className={styles.twitterNome}>UserName</span>
-              <span className={styles.twitterUsuario}>@twitterusername</span>
-            </div>
-            <p className={styles.twitterDescricao}>
-              Lorem ipsum dolor sit amet. Ut odit necessitatibus quo dolorem
-              placeat est provident accusantium qui iure explicabo. Sit
-              consequatur provident et quod
-            </p>
-            <a className={styles.twitterLink} href='#'>
-              Ver mais no Twitter
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.containerTwitter}>
-        <div className={styles.twitter}>
-          <div className={styles.containerTwitterFoto}>
-            <img
-              className={styles.twitterFoto}
-              src={FotoPerfil}
-              alt='foto perfil'
-            />
-          </div>
-
-          <div className={styles.containerTwitterDescricao}>
-            <div className={styles.containerTwitterNomeUsuario}>
-              <span className={styles.twitterNome}>UserName</span>
-              <span className={styles.twitterUsuario}>@twitterusername</span>
-            </div>
-            <p className={styles.twitterDescricao}>
-              Lorem ipsum dolor sit amet. Ut odit necessitatibus quo dolorem
-              placeat est provident accusantium qui iure explicabo. Sit
-              consequatur provident et quod
-            </p>
-            <a className={styles.twitterLink} href='#'>
-              Ver mais no Twitter
+            <p className={styles.twitterDescricao}>{twitterTexto}</p>
+            <a
+              className={styles.twitterLink}
+              href={'https://twitter.com/${twitterUsuario}/status/${twitterID}'}
+              target='_blank'>
+              <span>Ver mais no Twitter</span>
             </a>
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Twitter;
