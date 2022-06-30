@@ -65,7 +65,6 @@ export default function Galeria() {
       </div>
 
       {/* Componente em que mostram os últimos 10 twitters */}
-      <Twitter />
     </section>
   );
 }
