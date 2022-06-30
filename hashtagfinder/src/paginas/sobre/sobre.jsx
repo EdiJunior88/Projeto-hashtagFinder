@@ -112,7 +112,7 @@ const Sobre = () => {
                 <img className={styles.membroFoto} src={Perfil} alt='foto' />
                 <div className={styles.informacaoMembros}>
                   <h3 className={styles.informacaoMembrosTitulo}>
-                    Washington Nascimento
+                    Washington Luiz
                   </h3>
                   <p className={styles.informacaoMembrosTexto}>
                     O Lorem Ipsum é um texto modelo da indústria tipográfica e
