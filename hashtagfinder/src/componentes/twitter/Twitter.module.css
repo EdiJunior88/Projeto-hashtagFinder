@@ -61,6 +61,7 @@
 .twitterUsuario {
   opacity: 43%;
   color: var(--cor-usuario-twitter);
+  text-decoration: none;
 }
 
 .containerTwitterDescricao {
