@@ -7,6 +7,7 @@ import { getTweetImgs } from '../../api/GETTweetImages';
 
 import Loader from '../../componentes/loader/Loader';
 import Twitter from '../twitter/twitter';
+import { motion } from 'framer-motion';
 
 export default function Busca(props) {
   const [searchValue, setSearchValue] = useState(''); //field value
@@ -16,6 +17,9 @@ export default function Busca(props) {
   const [moreRequest, setMoreRequest] = useState(10);
   const [titleTag, setTitleTag] = useState();
   const [imageActive, setImageActive] = useState({});
+  const [resultsNumber, setResultsNumber] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [animationMode, setAnimationMode] = useState(0);
 
   useEffect(() => {
     if (searchValue) {
@@ -28,6 +32,34 @@ export default function Busca(props) {
       };
     }
   });
+
+  const handleValue = (e) => {
+    if (e.keyCode === 13) {
+      setSearchValue(
+        e.target.value.replace(/[^a-zA-Z0-9_]/g, '').replace(' ', '')
+      );
+
+      setSearchResponse(<Loader />);
+      setResultsNumber(10);
+      setMoreRequest(10);
+
+      if (e.target.value === '') {
+        setSearchResponse('É necessário digitar algo no campo de buscas...');
+        setSearchValue('');
+      }
+    }
+
+    if (e.keyCode === 8) {
+      setSearchResponse('');
+      setSearchValue('');
+      setTitleTag('');
+      setResultsNumber(0);
+    }
+
+    if (e.target.value.length >= 20) {
+      setSearchResponse('Limite de caracteres atingido 🚨.');
+    }
+  };
 
   const asyncCall = () => {
     getTweets(searchValue, moreRequest)
@@ -95,19 +127,20 @@ export default function Busca(props) {
               );
               if (!document.getElementById('input').value.length) {
                 setSearchResponse(
-                  'É necessario digitar algo no campo de buscas...'
+                  'É necessario digitar algo no campo de buscas... ⚠️'
                 );
+                console.log('teste');
                 setSearchValue('');
               }
             }}
             alt='icone busca'
           />
           <input
-            id={props.id}
+            id='input'
             className={styles.campoBuscaInput}
             type={props.type}
             placeholder={props.placeholder}
-            onKeyDown={props.onKeyDown}
+            onKeyDown={handleValue}
             maxLength={props.maxLength}
           />
         </div>
@@ -126,6 +159,35 @@ export default function Busca(props) {
             />
           );
         })}
+      </div>
+
+      <div className={styles.container}>
+        {searchResponse ? (
+          <>
+            <motion.div
+              initial={{ y: animationMode, opacity: 0 }}
+              animate={{ y: animationMode, opacity: 1 }}
+              onClick={() => setAnimationMode(animationMode)}
+              transition={{ duration: 0.5, delay: 0.4 }}>
+              <div className={tweets ? styles.bgResponse : styles.bgLoader}>
+                <div className={styles.textResponse}>{searchResponse}</div>
+              </div>
+            </motion.div>
+          </>
+        ) : null}
+      </div>
+
+      <div className={styles.container}>
+        {loading ? (
+          <motion.div
+            initial={{ y: animationMode, opacity: 1 }}
+            animate={{ y: animationMode, opacity: 0 }}
+            onClick={() => setAnimationMode(animationMode)}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className={styles.bgLoader}>
+            <Loader />
+          </motion.div>
+        ) : null}
       </div>
     </section>
   );
