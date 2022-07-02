@@ -75,7 +75,7 @@ section.container {
   margin-top: 125px;
 }
 
-.textoCatch {
+.textoErro {
   display: flex;
   color: blue;
   font-size: 1.5em;

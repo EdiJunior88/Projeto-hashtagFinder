@@ -9,6 +9,10 @@ import Loader from '../../componentes/loader/Loader';
 import Twitter from '../twitter/twitter';
 import { motion } from 'framer-motion';
 
+import { Slider, Slide } from '../../componentes/galeria/ExportPattern';
+import { settingSlider } from '../../componentes/galeria/settings';
+import styles2 from '../../componentes/galeria/sliderImage.module.css'
+
 export default function Busca(props) {
   const [searchValue, setSearchValue] = useState(''); //field value
   const [searchResponse, setSearchResponse] = useState(''); //search answer
@@ -44,7 +48,9 @@ export default function Busca(props) {
       setMoreRequest(10);
 
       if (e.target.value === '') {
-        setSearchResponse('É necessário digitar algo no campo de buscas...');
+        setSearchResponse(
+          <div className={styles.textoErro}>Preencha este campo...⚠️</div>
+        );
         setSearchValue('');
       }
     }
@@ -57,7 +63,9 @@ export default function Busca(props) {
     }
 
     if (e.target.value.length >= 20) {
-      setSearchResponse('Limite de caracteres atingido 🚨.');
+      setSearchResponse(
+        <div className={styles.textoErro}>Limite máximo de caracteres 🚫</div>
+      );
     }
   };
 
@@ -104,7 +112,11 @@ export default function Busca(props) {
         });
       })
       .catch(() => {
-        setSearchResponse(<div className={styles.textoCatch}>Nenhum tweet foi achado, tente novamente... ❌</div>);
+        setSearchResponse(
+          <div className={styles.textoErro}>
+            Nenhum tweet foi achado, tente novamente... ❌
+          </div>
+        );
         setTweets();
       });
   };
@@ -127,7 +139,9 @@ export default function Busca(props) {
               );
               if (!document.getElementById('input').value.length) {
                 setSearchResponse(
-                  'É necessario digitar algo no campo de buscas... ⚠️'
+                  <div className={styles.textoErro}>
+                    Preencha este campo...⚠️
+                  </div>
                 );
                 console.log('teste');
                 setSearchValue('');
@@ -135,6 +149,7 @@ export default function Busca(props) {
             }}
             alt='icone busca'
           />
+
           <input
             id='input'
             className={styles.campoBuscaInput}
@@ -162,6 +177,38 @@ export default function Busca(props) {
             </div>
           ) : null}
         </div>
+      </div>
+
+      <div className={styles.container}>
+        <Slider settings={settingSlider}>
+          {tweetImgs?.map(({ user, username, img, id }) => {
+            return (
+              <Slide key={id}>
+                <div className={styles2.bgImageGallery}>
+                  <img
+                    src={img}
+                    alt={user}
+                    height='287px'
+                    width='287px'
+                    onClick={() => {
+                      setImageActive({ user, username, img, id });
+                    }}
+                  />
+                  <div className={styles2.bgPostUser}>
+                    <a
+                      href={`https://twitter.com/${username}/status/${id}`}
+                      target='_blank'
+                      rel='noreferrer'
+                      alt={username}>
+                      <p>Postado por:</p>
+                      <h3>@{username}</h3>
+                    </a>
+                  </div>
+                </div>
+              </Slide>
+            );
+          })}
+        </Slider>
       </div>
 
       <div className={styles.containerTwitterCartao}>
