@@ -46,11 +46,66 @@ section.container {
   padding-left: 60px;
 }
 
+/* Texto Resultados Mais Recentes */
+.containerTextoResultado {
+  width: 100%;
+  display: block;
+  justify-content: center;
+}
+
+.containerTextoResultadoDesabilitada {
+  display: none;
+}
+
+.TextoResultado {
+  margin: 114px 0px;
+  padding: 0px 30px;
+  text-align: center;
+  color: var(--cor-texto-descricao-galeria);
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.containerTwitterCartao {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  flex-wrap: wrap;
+  margin: 125px 187px;
+  gap: 77px;
+  margin-top: 125px;
+}
+
+.textoCatch {
+  display: flex;
+  color: blue;
+  font-size: 1.5em;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  color: blue;
+  font-size: 1.5em;
+}
+
+@media screen and (min-width: 480px) and (max-width: 1582px) {
+  .containerTwitterCartao {
+    gap: 20px;
+    grid-template-columns: repeat(2, 50%);
+    margin: 50px 30px;
+  }
+}
+
 /* Responsividade - Tela 1400 pixels */
 @media (max-width: 1400px) {
   .campoBusca,
   .campoBuscaInput {
     width: 80%;
+  }
+}
+
+/* Responsividade - Tela 1000 pixels */
+@media screen and (max-width: 1000px) {
+  .TextoResultado {
+    font-size: 1.8em;
   }
 }
 
@@ -67,6 +122,14 @@ section.container {
 
   .campoBuscaInput {
     font-size: 2.3em;
+  }
+}
+
+/* Responsividade - Tela entre 663 a 914 pixels */
+@media screen and (min-width: 663px) and (max-width: 914px) {
+  .TextoResultado {
+    margin: 92px 0px;
+    font-size: 1.4em;
   }
 }
 
@@ -89,6 +152,11 @@ section.container {
   .campoBuscaIcone {
     width: 47px;
     padding-left: 30px;
+  }
+
+  .TextoResultado {
+    margin: 92px 0px;
+    font-size: 1.4em;
   }
 }
 
@@ -118,5 +186,11 @@ section.container {
     width: 81%;
     font-size: 1.06em;
     padding-left: 14px;
+  }
+
+  .TextoResultado {
+    font-size: 1.37em;
+    margin-top: 181px;
+    margin-bottom: 32px;
   }
 }

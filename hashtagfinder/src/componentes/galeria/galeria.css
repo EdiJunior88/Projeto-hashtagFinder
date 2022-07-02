@@ -2,15 +2,6 @@ section.galeria {
   margin: 0px;
 }
 
-.descricao-galeria-texto {
-  margin: 114px 0px;
-  padding: 0px 30px;
-  text-align: center;
-  color: var(--cor-texto-descricao-galeria);
-  font-size: 2em;
-  font-weight: bold;
-}
-
 .swiper {
   padding-bottom: 56px;
   margin-left: 157px;
@@ -79,20 +70,9 @@ swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
   }
 }
 
-/* Responsividade - Tela 1000 pixels */
-@media screen and (max-width: 1000px) {
-  .descricao-galeria-texto {
-    font-size: 1.8em;
-  }
-}
 
 /* Responsividade - Tela entre 663 a 914 pixels */
 @media screen and (min-width: 663px) and (max-width: 914px) {
-  .descricao-galeria-texto {
-    margin: 92px 0px;
-    font-size: 1.4em;
-  }
-
   .swiper img {
     width: 200px;
     height: 200px;
@@ -101,11 +81,6 @@ swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
 
 /* Responsividade - Tela entre 415 a 733 pixels */
 @media screen and (min-width: 415px) and (max-width: 733px) {
-  .descricao-galeria-texto {
-    margin: 92px 0px;
-    font-size: 1.4em;
-  }
-
   .swiper-slide {
     width: -webkit-max-content;
     width: max-content;
@@ -148,15 +123,5 @@ swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
   .swiper-pagination-horizontal.swiper-pagination-bullets
     .swiper-pagination-bullet {
     background: transparent;
-  }
-}
-
-/* Responsividade - Tela 414 pixels */
-/* Descrição Texto Twitter + Galeria */
-@media screen and (max-width: 414px) {
-  .descricao-galeria-texto {
-    font-size: 1.37em;
-    margin-top: 181px;
-    margin-bottom: 32px;
   }
 }

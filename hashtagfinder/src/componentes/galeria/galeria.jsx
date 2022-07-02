@@ -8,17 +8,13 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/bundle';
 
-/* Estilização personalizda para o SwiperJS */
+/* Estilização personalizada para o SwiperJS */
 import './galeria.css';
-import Twitter from '../twitter/twitter';
+
 
 export default function Galeria() {
-  return (
-    <section className='container galeria'>
-      <div className='container-descricao-galeria'>
-        <p className='descricao-galeria-texto'>Exibindo os 10 resultados mais recentes para #natureza</p>
-      </div>
 
+  return (
       <div className='container-galeria'>
         <Swiper
           slidesPerView={3}
@@ -63,8 +59,5 @@ export default function Galeria() {
           </SwiperSlide>
         </Swiper>
       </div>
-
-      {/* Componente em que mostram os últimos 10 twitters */}
-    </section>
   );
 }

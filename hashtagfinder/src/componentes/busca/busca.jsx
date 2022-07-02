@@ -104,7 +104,7 @@ export default function Busca(props) {
         });
       })
       .catch(() => {
-        setSearchResponse('Nenhum tweet foi achado, tente novamente... 😭');
+        setSearchResponse(<div className={styles.textoCatch}>Nenhum tweet foi achado, tente novamente... ❌</div>);
         setTweets();
       });
   };
@@ -147,6 +147,24 @@ export default function Busca(props) {
       </div>
 
       <div className={styles.container}>
+        <div
+          className={
+            tweets
+              ? styles.containerTextoResultado
+              : styles.containerTextoResultadoDesabilitada
+          }>
+          {tweets ? (
+            <div className={styles.containerTextoResultado}>
+              <p className={styles.TextoResultado}>
+                Exibindo os {moreRequest > 0 ? moreRequest - 10 : null}{' '}
+                resultados mais recentes para #{titleTag}
+              </p>
+            </div>
+          ) : null}
+        </div>
+      </div>
+
+      <div className={styles.containerTwitterCartao}>
         {tweets?.map(({ user, username, text, id, photo }) => {
           return (
             <Twitter
