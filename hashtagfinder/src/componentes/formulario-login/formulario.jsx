@@ -3,9 +3,10 @@ import "../../css/reset.css";
 import styles from "../../componentes/formulario-login/formulario.module.css";
 import * as yup from "yup";
 import { useFormik } from "formik";
+import { Autenticacao } from "../../api/autenticacao";
 
 export default function Formulario() {
-  
+
   //  Validação e-mail e senha com yup e formik
 
   const formik = useFormik({
@@ -27,32 +28,45 @@ export default function Formulario() {
           "Senha inválida. A senha deve conter 8 caracteres, 1 letra maiúscula, 1 letra minúscula, 1 número e 1 caractere especial."
         ),
     }),
+
+    // Função onSubmit do Formik 
+
     onSubmit: (values) => {
-      alert.apply(JSON.stringify(values, null, 2));
+      alert(JSON.stringify(values, null, 2));
+
+     // Inserção dos dados da API do Airtable para checagem dos dados do usuario  
+
+      
+      fetch(
+        "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Login?maxRecords=8&view=Grid%20view&filterByFormula={Squad}=04-22",
+        {
+          method: "GET",
+          headers: {
+            Authorization: "Bearer key2CwkHb0CKumjuM",
+          },
+        }
+      )
+        .then((response) => response.json())
+        .then(function (database) {
+          database.records.map((data) => {
+            if (
+              data.fields.Email === formik.values.email && 
+              data.fields.Senha === formik.values.senha) {
+                
+              Autenticacao(false);
+              // autenticado.login(true); // Rever essa linha e a questão da autenticação
+              // navigate('/lista', {replace: true}); // Rever essa linha
+            }
+            return null;
+          });
+          document.getElementsByClassName("messageError").innerHTML =
+            "Os dados do usuário não foram encontrados!";
+        });
     },
   });
 
-  // Configuração airtable
-
-  var Airtable = require("airtable");
-  Airtable.configure({
-    endpointUrl: "https://api.airtable.com",
-    apiKey: "key2CwkHb0CKumjuM",
-  });
-
-  var base = Airtable.base("app6wQWfM6eJngkD4");
-
-  // Localizando dados da Squad 04-22 pelo id
-
-  base("Login").find("recnZdZzygRimrOMB", function (err, record) {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    console.log("Retrieved", record.fields);
-  });
-
   return (
+    <>
     <div className={styles.containerFormulario}>
       <div className={styles.formulario}>
         <h1 className={styles.formularioTitulo}>Login</h1>
@@ -90,9 +104,11 @@ export default function Formulario() {
             <button type="submit" className={styles.formularioBotaoAcessar}>
               Acessar
             </button>
+            <div className={styles.messageError}></div>
           </div>
         </form>
       </div>
     </div>
+    </>
   );
 }
