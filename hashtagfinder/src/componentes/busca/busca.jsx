@@ -11,19 +11,22 @@ import { motion } from 'framer-motion';
 
 import { Slider, Slide } from '../../componentes/galeria/ExportPattern';
 import { settingSlider } from '../../componentes/galeria/settings';
-import styles2 from '../../componentes/galeria/sliderImage.module.css'
+import styles2 from '../../componentes/galeria/sliderImage.module.css';
 
 export default function Busca(props) {
-  const [searchValue, setSearchValue] = useState(''); //field value
-  const [searchResponse, setSearchResponse] = useState(''); //search answer
+  const [searchValue, setSearchValue] = useState('');
+  const [searchResponse, setSearchResponse] = useState('');
   const [tweets, setTweets] = useState(null);
   const [tweetImgs, setTweetImgs] = useState(null);
   const [moreRequest, setMoreRequest] = useState(10);
   const [titleTag, setTitleTag] = useState();
-  const [imageActive, setImageActive] = useState({});
+  const [imageActive, setImageActive] = useState('');
   const [resultsNumber, setResultsNumber] = useState(0);
   const [loading, setLoading] = useState(false);
   const [animationMode, setAnimationMode] = useState(0);
+  const [scrollTopButton, setTopButton] = useState(false);
+  const [ativaNav, setAtivaNav] = useState(false); //navbar effect
+  const [showScroll, setShowScroll] = useState(false);
 
   useEffect(() => {
     if (searchValue) {
@@ -36,6 +39,9 @@ export default function Busca(props) {
       };
     }
   });
+
+
+
 
   const handleValue = (e) => {
     if (e.keyCode === 13) {
@@ -209,6 +215,36 @@ export default function Busca(props) {
             );
           })}
         </Slider>
+
+        {imageActive && (
+          <div
+            key={imageActive.id}
+            className={imageActive ? styles.modal : styles.modalDisabled}
+            onClick={() => {
+              setImageActive(false);
+            }}>
+            <div className={styles.modalContainer}>
+              <img src={imageActive.img} alt={imageActive.username} />
+              <button
+                onClick={() => {
+                  setImageActive(false);
+                }}>
+                X
+              </button>
+              <div className={styles.modalData} id='modaldata'>
+                <a
+                  href={`https://twitter.com/${imageActive.username}/status/${imageActive.id}`}
+                  target='_blank'
+                  rel='noreferrer'
+                  alt=''>
+                  <span>Postado por: </span>
+                  <h4>@{imageActive.username}</h4>
+                </a>
+              </div>
+              <div className={styles.boxshadow}></div>
+            </div>
+          </div>
+        )}
       </div>
 
       <div className={styles.containerTwitterCartao}>
