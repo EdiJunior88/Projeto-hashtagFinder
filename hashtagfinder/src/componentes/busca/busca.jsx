@@ -40,8 +40,27 @@ export default function Busca(props) {
     }
   });
 
+  useEffect(() => {
+    const intersectionObserver = new IntersectionObserver((entradas) => {
+      if (entradas.some((scroll) => scroll.isIntersecting)) {
+        setLoading(true);
+        console.log('Elemento está visível', entradas);
 
-
+        function fetchMoreData() {
+          const newSearch = document.getElementById('input').value;
+          setSearchValue(newSearch);
+          setResultsNumber(resultsNumber + 5);
+        }
+        setTimeout(() => setLoading(false), 2000);
+        setTimeout(() => fetchMoreData(), 1500);
+      } else if (entradas.some((scroll) => scroll.isVisible === false)) {
+        setLoading(false);
+        console.log('Elemento está invisível', entradas);
+      }
+    });
+    intersectionObserver.observe(document.querySelector('#sentinela'));
+    return () => intersectionObserver.disconnect();
+  }, []);
 
   const handleValue = (e) => {
     if (e.keyCode === 13) {
@@ -185,7 +204,7 @@ export default function Busca(props) {
         </div>
       </div>
 
-      <div className={styles.container}>
+      <div className={tweetImgs ? styles.container : styles.containerOculto}>
         <Slider settings={settingSlider}>
           {tweetImgs?.map(({ user, username, img, id }) => {
             return (
@@ -247,7 +266,10 @@ export default function Busca(props) {
         )}
       </div>
 
-      <div className={styles.containerTwitterCartao}>
+      <div
+        className={
+          tweets ? styles.containerTwitterCartao : styles.containerOculto
+        }>
         {tweets?.map(({ user, username, text, id, photo }) => {
           return (
             <Twitter
@@ -264,17 +286,15 @@ export default function Busca(props) {
 
       <div className={styles.container}>
         {searchResponse ? (
-          <>
-            <motion.div
-              initial={{ y: animationMode, opacity: 0 }}
-              animate={{ y: animationMode, opacity: 1 }}
-              onClick={() => setAnimationMode(animationMode)}
-              transition={{ duration: 0.5, delay: 0.4 }}>
-              <div className={tweets ? styles.bgResponse : styles.bgLoader}>
-                <div className={styles.textResponse}>{searchResponse}</div>
-              </div>
-            </motion.div>
-          </>
+          <motion.div
+            initial={{ y: animationMode, opacity: 0 }}
+            animate={{ y: animationMode, opacity: 1 }}
+            onClick={() => setAnimationMode(animationMode)}
+            transition={{ duration: 0.5, delay: 0.4 }}>
+            <div className={tweets ? styles.bgResponse : styles.bgLoader}>
+              <div className={styles.textResponse}>{searchResponse}</div>
+            </div>
+          </motion.div>
         ) : null}
       </div>
 
@@ -290,6 +310,8 @@ export default function Busca(props) {
           </motion.div>
         ) : null}
       </div>
+
+      <div id='sentinela'></div>
     </section>
   );
 }
