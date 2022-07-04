@@ -4,20 +4,23 @@ import Home from '../paginas/home/home';
 import Login from '../paginas/login/login';
 import Sobre from '../paginas/sobre/sobre';
 import Lista from '../paginas/lista/Lista';
-import PrivateRoute from './rotaPrivada';
+import { ProvedorDeAutenticacao } from '../providers/autenticar';
+import { ChecarLogin } from '../contexts/checarLogin';
+import { ExigirLogin } from '../contexts/exigirLogin';
+// import PrivateRoute from './rotaPrivada';
 
 const Rotas = () => {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route exact path='/sobre' element={<Sobre />} />
-        <Route exact path='/login' element={<Login />} />
-        <Route element={<PrivateRoute />}>
-          <Route exact path='/lista' element={<Lista />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <ProvedorDeAutenticacao>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='/sobre' element={<Sobre />} />
+          <Route exact path='/login' element={<ChecarLogin><Login /></ChecarLogin>} />
+            <Route exact path='/lista' element={<ExigirLogin><Lista /></ExigirLogin>} />
+        </Routes>
+      </BrowserRouter>
+    </ProvedorDeAutenticacao>
   );
 };
 export default Rotas;

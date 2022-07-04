@@ -73,7 +73,7 @@
   padding-top: 5px;
 }
 
-.messageError {
+#mensagemDeErro {
   color: red;
   padding-top: 5px;
 }
