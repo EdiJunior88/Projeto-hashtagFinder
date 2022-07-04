@@ -1,7 +1,6 @@
 .loader {
   text-align: center;
-  padding: 1em;
-  vertical-align: top;
+  padding: 10px;
   z-index: 10000;
 }
 
