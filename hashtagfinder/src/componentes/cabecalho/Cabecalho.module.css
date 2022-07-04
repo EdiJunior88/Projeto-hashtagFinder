@@ -2,6 +2,35 @@
   width: 100%;
 }
 
+/* Cabeçalho Ativo ao rolar o Scroll da página */
+.ativaCabecalho {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  position: fixed;
+  z-index: 10000;
+  width: 100%;
+  background-color: var(--cor-fundo-cabecalho);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.ativaCabecalho > .containerCabecalho {
+  padding: 0px;
+  justify-content: center;
+  width: 100%;
+  padding-top: 0px;
+  padding-bottom: 36px;
+}
+
+.ativaCabecalho span {
+  color: var(--cor-texto-logo);
+}
+
+/*----------------------------------------------*/
+
 .containerCabecalho {
   display: flex;
   justify-content: flex-start;

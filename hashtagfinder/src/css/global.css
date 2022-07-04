@@ -30,6 +30,10 @@ footer {
   --cor-botao-azul: #3633f7;
   --cor-texto-busca: #8d9da2;
 
+  /* CABEÇALHO Ativado */
+  --cor-fundo-cabecalho: rgba(255, 255, 255, 0.788);
+  --cor-texto-logo: #d842bd;
+
   /* Página HOME - GALERIA */
   --cor-fundo-botao-galeria: #fff;
   --cor-texto-descricao-galeria: #3634f7;
