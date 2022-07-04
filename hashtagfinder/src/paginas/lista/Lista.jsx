@@ -4,6 +4,7 @@ import styles2 from "../../componentes/cabecalho/Cabecalho.module.css";
 import BotaoHome from "../../componentes/botoes/botaoHome";
 import BotaoSair from "../../componentes/botoes/botaoSair";
 import { Link } from "react-router-dom";
+//import useEffect from "react";
 
 function Lista() {
   const lista = [
@@ -34,6 +35,64 @@ function Lista() {
     },
   ];
 
+  function buscas() {
+    fetch("https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas"),
+      {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer key2CwkHb0CKumjuM",
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          records: [
+            {
+              fields: {
+                Squad: "04-22",
+                Hashtag: "futebol",
+                Data: new Date().getTime(),
+              },
+            },
+          ],
+        }),
+      };
+  }
+
+  /*useEffect(() => {
+    fetch(
+      "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas?filterByFormula=" +
+        encodeURI("({Squad}='04-22')")
+    ),
+      {
+        headers: {
+          Authorization: "Bearer key2CwkHb0CKumjuM",
+        },
+      }
+        .then((resp) => resp.json())
+        .then((data) => {
+          console.log(data);
+        });
+  }, []);
+
+  fetch("https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas"),
+    {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer key2CwkHb0CKumjuM",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        records: [
+          {
+            fields: {
+              Squad: "04-22",
+              Hashtag: "futebol",
+              Data: new Date().getTime(),
+            },
+          },
+        ],
+      }),
+    };
+*/
   return (
     <div className={styles.fundo}>
       <header className={styles2.container}>
@@ -78,7 +137,5 @@ function Lista() {
     </div>
   );
 }
-
-// teste
 
 export default Lista;
