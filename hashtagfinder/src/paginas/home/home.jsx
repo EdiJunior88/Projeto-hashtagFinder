@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import Busca from '../../componentes/busca/busca';
-import Cabecalho from '../../componentes/cabecalho/cabecalho';
-import Descricao from '../../componentes/descricao/descricao';
-import Rodape from '../../componentes/rodape/rodape';
+import React, { useEffect, useState } from "react";
+import Busca from "../../componentes/busca/busca";
+import Cabecalho from "../../componentes/cabecalho/cabecalho";
+import Descricao from "../../componentes/descricao/descricao";
+import Rodape from "../../componentes/rodape/rodape";
 
-/* CSS */
-import styles from './Home.module.css';
-import '../../css/global.css';
+import styles from "./Home.module.css";
+import "../../css/global.css";
 
 export default function Home() {
   const [ativaNav, setAtivaNav] = useState(false);
@@ -20,14 +19,14 @@ export default function Home() {
         setAtivaNav(false);
       }
     }
-    window.addEventListener('scroll', posicaoScroll);
+    window.addEventListener("scroll", posicaoScroll);
   }, []);
 
   return (
     <div className={styles.home}>
       <Cabecalho acao={ativaNav} />
       <Descricao />
-      <Busca type='search' placeholder='Buscar...' maxLength={20} />
+      <Busca type="search" placeholder="Buscar..." maxLength={20} />
       <Rodape />
     </div>
   );
