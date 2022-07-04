@@ -7,7 +7,6 @@ import Lista from '../paginas/lista/Lista';
 import { ProvedorDeAutenticacao } from '../providers/autenticar';
 import { ChecarLogin } from '../contexts/checarLogin';
 import { ExigirLogin } from '../contexts/exigirLogin';
-// import PrivateRoute from './rotaPrivada';
 
 const Rotas = () => {
   return (
