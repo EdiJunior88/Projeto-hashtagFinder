@@ -24,9 +24,6 @@ export default function Busca(props) {
   const [resultsNumber, setResultsNumber] = useState(0);
   const [loading, setLoading] = useState(false);
   const [animationMode, setAnimationMode] = useState(0);
-  const [scrollTopButton, setTopButton] = useState(false);
-  const [ativaNav, setAtivaNav] = useState(false); //navbar effect
-  const [showScroll, setShowScroll] = useState(false);
 
   useEffect(() => {
     if (searchValue) {
@@ -62,8 +59,9 @@ export default function Busca(props) {
     return () => intersectionObserver.disconnect();
   }, []);
 
-  const handleValue = (e) => {
-    if (e.keyCode === 13) {
+  /* Campo Input Search */
+  const handleValue = (evento) => {
+    if (evento.keyCode === 13) {
       setSearchValue(
         e.target.value.replace(/[^a-zA-Z0-9_]/g, "").replace(" ", "")
       );
@@ -71,6 +69,7 @@ export default function Busca(props) {
       setSearchResponse(<Loader />);
       setResultsNumber(10);
       setMoreRequest(10);
+
 
       if (e.target.value === "") {
         setSearchResponse(
@@ -87,7 +86,7 @@ export default function Busca(props) {
       setResultsNumber(0);
     }
 
-    if (e.target.value.length >= 20) {
+    if (evento.target.value.length >= 20) {
       setSearchResponse(
         <div className={styles.textoErro}>Limite máximo de caracteres 🚫</div>
       );

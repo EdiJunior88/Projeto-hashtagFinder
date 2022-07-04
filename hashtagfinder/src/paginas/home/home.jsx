@@ -7,13 +7,13 @@ import Rodape from "../../componentes/rodape/rodape";
 import styles from "./Home.module.css";
 import "../../css/global.css";
 
-const Home = () => {
+export default function Home() {
   const [ativaNav, setAtivaNav] = useState(false);
 
   /* Ativa o cabeçalho após a posição vertical (y) 900 da página */
-  useEffect(() => {
+   useEffect(() => {
     function posicaoScroll() {
-      if (window.scrollY >= 100) {
+      if (window.scrollY >= 900) {
         setAtivaNav(true);
       } else {
         setAtivaNav(false);
@@ -31,5 +31,3 @@ const Home = () => {
     </div>
   );
 };
-
-export default Home;

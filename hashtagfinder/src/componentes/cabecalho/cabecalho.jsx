@@ -8,7 +8,7 @@ export default function Cabecalho({ acao }) {
  
 
   return (
-    <header className={acao ? `${styles.ativaCabecalho} ${styles.containerCabecalho}` : styles.container}>
+    <header className={acao ? styles.ativaCabecalho : styles.container}>
       <div className={styles.containerCabecalho}>
         <div className={styles.cabecalhoTitulo}>
           <Link
