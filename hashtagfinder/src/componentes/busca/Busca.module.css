@@ -93,9 +93,9 @@ section.container {
 /* MODAL */
 .modalContainer {
   background-color: #fff;
-  width: 45vw;
-  margin: 3.5vw auto 0 auto;
+  width: 65vw;
   height: 85vh;
+  margin: 3.5vw auto 0 auto;
   box-shadow: 0px 0px 27px -4px rgba(0, 0, 0, 0.78);
   border-radius: 1.25rem;
   position: absolute;
@@ -319,5 +319,10 @@ span {
     font-size: 1em;
     padding-top: 10px;
     text-shadow: var(--cor-sombra-texto-erro);
+  }
+
+  .modalData {
+    margin-left: 10px;
+    margin-bottom: 10px;
   }
 }
