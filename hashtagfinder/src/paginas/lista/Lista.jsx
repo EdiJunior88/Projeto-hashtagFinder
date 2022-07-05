@@ -4,75 +4,27 @@ import styles2 from "../../componentes/cabecalho/Cabecalho.module.css";
 import BotaoHome from "../../componentes/botoes/botaoHome";
 import BotaoSair from "../../componentes/botoes/botaoSair";
 import { Link } from "react-router-dom";
-//import useEffect from "react";
+import { useEffect, useState } from "react";
 
 function Lista() {
-  const lista = [
-    {
-      nome: "fulano de tal",
-      data: "20/06",
-      hora: "22:00",
-    },
-    {
-      nome: "fulano de tal 2",
-      data: "21/06",
-      hora: "21:00",
-    },
-    {
-      nome: "fulano de tal 3",
-      data: "22/06",
-      hora: "12:00",
-    },
-    {
-      nome: "fulano de tal 4",
-      data: "23/06",
-      hora: "16:30",
-    },
-    {
-      nome: "fulano de tal 5",
-      data: "24/06",
-      hora: "20:00",
-    },
-  ];
+  const [lista, setLista] = useState([]);
 
-  function buscas() {
-    fetch("https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas"),
-      {
-        method: "POST",
-        headers: {
-          Authorization: "Bearer key2CwkHb0CKumjuM",
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          records: [
-            {
-              fields: {
-                Squad: "04-22",
-                Hashtag: "futebol",
-                Data: new Date().getTime(),
-              },
-            },
-          ],
-        }),
-      };
-  }
-
-  /*useEffect(() => {
+  useEffect(() => {
     fetch(
       "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas?filterByFormula=" +
-        encodeURI("({Squad}='04-22')")
-    ),
+        encodeURI("({Squad}='1')"),
       {
         headers: {
           Authorization: "Bearer key2CwkHb0CKumjuM",
         },
       }
-        .then((resp) => resp.json())
-        .then((data) => {
-          console.log(data);
-        });
+    )
+      .then((response) => response.json())
+      .then((result) => setLista(result.records))
+      .catch((error) => console.log("error", error));
   }, []);
 
+  /*
   fetch("https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas"),
     {
       method: "POST",
@@ -93,6 +45,7 @@ function Lista() {
       }),
     };
 */
+
   return (
     <div className={styles.fundo}>
       <header className={styles2.container}>
@@ -125,11 +78,11 @@ function Lista() {
             <div>Hora</div>
           </div>
 
-          {lista.map((user) => (
-            <div className={`${styles.linha} ${styles.alinhamento}`}>
-              <div>{user.nome}</div>
-              <div>{user.data}</div>
-              <div>{user.hora}</div>
+          {lista.map((user, i) => (
+            <div className={`${styles.linha} ${styles.alinhamento}`} key={i}>
+              <div>{user.fields.Hashtag}</div>
+              <div>{user.fields.Data}</div>
+              <div>{user.fields.Data}</div>
             </div>
           ))}
         </div>
