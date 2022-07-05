@@ -66,9 +66,48 @@
   </tr>
 </table>
 
+<hr>
+
 <h3><strong>Site do Projeto</strong></h3>
 <a href="https://projeto-hashtagfinder.netlify.app/" target="_blank">https://projeto-hashtagfinder.netlify.app/</a>
 
 <br>
 
 <img src="https://api.netlify.com/api/v1/badges/1ad9f409-af75-439e-bd34-4e2bf0544843/deploy-status">
+
+<hr>
+
+<h3><strong>Integrantes do Projeto</strong></h3>
+
+<table>
+ <tr>
+    <td>
+      <img src="https://dl.airtable.com/.attachments/8d6df6871ce8aff8e4a8b6dab2b7f580/ae8639ac/AndersonNascimento.jpeg?ts=1657053334&userId=usrMzvhMTiIiHP8jY&cs=c09734a5a95ffe91" width="130px">
+      <p>Anderson Nascimento</p>
+    </td>
+    <td>
+      <img src="https://dl.airtable.com/.attachments/bea25623374b62cbf1a7906bd61efa84/1af4811e/edivaldo.jpeg?ts=1657053334&userId=usrMzvhMTiIiHP8jY&cs=ab15083fb1ab07c6" width="130px">
+      <p>Edivaldo Reis</p>
+    </td>
+     <td>
+      <img src="https://dl.airtable.com/.attachments/ffa98288523d65ee15bbc843b37848a0/0f8ab7f9/sarah.jpeg?ts=1657053334&userId=usrMzvhMTiIiHP8jY&cs=9c3122f535e2f59c" width="130px">
+      <p>Sarah Rúbia</p>
+    </td>
+    <td>
+      <img src="https://dl.airtable.com/.attachments/5d603ac2e4a7585731a3ad5350dae58d/adeb97d6/Washington.jpeg?ts=1657053334&userId=usrMzvhMTiIiHP8jY&cs=c8a71d3760b414a5" width="130px">
+      <p>Washington Santos</p>
+    </td>
+  </tr>
+</table>
+
+<hr>
+
+<h3><strong>Agradecimentos</strong></h3>
+
+<br>
+
+<p>Em especial a toda a comunidade NEWTAB ACADEMY por fazer parte da nossa formação e por estar sempre nos apoiando 📚</p>
+
+<p align="center">
+  <img src="https://www.newtab.academy/wp-content/uploads/2020/08/logo-colorido@2x.png" width="250px">
+</p>
