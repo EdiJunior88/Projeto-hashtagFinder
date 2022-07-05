@@ -4,9 +4,11 @@ import BotaoSobre from '../botoes/botaoSobre';
 import BotaoLogin from '../botoes/botaoLogin';
 import { Link } from 'react-router-dom';
 
-export default function Cabecalho() {
+export default function Cabecalho({ acao }) {
+ 
+
   return (
-    <header className={styles.container}>
+    <header className={acao ? styles.ativaCabecalho : styles.container}>
       <div className={styles.containerCabecalho}>
         <div className={styles.cabecalhoTitulo}>
           <Link

@@ -30,14 +30,22 @@ footer {
   --cor-botao-azul: #3633f7;
   --cor-texto-busca: #8d9da2;
 
+  /* CABEÇALHO Ativado */
+  --cor-fundo-cabecalho: rgba(255, 255, 255, 0.788);
+  --cor-texto-logo: #d842bd;
+
   /* Página HOME - GALERIA */
   --cor-fundo-botao-galeria: #fff;
   --cor-texto-descricao-galeria: #3634f7;
   --cor-sombra-galeria: #5538ee29;
+
+  /* Página HOME - Cartões TWITTER */
   --cor-borda-twitter: #5538ee24;
   --cor-sombra-twitter: #5538ee14;
   --cor-usuario-twitter: #292929;
   --cor-twitter-link: #3634f7;
+
+  /* Página HOME - RODAPÉ */
   --cor-fundo-rodape: #d842bd;
 
   /* Página Sobre */
