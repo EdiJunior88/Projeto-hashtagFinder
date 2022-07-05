@@ -38,3 +38,17 @@
     font-size: 0.9em;
   }
 }
+
+/* Responsividade - Tela 414 pixels */
+@media screen and (max-width: 414px) {
+  .botaoRosa button {
+    width: 80px;
+    height: 25px;
+    font-size: 0.6em;
+  }
+
+  .iconeRosa {
+    width: 26%;
+    padding-right: 8px;
+  }
+}
