@@ -19,34 +19,54 @@
     <td>
       <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
     </td>
-  <tr>
-
- <tr>
-   <td>
+     <td>
       <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
     </td>
     <td>
       <img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white">
     </td>
- </tr>
-
-<tr> 
-  <td>
-    <img src="https://img.shields.io/badge/Git-E34F26?style=for-the-badge&logo=git&logoColor=white">
-  </td>
-  <td>
-    <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white">
-  </td> 
-</tr>
-
-<tr>
-  <td>
-    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-  </td>
-</tr>
-  
-  
-  
-  
- 
+    <td>
+      <img src="https://img.shields.io/badge/Git-E34F26?style=for-the-badge&logo=git&logoColor=white">
+    </td>
+    <td>
+      <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white">
+    </td> 
+    <td>
+      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+    </td>
 </table>
+
+<hr>
+
+<h3><strong>Ferramentas Utilizadas</strong></h3>
+
+<table>
+  <tr>
+    <td>
+      <img src="https://badgen.net/npm/license/lodash">
+    </td>
+    <td>
+      <img src="https://badgen.net/npm/v/express">
+    </td>
+    <td>
+      <img src="https://badgen.net/npm/node/next">
+    </td>
+    <td>
+      <img src="https://badgen.net/badge/icon/visualstudio?icon=visualstudio&label">
+    </td>
+    <td>
+      <img src="https://badgen.net/badge/icon/git?icon=git&label">
+    </td>
+    <td>
+      <img src="https://badgen.net/badge/icon/twitter?icon=twitter&label">
+    </td>
+    <td>
+      <img src="https://badgen.net/badge/icon/github?icon=github&label">
+    </td>
+  </tr>
+</table>
+
+<h3><strong>Site do Projeto</strong></h3>
+<a href="https://projeto-hashtagfinder.netlify.app/" target="_blank">https://projeto-hashtagfinder.netlify.app/</a>
+
+<img src="https://api.netlify.com/api/v1/badges/1ad9f409-af75-439e-bd34-4e2bf0544843/deploy-status">
