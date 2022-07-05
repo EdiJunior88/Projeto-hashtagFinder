@@ -22,7 +22,7 @@ const Sobre = () => {
         headers: {
           Authorization: 'Bearer key2CwkHb0CKumjuM',
         },
-      },
+      }
     )
       .then((res) => res.json())
       .then((response) => {
@@ -37,7 +37,7 @@ const Sobre = () => {
         headers: {
           Authorization: 'Bearer key2CwkHb0CKumjuM',
         },
-      },
+      }
     )
       .then((res) => res.json())
       .then((response) => {
@@ -69,7 +69,7 @@ const Sobre = () => {
           </div>
 
           <div className={styles.blocoImagem}>
-            <img src={Figura} alt="illustration"></img>
+            <img src={Figura} alt='illustration'></img>
           </div>
         </section>
       </main>
@@ -77,65 +77,60 @@ const Sobre = () => {
       <section className={styles.quemSomos}>
         <div className={styles.subtitulo2}>
           <h2 className={styles.subtitulo2Texto}>Quem Somos</h2>
+        </div>
+      </section>
 
-          {equipe.map((info) => (
-            <div className={styles.container}>
-              <div className={styles.containerMembros}>
-                <div className={styles.containerCartaoMembros}>
-                  <img
-                    className={styles.membroFoto}
-                    src={info.fields.Imagem[0].url}
-                    alt=" "
-                  />
-                  <div className={styles.informacaoMembros}>
-                    <h3 className={styles.informacaoMembrosTitulo}>
-                      {info.fields.Nome}
-                    </h3>
-                    <p className={styles.informacaoMembrosTexto}>
-                      {info.fields.Descrição}
-                    </p>
-                  </div>
-                  <div className={styles.containerIcones}>
-                    <a
-                      href={info.fields.Github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src={IconeGitHub}
-                        alt="icone"
-                        className={styles.icones}
-                      />
-                    </a>
-                    <a
-                      href={info.fields.Email}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src={IconeEmail}
-                        alt="icone"
-                        className={styles.icones}
-                      />
-                    </a>
-                    <a
-                      href={info.fields.LinkedIn}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        src={IconeLikedIn}
-                        alt="icone"
-                        className={styles.icones}
-                      />
-                    </a>
-                  </div>
+      <div className={styles.containerGeral}>
+        {equipe.map((info, id) => (
+          <div className={styles.container} key={id}>
+            <div className={styles.containerMembros}>
+              <div className={styles.containerCartaoMembros}>
+                <img
+                  className={styles.membroFoto}
+                  src={info.fields.Imagem[0].url}
+                  alt=' '
+                />
+                <div className={styles.informacaoMembros}>
+                  <h3 className={styles.informacaoMembrosTitulo}>
+                    {info.fields.Nome}
+                  </h3>
+                  <p className={styles.informacaoMembrosTexto}>
+                    {info.fields.Descrição}
+                  </p>
+                </div>
+                <div className={styles.containerIcones}>
+                  <a
+                    href={info.fields.Github}
+                    target='_blank'
+                    rel='noreferrer'>
+                    <img
+                      src={IconeGitHub}
+                      alt='icone'
+                      className={styles.icones}
+                    />
+                  </a>
+                  <a
+                    href={info.fields.Email}
+                    target='_blank'
+                    rel='noreferrer'>
+                    <img src={IconeEmail} alt='icone' className={styles.icones} />
+                  </a>
+                  <a
+                    href={info.fields.LinkedIn}
+                    target='_blank'
+                    rel='noreferrer'>
+                    <img
+                      src={IconeLikedIn}
+                      alt='icone'
+                      className={styles.icones}
+                    />
+                  </a>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+        ))}
+      </div>
 
       <Rodape />
     </div>
