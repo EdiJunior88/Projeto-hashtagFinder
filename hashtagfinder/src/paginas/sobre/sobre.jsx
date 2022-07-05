@@ -1,14 +1,51 @@
 import React from 'react';
 import Cabecalho from '../../componentes/cabecalho/cabecalho';
 import Figura from '../../imagens/icones/about-illustration.svg';
-import Perfil from '../../imagens/foto-perfil/foto.jpg';
+// import Perfil from '../../imagens/foto-perfil/foto.jpg';
 import IconeGitHub from '../../imagens/icones/icon-github.svg';
 import IconeEmail from '../../imagens/icones/icon-envelope.svg';
 import IconeLikedIn from '../../imagens/icones/icon-linkedin.svg';
 import Rodape from '../../componentes/rodape/rodape';
 import styles from '../../paginas/sobre/Sobre.module.css';
+import { useState, useEffect } from 'react';
 
 const Sobre = () => {
+  const [txt, setTxt] = useState('');
+  const [equipe, setEquipe] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      'https://api.airtable.com/v0/app6wQWfM6eJngkD4/Projeto?filterByFormula=' +
+        encodeURI(`({Squad} = '04-22')`),
+      {
+        method: 'GET',
+        headers: {
+          Authorization: 'Bearer key2CwkHb0CKumjuM',
+        },
+      },
+    )
+      .then((res) => res.json())
+      .then((response) => {
+        setTxt(response.records[0].fields.Sobre);
+      })
+      .catch((erro) => console.log(erro));
+
+    fetch(
+      'https://api.airtable.com/v0/app6wQWfM6eJngkD4/Equipe?filterByFormula=' +
+        encodeURI(`({Squad} = '04-22')`),
+      {
+        headers: {
+          Authorization: 'Bearer key2CwkHb0CKumjuM',
+        },
+      },
+    )
+      .then((res) => res.json())
+      .then((response) => {
+        setEquipe(response.records);
+      })
+      .catch((erro) => console.log(erro));
+  }, []);
+
   return (
     <div className={styles.sobre}>
       <header className={styles.fundo}>
@@ -24,20 +61,15 @@ const Sobre = () => {
             <h2 className={styles.subtituloTexto}>O que é</h2>
 
             <div className={styles.blocoParagrafo}>
-              <p className={styles.blocoParagrafoTexto}>
-                Ao contrário da crença popular, o Lorem Ipsum não é simplesmente
-                texto aleatório. Tem raízes numa peça de literatura clássica em
-                Latim, de 45 AC, tornando-o com mais de 2000 anos. Richard
-                McClintock, um professor de Latim no Colégio Hampden-Sydney, na
-                Virgínia, procurou uma das palavras em Latim mais obscuras
-                (consectetur) numa passagem Lorem Ipsum, e atravessando as
-                cidades do mundo na literatura clássica, descobriu a sua origem.
-              </p>
+              <p
+                className={styles.blocoParagrafoTexto}
+                dangerouslySetInnerHTML={{ __html: txt }}
+              />
             </div>
           </div>
 
           <div className={styles.blocoImagem}>
-            <img src={Figura} alt='illustration'></img>
+            <img src={Figura} alt="illustration"></img>
           </div>
         </section>
       </main>
@@ -46,127 +78,62 @@ const Sobre = () => {
         <div className={styles.subtitulo2}>
           <h2 className={styles.subtitulo2Texto}>Quem Somos</h2>
 
-          <div className={styles.container}>
-            <div className={styles.containerMembros}>
-              <div className={styles.containerCartaoMembros}>
-                <img className={styles.membroFoto} src={Perfil} alt='foto' />
-                <div className={styles.informacaoMembros}>
-                  <h3 className={styles.informacaoMembrosTitulo}>
-                    Anderson Nascimento
-                  </h3>
-                  <p className={styles.informacaoMembrosTexto}>
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
-                    de impressão. O Lorem Ipsum tem vindo a ser o texto padrão
-                    usado por estas indústrias desde o ano de 1500.
-                  </p>
-                </div>
-                <div className={styles.containerIcones}>
+          {equipe.map((info) => (
+            <div className={styles.container}>
+              <div className={styles.containerMembros}>
+                <div className={styles.containerCartaoMembros}>
                   <img
-                    src={IconeGitHub}
-                    alt='icone'
-                    className={styles.icones}></img>
-                  <img
-                    src={IconeEmail}
-                    alt='icone'
-                    className={styles.icones}></img>
-                  <img
-                    src={IconeLikedIn}
-                    alt='icone'
-                    className={styles.icones}></img>
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.containerMembros}>
-              <div className={styles.containerCartaoMembros}>
-                <img className={styles.membroFoto} src={Perfil} alt='foto' />
-                <div className={styles.informacaoMembros}>
-                  <h3 className={styles.informacaoMembrosTitulo}>
-                    Edivaldo Reis
-                  </h3>
-                  <p className={styles.informacaoMembrosTexto}>
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
-                    de impressão. O Lorem Ipsum tem vindo a ser o texto padrão
-                    usado por estas indústrias desde o ano de 1500.
-                  </p>
-                </div>
-                <div className={styles.containerIcones}>
-                  <img
-                    src={IconeGitHub}
-                    alt='icone'
-                    className={styles.icones}></img>
-                  <img
-                    src={IconeEmail}
-                    alt='icone'
-                    className={styles.icones}></img>
-                  <img
-                    src={IconeLikedIn}
-                    alt='icone'
-                    className={styles.icones}></img>
+                    className={styles.membroFoto}
+                    src={info.fields.Imagem[0].url}
+                    alt=" "
+                  />
+                  <div className={styles.informacaoMembros}>
+                    <h3 className={styles.informacaoMembrosTitulo}>
+                      {info.fields.Nome}
+                    </h3>
+                    <p className={styles.informacaoMembrosTexto}>
+                      {info.fields.Descrição}
+                    </p>
+                  </div>
+                  <div className={styles.containerIcones}>
+                    <a
+                      href={info.fields.Github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={IconeGitHub}
+                        alt="icone"
+                        className={styles.icones}
+                      />
+                    </a>
+                    <a
+                      href={info.fields.Email}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={IconeEmail}
+                        alt="icone"
+                        className={styles.icones}
+                      />
+                    </a>
+                    <a
+                      href={info.fields.LinkedIn}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={IconeLikedIn}
+                        alt="icone"
+                        className={styles.icones}
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <div className={styles.containerMembros}>
-              <div className={styles.containerCartaoMembros}>
-                <img className={styles.membroFoto} src={Perfil} alt='foto' />
-                <div className={styles.informacaoMembros}>
-                  <h3 className={styles.informacaoMembrosTitulo}>
-                    Washington Luiz
-                  </h3>
-                  <p className={styles.informacaoMembrosTexto}>
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
-                    de impressão. O Lorem Ipsum tem vindo a ser o texto padrão
-                    usado por estas indústrias desde o ano de 1500.
-                  </p>
-                </div>
-                <div className={styles.containerIcones}>
-                  <img
-                    src={IconeGitHub}
-                    alt='icone'
-                    className={styles.icones}></img>
-                  <img
-                    src={IconeEmail}
-                    alt='icone'
-                    className={styles.icones}></img>
-                  <img
-                    src={IconeLikedIn}
-                    alt='icone'
-                    className={styles.icones}></img>
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.containerMembros}>
-              <div className={styles.containerCartaoMembros}>
-                <img className={styles.membroFoto} src={Perfil} alt='foto' />
-                <div className={styles.informacaoMembros}>
-                  <h3 className={styles.informacaoMembrosTitulo}>
-                    Sarah Rúbia
-                  </h3>
-                  <p className={styles.informacaoMembrosTexto}>
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
-                    de impressão. O Lorem Ipsum tem vindo a ser o texto padrão
-                    usado por estas indústrias desde o ano de 1500.
-                  </p>
-                </div>
-                <div className={styles.containerIcones}>
-                  <img
-                    src={IconeGitHub}
-                    alt='icone'
-                    className={styles.icones}></img>
-                  <img
-                    src={IconeEmail}
-                    alt='icone'
-                    className={styles.icones}></img>
-                  <img
-                    src={IconeLikedIn}
-                    alt='icone'
-                    className={styles.icones}></img>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
