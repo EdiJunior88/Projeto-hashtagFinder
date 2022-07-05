@@ -7,11 +7,12 @@
   position: fixed;
   z-index: 200;
   width: 100%;
+  top: 0px;
+  padding: 12px 64px;
   background-color: var(--cor-fundo-cabecalho);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   transition: background 0.5s ease-in-out;
-  padding: 12px 64px;
 }
 
 .ativaCabecalho .containerCabecalho {

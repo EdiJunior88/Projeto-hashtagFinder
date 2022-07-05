@@ -44,6 +44,7 @@
   font-size: 1.56em;
   line-height: 1.5em;
   text-indent: 1.5em;
+  text-align: justify;
 }
 
 .quemSomos {
@@ -84,10 +85,11 @@
   align-content: center;
   justify-content: center;
   gap: 45px;
+  width: 358px;
 }
 
 .containerMembros {
-  width: 358px;
+  width: 100%;
   height: auto;
   border: 1px solid var(--cor-borda-cartao-membro);
   box-shadow: 0px 5px 10px var(--cor-sombra-cartao-membro);
@@ -135,16 +137,37 @@
   cursor: pointer;
 }
 
-/* Responsividade - Tela entre 650 a 1100 pixels */
-@media screen and (min-width: 650px) and (max-width: 1100px) {
-  .container {
-    gap: 20px 45px;
+/* Responsividade - Tela de 720 pixels */
+@media screen and (max-width: 720px) {
+  .fundo {
+    height: 352px;
   }
 
-  .containerMembros {
-    width: 36.4%;
+  .titulo {
+    /* margin-top: 100px; */
+    margin-bottom: 45px;
+  }
+
+  .tituloTexto {
+    font-size: 3em;
+    text-align: center;
+    margin: 0px;
+  }
+
+  .subtitulo2Texto {
+    margin-left: 54px;
   }
 }
+
+
+/* Responsividade - Tela entre 350 a 1440 pixels */
+@media screen and (min-width: 350px) and (max-width: 1440px) {
+  .artigo {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 
 /* Responsividade - Tela entre 350 a 650 pixels */
 @media screen and (min-width: 350px) and (max-width: 650px) {
@@ -175,12 +198,12 @@
   }
 
   .subtituloTexto {
-    font-size: 1.37em;
+    font-size: 1.5em;
   }
 
   .subtitulo2Texto {
     color: blue;
-    font-size: 1.37em;
+    font-size: 1.5em;
     margin-bottom: 46px;
     margin-left: 36px;
   }
@@ -189,7 +212,20 @@
     margin-top: 112px;
   }
 
-  .containerMembros {
-    width: 90%;
+  .membroFoto {
+    width: 182px;
+    height: 182px;
+  }
+
+  .informacaoMembrosTitulo {
+    font-size: 1.85em;
+  }
+
+  .informacaoMembrosTexto {
+    font-size: 1.18em;
+  }
+
+  .containerIcones img {
+    padding: 0px 15px;
   }
 }
