@@ -10,16 +10,6 @@ import { ExigirLogin } from '../contexts/exigirLogin';
 
 const Rotas = () => {
   return (
-<<<<<<< HEAD
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/sobre" element={<Sobre />} />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/lista" element={<Lista />} />
-      </Routes>
-    </BrowserRouter>
-=======
     <ProvedorDeAutenticacao>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
@@ -30,7 +20,6 @@ const Rotas = () => {
         </Routes>
       </BrowserRouter>
     </ProvedorDeAutenticacao>
->>>>>>> fe496d964e5956b9744ac1ecf82299bdb09993fe
   );
 };
 export default Rotas;
