@@ -17,7 +17,7 @@
 .ativaCabecalho .containerCabecalho {
   padding: 0px;
   justify-content: center;
-  width: 100%;
+/*   width: 100%; */
 }
 
 .ativaCabecalho span {
