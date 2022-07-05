@@ -39,6 +39,16 @@ footer {
   --cor-texto-descricao-galeria: #3634f7;
   --cor-sombra-galeria: #5538ee29;
 
+  /* Página HOME - GALERIA (Links Usuários) */
+  --cor-fundo-galeria-link-usuário: rgba(0, 0, 0, 0.616);
+
+  /* Página HOME - GALERIA (Modal - Janela) */
+  --cor-fundo-galeria-modal: rgba(0, 0, 0, 0.616);
+  --cor-fundo-galeria-modal-botao-x: rgba(0, 0, 0, 0.616);
+
+  /* Página HOME - GALERIA (Setas Scroll) */
+  --cor-fundo-galeria-setas: #FFF;
+
   /* Página HOME - Cartões TWITTER */
   --cor-borda-twitter: #5538ee24;
   --cor-sombra-twitter: #5538ee14;
