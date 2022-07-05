@@ -69,4 +69,6 @@
 <h3><strong>Site do Projeto</strong></h3>
 <a href="https://projeto-hashtagfinder.netlify.app/" target="_blank">https://projeto-hashtagfinder.netlify.app/</a>
 
+<br>
+
 <img src="https://api.netlify.com/api/v1/badges/1ad9f409-af75-439e-bd34-4e2bf0544843/deploy-status">
