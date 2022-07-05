@@ -77,7 +77,7 @@
   padding-right: 14px;
 }
 
-/* Responsividade - Tela entre 415 a 769 pixels */
+/* Responsividade - Tela entre 415 a 720 pixels */
 @media screen and (min-width: 415px) and (max-width: 720px) {
   .containerCabecalho {
     padding: 36px 16px 0px 16px;
@@ -90,6 +90,11 @@
 
 /* Responsividade - Tela 414 pixels */
 @media screen and (max-width: 414px) {
+  .ativaCabecalho {
+    top: 0px;
+    padding: 12px 20px;
+  }
+
   .containerCabecalho {
     padding: 37px 16px 0px 16px;
   }

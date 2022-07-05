@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 export default function Cabecalho({ acao }) {
  
-
   return (
     <header className={acao ? styles.ativaCabecalho : styles.container}>
       <div className={styles.containerCabecalho}>

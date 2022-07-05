@@ -1,9 +1,5 @@
 @import url(../../css/global.css);
 
-/* .botaoAzul {
-  margin-right: 16px;
-} */
-
 .botaoAzul button {
   display: flex;
   flex-direction: row;
@@ -36,5 +32,19 @@
     width: 130px;
     height: 49px;
     font-size: 0.9em;
+  }
+}
+
+/* Responsividade - Tela 414 pixels */
+@media screen and (max-width: 414px) {
+  .botaoAzul button {
+    width: 80px;
+    height: 25px;
+    font-size: 0.6em;
+  }
+
+  .iconeAzul {
+    width: 26%;
+    padding-right: 8px;
   }
 }
