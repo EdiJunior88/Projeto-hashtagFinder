@@ -82,12 +82,16 @@ section.container {
 
 .textoErro {
   display: flex;
-  color: blue;
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: center;
   color: blue;
   font-size: 1.5em;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+
 }
 
 /* MODAL */
@@ -317,7 +321,6 @@ span {
   .textoErro {
     font-weight: 400;
     font-size: 1em;
-    padding-top: 10px;
     text-shadow: var(--cor-sombra-texto-erro);
   }
 

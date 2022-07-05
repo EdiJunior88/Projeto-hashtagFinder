@@ -37,6 +37,9 @@ export default function Busca(props) {
     }
   });
 
+  /* função callback intersectionObserver para observar e disparar um evento */
+  /* semelhante ao evento addEventListener */
+  /* Fica observando o scroll da página até chegar no id="sentinela" */
   useEffect(() => {
     const intersectionObserver = new IntersectionObserver((entradas) => {
       if (entradas.some((scroll) => scroll.isIntersecting)) {
@@ -50,7 +53,7 @@ export default function Busca(props) {
         }
         setTimeout(() => setLoading(false), 2000);
         setTimeout(() => fetchMoreData(), 1500);
-      } else if (entradas.some((scroll) => scroll.isVisible === false)) {
+      } else if (entradas.some((scroll) => scroll.isVisible == false)) {
         setLoading(false);
         console.log('Elemento está invisível', entradas);
       }
