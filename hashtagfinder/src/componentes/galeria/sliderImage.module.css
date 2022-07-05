@@ -28,8 +28,40 @@ padding-bottom: 6px;
 
 .bgPostUser a{
 color: var(--titleOneColor);
+text-decoration: none;
 }
 
 .bgImageGallery:hover .bgPostUser a {
   color: var(--button-color);
+}
+
+@media screen and (max-width: 480px) {
+  .bgImageGallery img{
+    width: 160px;
+  }
+
+  .bgImageGallery p {
+    padding-top: 0;
+  }
+
+  .bgImageGallery span {
+    padding-top: 200px;
+    font-size: 13px;
+  }
+  .bgMain{
+    margin-top: 0;
+  }
+  .bgDisplaySearch{
+    margin: 54px 36px;
+  }
+  .bgMain h2{
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .bgPostUser{
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 12.5px;
+  }
 }

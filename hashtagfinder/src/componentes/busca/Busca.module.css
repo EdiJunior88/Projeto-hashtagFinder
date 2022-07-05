@@ -246,6 +246,14 @@ span {
 }
 
 /* Responsividade - Tela entre 415 a 732 pixels */
+@media screen and (min-width: 350px) and (max-width: 479px) {
+  .containerTwitterCartao {
+    display: flex;
+    margin: 0px 30px;
+  }
+}
+
+/* Responsividade - Tela entre 415 a 732 pixels */
 @media screen and (min-width: 415px) and (max-width: 732px) {
   section.container {
     margin-top: 72px;

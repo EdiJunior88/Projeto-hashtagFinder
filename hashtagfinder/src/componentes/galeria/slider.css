@@ -55,6 +55,7 @@
      width: max-content;
    }
 }
+
 @media screen and (max-width: 1112px) {
   .swiper{
     margin-left: 50px;
@@ -72,10 +73,9 @@
   }
 }
 
-
 @media screen and (max-width: 480px) {
- 
   .swiper{
+    padding-bottom: 56px;
     margin-left: 25px;
     margin-right: 25px;
    }
