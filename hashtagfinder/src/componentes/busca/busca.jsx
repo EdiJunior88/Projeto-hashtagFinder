@@ -62,6 +62,20 @@ export default function Busca(props) {
     return () => intersectionObserver.disconnect();
   }, []);
 
+   /* Desativa o loading após a posição vertical (y) for menor ou igual a 1000px da página */
+   useEffect(() => {
+    function posicaoScrollLoading() {
+      if (window.scrollY <= 1000) {
+        setLoading(false);
+        console.log('loading desativado');
+      } else {
+        setLoading(true);
+        console.log('loading ativado');
+      }
+    }
+    window.addEventListener("scroll", posicaoScrollLoading);
+  }, []);
+
   /* Campo Input Search */
   const handleValue = (e) => {
     if (e.keyCode === 13) {
@@ -288,10 +302,10 @@ export default function Busca(props) {
       <div className={styles.container}>
         {searchResponse ? (
           <motion.div
-            initial={{ y: animationMode, opacity: 0 }}
+            initial={{ y: animationMode, opacity: 1 }}
             animate={{ y: animationMode, opacity: 1 }}
             onClick={() => setAnimationMode(animationMode)}
-            transition={{ duration: 0.5, delay: 0.4 }}>
+            transition={{ duration: 1, delay: 0.4 }}>
             <div className={tweets ? styles.bgResponse : styles.bgLoader}>
               <div className={styles.textResponse}>{searchResponse}</div>
             </div>
@@ -302,10 +316,10 @@ export default function Busca(props) {
       <div className={styles.container}>
         {loading ? (
           <motion.div
-            initial={{ y: animationMode, opacity: 1 }}
-            animate={{ y: animationMode, opacity: 0 }}
+            initial={{ y: animationMode, opacity: 0 }}
+            animate={{ y: animationMode, opacity: 1 }}
             onClick={() => setAnimationMode(animationMode)}
-            transition={{ duration: 0.7, delay: 0.4 }}
+            transition={{ duration: 1, delay: 0.4 }}
             className={styles.bgLoader}>
             <Loader />
           </motion.div>
