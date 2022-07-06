@@ -101,7 +101,7 @@ export default function Formulario() {
               name="email"
               onChange={(e) => {
                 formik.handleChange(e);
-                handleChangeWhiteSpace();
+                handleChangeWhiteSpace(e);
               }}
               onKeyDown={handleKeyDown}
               onBlur={formik.handleBlur}
