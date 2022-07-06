@@ -106,7 +106,7 @@
 
 <br>
 
-<p>Em especial a toda a comunidade NEWTAB ACADEMY por fazer parte da nossa formação e por estar sempre nos apoiando 📚</p>
+<p>Em especial a toda a comunidade newtab academy por fazer parte da nossa formação e por estar sempre nos apoiando 📚</p>
 
 <p align="center">
   <img src="https://www.newtab.academy/wp-content/uploads/2020/08/logo-colorido@2x.png" width="250px">
