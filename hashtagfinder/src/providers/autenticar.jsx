@@ -19,7 +19,7 @@ export const ProvedorDeAutenticacao = ({ children }) => {
 
   return (
     <ContextoDeAutenticacao.Provider value={{ estaLogado, login, logout }}>
-      { children }
+      {children}
     </ContextoDeAutenticacao.Provider>
   );
 };
