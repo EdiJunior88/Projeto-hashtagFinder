@@ -8,6 +8,8 @@
   z-index: 200;
   width: 100%;
   top: 0;
+  -webkit-animation: text-focus-in 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation: text-focus-in 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .ativaCabecalho .containerCabecalho {
@@ -16,11 +18,38 @@
   background-color: var(--cor-fundo-cabecalho);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
-  transition: background 0.5s ease-in-out;
 }
 
 .ativaCabecalho span {
   color: var(--cor-texto-logo);
+}
+
+/* Animação text-focus-in do CABECALHO */
+/* https://animista.net/play/text/focus-in/text-focus-in */
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
 }
 
 /*----------------------------------------------*/
