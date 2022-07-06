@@ -7,18 +7,16 @@
   position: fixed;
   z-index: 200;
   width: 100%;
-  top: 0px;
-  padding: 12px 64px;
+  top: 0;
+}
+
+.ativaCabecalho .containerCabecalho {
+  padding: 36px 64px;
+  justify-content: center;
   background-color: var(--cor-fundo-cabecalho);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   transition: background 0.5s ease-in-out;
-}
-
-.ativaCabecalho .containerCabecalho {
-  padding: 0px;
-  justify-content: center;
-/*   width: 100%; */
 }
 
 .ativaCabecalho span {
@@ -28,12 +26,14 @@
 /*----------------------------------------------*/
 
 .containerCabecalho {
+  position: absolute;
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
   padding: 36px 64px 0px 64px;
+  width: 100%;
 }
 
 .containerCabecalhoBotoes {

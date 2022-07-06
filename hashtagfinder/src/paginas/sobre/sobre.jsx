@@ -68,8 +68,8 @@ const Sobre = () => {
 
   return (
     <div className={styles.sobre}>
-      <header className={styles.fundo}>
         <Cabecalho acao={ativaNav} />
+      <header className={styles.fundo}>
         <div className={styles.titulo}>
           <h1 className={styles.tituloTexto}>Sobre o projeto</h1>
         </div>
