@@ -1,6 +1,6 @@
 .titulo {
-  margin-top: 150px;
-  margin-bottom: 75px;
+  margin-top: 185px;
+  margin-bottom: 50px;
 }
 
 .fundo {
@@ -28,11 +28,11 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: stretch;
   margin: 154px auto auto;
   gap: 50px;
-  width: 85%;
+  width: 87%;
 }
 
 .subtitulo {
@@ -56,7 +56,7 @@
   font-size: 2.75em;
   font-weight: bold;
   margin-bottom: 66px;
-  margin-left: 134px;
+  margin-left: 136px;
 }
 
 .blocoImagem {
@@ -73,9 +73,10 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: flex-start;
-  gap: 50px;
+  /* gap: 50px; */
+  margin-bottom: 180px;
 }
 
 .container {
@@ -84,13 +85,17 @@
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  gap: 45px;
-  width: 358px;
+  /* gap: 45px; */
+  width: 420px;
 }
 
 .containerMembros {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
   width: 100%;
-  height: auto;
+  min-height: 581px;
+  /* height: auto; */
   border: 1px solid var(--cor-borda-cartao-membro);
   box-shadow: 0px 5px 10px var(--cor-sombra-cartao-membro);
   border-radius: 10px;
@@ -101,7 +106,7 @@
   flex-direction: column;
   align-items: center;
   align-content: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   padding: 40px;
 }
@@ -111,6 +116,12 @@
   height: 203px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.informacaoMembros {
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
 }
 
 .informacaoMembrosTitulo {
@@ -129,6 +140,9 @@
 }
 
 .containerIcones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 28px;
 }
 
@@ -159,7 +173,6 @@
   }
 }
 
-
 /* Responsividade - Tela entre 350 a 1440 pixels */
 @media screen and (min-width: 350px) and (max-width: 1440px) {
   .artigo {
@@ -167,7 +180,6 @@
     align-items: center;
   }
 }
-
 
 /* Responsividade - Tela entre 350 a 650 pixels */
 @media screen and (min-width: 350px) and (max-width: 650px) {

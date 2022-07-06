@@ -15,6 +15,10 @@ const Sobre = () => {
   const [equipe, setEquipe] = useState([]);
   const [ativaNav, setAtivaNav] = useState(false);
 
+  useEffect(() => {
+    document.title = 'hashtagfinder | Sobre';
+  }, []);
+
   /* Utilizando a API AirTable */
   useEffect(() => {
     fetch(
@@ -25,7 +29,7 @@ const Sobre = () => {
         headers: {
           Authorization: 'Bearer key2CwkHb0CKumjuM',
         },
-      }
+      },
     )
       .then((res) => res.json())
       .then((response) => {
@@ -41,7 +45,7 @@ const Sobre = () => {
         headers: {
           Authorization: 'Bearer key2CwkHb0CKumjuM',
         },
-      }
+      },
     )
       .then((res) => res.json())
       .then((response) => {
@@ -86,13 +90,14 @@ const Sobre = () => {
           <div className={styles.blocoImagem}>
             <img
               src={Figura}
-              alt='Imagem duas pessoas em um quadro com projeto'></img>
+              alt="Imagem duas pessoas em um quadro com projeto"
+            ></img>
           </div>
         </section>
       </main>
       <section className={styles.quemSomos}>
         <div className={styles.subtitulo2}>
-          <h2 className={styles.subtitulo2Texto}>Quem Somos</h2>
+          <h2 className={styles.subtitulo2Texto}>Quem somos</h2>
         </div>
       </section>
       /* Geração dos cartões dos membros através do AirTable (API) */
@@ -104,7 +109,7 @@ const Sobre = () => {
                 <img
                   className={styles.membroFoto}
                   src={informacao.fields.Imagem[0].url}
-                  alt=' '
+                  alt=" "
                 />
                 <div className={styles.informacaoMembros}>
                   <h3 className={styles.informacaoMembrosTitulo}>
@@ -117,35 +122,38 @@ const Sobre = () => {
                 <div className={styles.containerIcones}>
                   <a
                     href={informacao.fields.Github}
-                    target='_blank'
-                    rel='noreferrer'>
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img
                       src={IconeGitHub}
-                      alt='icone'
+                      alt="icone"
                       className={styles.icones}
-                      title='Github'
+                      title="Github"
                     />
                   </a>
                   <a
                     href={informacao.fields.Email}
-                    target='_blank'
-                    rel='noreferrer'>
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img
                       src={IconeEmail}
-                      alt='icone'
+                      alt="icone"
                       className={styles.icones}
-                      title='Email'
+                      title="Email"
                     />
                   </a>
                   <a
                     href={informacao.fields.LinkedIn}
-                    target='_blank'
-                    rel='noreferrer'>
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img
                       src={IconeLikedIn}
-                      alt='icone'
+                      alt="icone"
                       className={styles.icones}
-                      title='LinkedIn'
+                      title="LinkedIn"
                     />
                   </a>
                 </div>
