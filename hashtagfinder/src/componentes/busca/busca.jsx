@@ -313,12 +313,7 @@ export default function Busca(props) {
             initial={{ y: animationMode, opacity: 1 }}
             animate={{ y: animationMode, opacity: 1 }}
             onClick={() => setAnimationMode(animationMode)}
-<<<<<<< HEAD
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-=======
             transition={{ duration: 1, delay: 0.4 }}>
->>>>>>> a7a2455bdedaa810dfffb89bfdc0aeb9b6013c05
             <div className={tweets ? styles.bgResponse : styles.bgLoader}>
               <div className={styles.textResponse}>{searchResponse}</div>
             </div>
@@ -332,14 +327,8 @@ export default function Busca(props) {
             initial={{ y: animationMode, opacity: 0 }}
             animate={{ y: animationMode, opacity: 1 }}
             onClick={() => setAnimationMode(animationMode)}
-<<<<<<< HEAD
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className={styles.bgLoader}
-          >
-=======
             transition={{ duration: 1, delay: 0.4 }}
             className={styles.bgLoader}>
->>>>>>> a7a2455bdedaa810dfffb89bfdc0aeb9b6013c05
             <Loader />
           </motion.div>
         ) : null}
