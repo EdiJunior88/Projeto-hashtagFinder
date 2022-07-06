@@ -10,6 +10,11 @@ import "../../css/global.css";
 export default function Home() {
   const [ativaNav, setAtivaNav] = useState(false);
 
+  /* Altera o título da aba da página */
+  useEffect(() => {
+    document.title = "hashtagfinder | Home";
+  }, [])
+
   /* Ativa o cabeçalho após a posição vertical (y) 900 da página */
    useEffect(() => {
     function posicaoScroll() {

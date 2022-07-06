@@ -53,7 +53,7 @@ export default function Busca(props) {
         }
         setTimeout(() => setLoading(false), 2000);
         setTimeout(() => fetchMoreData(), 1500);
-      } else if (entradas.some((scroll) => scroll.isVisible == false)) {
+      } else if (entradas.some((scroll) => scroll.isVisible === false)) {
         setLoading(false);
         console.log('Elemento está invisível', entradas);
       }
