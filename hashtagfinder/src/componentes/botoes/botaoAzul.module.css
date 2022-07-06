@@ -23,13 +23,13 @@
 }
 
 /* Responsividade - Tela 720 pixels */
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 721px) {
   .iconeAzul {
     width: 22%;
   }
 
   .botaoAzul button {
-    width: 130px;
+    width: 170px;
     height: 49px;
     font-size: 0.9em;
   }
