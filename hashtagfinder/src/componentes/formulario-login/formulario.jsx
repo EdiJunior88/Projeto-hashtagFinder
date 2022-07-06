@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../css/reset.css";
 import styles from "../../componentes/formulario-login/formulario.module.css";
 import * as yup from "yup";
@@ -9,6 +9,11 @@ import { useNavigate } from "react-router-dom";
 export default function Formulario() {
   const autenticacao = UsarAutenticacao();
   const navegacao = useNavigate();
+  const [dadosInvalidos, setDadosInvalidos] = useState("");
+
+  useEffect(() => {
+    document.title = "hashtagfinder | Login";
+  }, []);
 
   //  Validação e-mail e senha com yup e formik
 
@@ -36,10 +41,9 @@ export default function Formulario() {
 
     onSubmit: (values) => {
       // Inserção dos dados da API do Airtable para checagem dos dados do usuario
-
       fetch(
         "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Login?filterByFormula=AND" +
-          encodeURI`({Squad} = '04-22', {Email} = 'usuario@newtab.academy', {Senha} = 'S3nh4123!')`,
+          encodeURI`({Squad} = '04-22')`,
         {
           method: "GET",
           headers: {
@@ -57,62 +61,82 @@ export default function Formulario() {
               autenticacao.login(true);
               navegacao("/lista", { replace: true });
             }
-            return null;
+            return setDadosInvalidos(
+              "Usuário e/ou senha inválidos! Verifique seus dados e tente novamente."
+            );
           });
-          // Inserção de mensagem de erro se os dados não corresponderem - VERIFICAR
         });
     },
   });
 
-  return (
-    <>
-      <div className={styles.containerFormulario}>
-        <div className={styles.formulario}>
-          <h1 className={styles.formularioTitulo}>Login</h1>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              formik.handleSubmit(e);
-            }}
-            className="formulario"
-          >
-            <div className={styles.formularioUsuario}>
-              <label htmlFor="email">Usuário</label>
-              <input
-                type="text"
-                id="email"
-                name="email"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.email}
-              />
-            </div>
-            {formik.touched.email && formik.errors.email ? (
-              <div className={styles.mensagemErro}>{formik.errors.email}</div>
-            ) : null}
+  // Removendo espaços em branco no campo e-mail
 
-            <div className={styles.formularioSenha}>
-              <label htmlFor="senha">Senha</label>
-              <input
-                type="password"
-                id="senha"
-                name="senha"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.senha}
-              />
-            </div>
-            {formik.touched.senha && formik.errors.senha ? (
-              <div className={styles.mensagemErro}>{formik.errors.senha}</div>
-            ) : null}
-            <div className={styles.formularioBotaoDiv}>
-              <button type="submit" className={styles.formularioBotaoAcessar}>
-                Acessar
-              </button>
-            </div>
-          </form>
-        </div>
+  const handleKeyDown = (e) => {
+    if (e.key === " ") {
+      e.preventDefault();
+    }
+  };
+  const handleChangeWhiteSpace = (e) => {
+    e.target.value = e.target.value.trim();
+  };
+
+  return (
+    <div className={styles.containerFormulario}>
+      <div className={styles.formulario}>
+        <h1 className={styles.formularioTitulo}>Login</h1>
+        {/* Formulário */}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            formik.handleSubmit(e);
+          }}
+          className="formulario"
+        >
+          {/* Campo de usuário/e-mail */}
+          <div className={styles.formularioUsuario}>
+            <label htmlFor="email">Usuário</label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              onChange={(e) => {
+                formik.handleChange(e);
+                handleChangeWhiteSpace();
+              }}
+              onKeyDown={handleKeyDown}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+            />
+          </div>
+          {formik.touched.email && formik.errors.email ? (
+            <div className={styles.mensagemErro}>{formik.errors.email}</div>
+          ) : null}
+          {/* Campo de senha */}
+          <div className={styles.formularioSenha}>
+            <label htmlFor="senha">Senha</label>
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.senha}
+            />
+          </div>
+          {formik.touched.senha && formik.errors.senha ? (
+            <div className={styles.mensagemErro}>{formik.errors.senha}</div>
+          ) : null}
+          <div className={styles.mensagemDeErro} id="messagemDeErro">
+            {dadosInvalidos}
+          </div>
+          {/* Botão de acesso */}
+          <div className={styles.formularioBotaoDiv}>
+            <button type="submit" className={styles.formularioBotaoAcessar}>
+              Acessar
+            </button>
+          </div>
+        </form>
       </div>
-    </>
+    </div>
   );
 }
