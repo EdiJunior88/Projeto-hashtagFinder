@@ -5,6 +5,7 @@ import BotaoHome from "../../componentes/botoes/botaoHome";
 import BotaoSair from "../../componentes/botoes/botaoSair";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import BuscaPost from "../../componentes/buscaPost/buscaPost";
 
 function Lista() {
   const [lista, setLista] = useState([]);
@@ -12,7 +13,7 @@ function Lista() {
   useEffect(() => {
     fetch(
       "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas?filterByFormula=" +
-        encodeURI("({Squad}='1')"),
+        encodeURI("({Squad}='04-22')"),
       {
         headers: {
           Authorization: "Bearer key2CwkHb0CKumjuM",
@@ -23,28 +24,6 @@ function Lista() {
       .then((result) => setLista(result.records))
       .catch((error) => console.log("error", error));
   }, []);
-
-  /*
-  fetch("https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas"),
-    {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer key2CwkHb0CKumjuM",
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        records: [
-          {
-            fields: {
-              Squad: "04-22",
-              Hashtag: "futebol",
-              Data: new Date().getTime(),
-            },
-          },
-        ],
-      }),
-    };
-*/
 
   return (
     <div className={styles.fundo}>
@@ -86,6 +65,8 @@ function Lista() {
             </div>
           ))}
         </div>
+
+        <BuscaPost valor="teste 2" />
       </Container>
     </div>
   );
