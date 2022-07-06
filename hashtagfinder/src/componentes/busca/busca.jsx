@@ -37,6 +37,9 @@ export default function Busca(props) {
     }
   });
 
+  /* função callback intersectionObserver para observar e disparar um evento */
+  /* semelhante ao evento addEventListener */
+  /* Fica observando o scroll da página até chegar no id="sentinela" */
   useEffect(() => {
     const intersectionObserver = new IntersectionObserver((entradas) => {
       if (entradas.some((scroll) => scroll.isIntersecting)) {
