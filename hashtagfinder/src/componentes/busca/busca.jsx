@@ -12,7 +12,6 @@ import { motion } from "framer-motion";
 import { Slider, Slide } from "../../componentes/galeria/ExportPattern";
 import { settingSlider } from "../../componentes/galeria/settings";
 import styles2 from "../../componentes/galeria/sliderImage.module.css";
-import BuscaPost from "../buscaPost/buscaPost";
 
 export default function Busca(props) {
   const [searchValue, setSearchValue] = useState("");
@@ -63,15 +62,15 @@ export default function Busca(props) {
     return () => intersectionObserver.disconnect();
   }, []);
 
-   /* Desativa o loading após a posição vertical (y) for menor ou igual a 1000px da página */
-   useEffect(() => {
+  /* Desativa o loading após a posição vertical (y) for menor ou igual a 1000px da página */
+  useEffect(() => {
     function posicaoScrollLoading() {
       if (window.scrollY <= 1000) {
         setLoading(false);
-        console.log('loading desativado');
+        console.log("loading desativado");
       } else {
         setLoading(true);
-        console.log('loading ativado');
+        console.log("loading ativado");
       }
     }
     window.addEventListener("scroll", posicaoScrollLoading);
@@ -110,7 +109,52 @@ export default function Busca(props) {
     }
   };
 
+  function buscaPost() {
+    fetch("https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer key2CwkHb0CKumjuM",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        records: [
+          {
+            fields: {
+              Squad: "04-22",
+              Hashtag: searchValue,
+              Data: new Date().getTime(),
+            },
+          },
+        ],
+      }),
+    });
+  }
+
   const asyncCall = () => {
+    //------------------------------- INICIO DO FETCH -------------------------------
+    // Esse fetch salva a pesquisa no airtable para depois ser puxado na listagem de histórico
+    fetch("https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer key2CwkHb0CKumjuM",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        records: [
+          {
+            fields: {
+              Squad: "04-22",
+              Hashtag: searchValue,
+              Data: new Date().getTime(),
+            },
+          },
+        ],
+      }),
+    });
+
+    //console.log("sucess");
+    //------------------------------- FIM DO FETCH -------------------------------
+
     getTweets(searchValue, moreRequest)
       .then((tweetCall) => {
         const tweetSet = tweetCall.data.map((tweet) => {
@@ -313,7 +357,8 @@ export default function Busca(props) {
             initial={{ y: animationMode, opacity: 1 }}
             animate={{ y: animationMode, opacity: 1 }}
             onClick={() => setAnimationMode(animationMode)}
-            transition={{ duration: 1, delay: 0.4 }}>
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             <div className={tweets ? styles.bgResponse : styles.bgLoader}>
               <div className={styles.textResponse}>{searchResponse}</div>
             </div>
@@ -327,8 +372,9 @@ export default function Busca(props) {
             initial={{ y: animationMode, opacity: 0 }}
             animate={{ y: animationMode, opacity: 1 }}
             onClick={() => setAnimationMode(animationMode)}
-            transition={{ duration: 1, delay: 0.4 }}
-            className={styles.bgLoader}>
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className={styles.bgLoader}
+          >
             <Loader />
           </motion.div>
         ) : null}

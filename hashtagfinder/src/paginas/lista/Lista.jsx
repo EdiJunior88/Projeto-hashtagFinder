@@ -13,7 +13,13 @@ function Lista() {
   useEffect(() => {
     fetch(
       "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas?filterByFormula=" +
-        encodeURI("({Squad}='04-22')"),
+        encodeURI("({Squad}='04-22')") +
+        "&pageSize=10&&sort" +
+        encodeURI("[0][field]=Data") +
+        "&sort" +
+        encodeURI("[0][direction]=desc") +
+        "&offset=" +
+        encodeURI("itrrwwWDEoqQiZU8o/rechmUIKNO7TSHZJC"),
       {
         headers: {
           Authorization: "Bearer key2CwkHb0CKumjuM",
@@ -21,9 +27,27 @@ function Lista() {
       }
     )
       .then((response) => response.json())
-      .then((result) => setLista(result.records))
+      .then((result) => console.log("sucess", result.records))
       .catch((error) => console.log("error", error));
   }, []);
+
+  // Estou usando a api Intl para formatar data e hora regional com pouco código
+  // Link com exemplos de uso https://devhints.io/wip/intl-datetime
+  function formataData(data) {
+    let novaData = new Intl.DateTimeFormat("pt-br", {
+      day: "2-digit",
+      month: "2-digit",
+    }).format(data);
+    return novaData;
+  }
+
+  function formataHora(hora) {
+    let novaHora = new Intl.DateTimeFormat("pt-br", {
+      hour: "numeric",
+      minute: "numeric",
+    }).format(hora);
+    return novaHora;
+  }
 
   return (
     <div className={styles.fundo}>
@@ -60,8 +84,8 @@ function Lista() {
           {lista.map((user, i) => (
             <div className={`${styles.linha} ${styles.alinhamento}`} key={i}>
               <div>{user.fields.Hashtag}</div>
-              <div>{user.fields.Data}</div>
-              <div>{user.fields.Data}</div>
+              <div>{formataData(user.fields.Data)}</div>
+              <div>{formataHora(user.fields.Data)}</div>
             </div>
           ))}
         </div>
