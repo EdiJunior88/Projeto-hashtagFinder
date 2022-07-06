@@ -191,12 +191,16 @@
 }
 
 /* Responsividade - Tela entre 350 a 650 pixels */
-@media screen and (min-width: 350px) and (max-width: 650px) {
+@media screen and (min-width: 350px) and (max-width: 600px) {
   .fundo {
     height: 206px;
     background: url(../../imagens/sobre/about-bg.jpg);
-    background-size: cover;
+    background-size: 414px 206px;
     background-repeat: no-repeat;
+  }
+
+  .titulo {
+    padding-top: 114px;
   }
 
   .tituloTexto {
@@ -229,13 +233,31 @@
     margin-top: 112px;
   }
 
+  .containerGeral {
+    gap: 20px 199px;
+    margin-bottom: 74px;
+  }
+
+  .container {
+    width: 87%;
+  }
+
+  .containerCartaoMembros {
+    padding: 36px;
+  }
+
+  .containerMembros {
+    min-height: 471px;
+  }
+
   .membroFoto {
     width: 182px;
     height: 182px;
   }
 
   .informacaoMembrosTitulo {
-    font-size: 1.85em;
+    font-size: 1.75em;
+    margin: 22px 0px;
   }
 
   .informacaoMembrosTexto {

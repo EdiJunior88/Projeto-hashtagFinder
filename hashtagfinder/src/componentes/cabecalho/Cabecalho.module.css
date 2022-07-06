@@ -13,11 +13,12 @@
 }
 
 .ativaCabecalho .containerCabecalho {
-  padding: 36px 64px;
+  padding: 16px 64px;
   justify-content: center;
   background-color: var(--cor-fundo-cabecalho);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
+  top: 0;
 }
 
 .ativaCabecalho span {
@@ -114,6 +115,10 @@
 
   .cabecalhoTitulo {
     font-size: 1.2em;
+  }
+
+  .ativaCabecalho .containerCabecalho {
+    padding: 16px 16px;
   }
 }
 

@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(2, 50%);
   flex-wrap: wrap;
-  margin: 125px 187px;
+  margin: 125px 187px 90pc 187px;
   gap: 77px;
   margin-top: 125px;
 }
