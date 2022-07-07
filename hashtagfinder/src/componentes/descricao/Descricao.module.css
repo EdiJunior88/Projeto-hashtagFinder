@@ -65,7 +65,7 @@ nav.container {
 /* Responsividade - Tela entre 415 a 732 pixels */
 @media screen and (min-width: 415px) and (max-width: 732px) {
   .containerDescricao {
-    margin-top: 68px;
+    margin-top: 140px;
   }
 
   .descricaoTitulo {
@@ -82,7 +82,7 @@ nav.container {
 @media screen and (max-width: 414px) {
   .containerDescricao {
     height: 135px;
-    margin-top: 72px;
+    margin-top: 135px;
   }
 
   .descricaoTitulo {
@@ -91,5 +91,7 @@ nav.container {
 
   .descricaoSubtitulo {
     font-size: 1em;
+    width: 95%;
+    line-height: 1.5em;
   }
 }
