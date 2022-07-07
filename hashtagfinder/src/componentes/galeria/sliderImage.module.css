@@ -1,4 +1,4 @@
-.bgImageGallery img {
+.fundoImagemGaleria img {
   box-shadow: 8px 14px 30px var(--color-box-shadow);
   border-radius: 21px;
   padding: 5px;
@@ -6,7 +6,7 @@
   cursor: pointer;
 }
 
-.bgPostUser {
+.fundoPostUsuario {
   position: absolute;
   bottom: 0;
   margin-left: 20px;
@@ -19,43 +19,46 @@
   font-size: 16px;
 }
 
-.bgPostUser p {
+.fundoPostUsuario p {
   padding-bottom: 6px;
 }
 
-.bgPostUser a {
+.fundoPostUsuario a {
   text-decoration: none;
 }
 
-.bgImageGallery:hover .bgPostUser a {
+.fundoImagemGaleria:hover .fundoPostUsuario a {
   color: var(--button-color);
 }
 
 @media screen and (max-width: 480px) {
-  .bgImageGallery img {
+  .fundoImagemGaleria img {
     width: 160px;
   }
 
-  .bgImageGallery p {
+  .fundoImagemGaleria p {
     padding-top: 0;
   }
 
-  .bgImageGallery span {
+  .fundoImagemGaleria span {
     padding-top: 200px;
     font-size: 13px;
   }
+
   .bgMain {
     margin-top: 0;
   }
+
   .bgDisplaySearch {
     margin: 54px 36px;
   }
+  
   .bgMain h2 {
     font-size: 22px;
     text-align: center;
   }
 
-  .bgPostUser {
+  .fundoPostUsuario {
     margin-left: 10px;
     margin-bottom: 10px;
     font-size: 12.5px;

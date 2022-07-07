@@ -2,39 +2,43 @@ import React, { useEffect, useState } from 'react';
 import styles from './Busca.module.css';
 import IconeBusca from '../../imagens/icones/icon-search.svg';
 
+/* API do Twitter */
 import { getTweets } from '../../api/GETTweets';
-import { getTweetImgs } from '../../api/GETTweetImages';
+import { getTweetImagens } from '../../api/GETTweetImagens';
 
+/* Componentes Loader (Animação e Cards do Twitter) */
 import Loader from '../../componentes/loader/Loader';
 import Twitter from '../twitter/twitter';
 import { motion } from 'framer-motion';
 
+/* Componentes Galeria de Imagens (Twitter) */
 import { Slider, Slide } from '../../componentes/galeria/ExportPattern';
 import { settingSlider } from '../../componentes/galeria/settings';
 import styles2 from '../../componentes/galeria/sliderImage.module.css';
 
+/* API do Airtable para registros de Twitter (busca) */
 import { airtableBuscaHashtag } from '../../api/airtableBuscaHashtag';
 
 export default function Busca(props) {
-  const [searchValue, setSearchValue] = useState('');
-  const [searchResponse, setSearchResponse] = useState('');
+  const [valorPesquisa, setValorPesquisa] = useState('');
+  const [valorResposta, setValorResposta] = useState('');
   const [tweets, setTweets] = useState(null);
-  const [tweetImgs, setTweetImgs] = useState(null);
-  const [moreRequest, setMoreRequest] = useState(10);
-  const [titleTag, setTitleTag] = useState();
-  const [imageActive, setImageActive] = useState('');
-  const [resultsNumber, setResultsNumber] = useState(0);
+  const [tweetImagens, setTweetImagens] = useState(null);
+  const [maisRequisicao, setMaisRequisicao] = useState(10);
+  const [tituloTag, setTituloTag] = useState();
+  const [imagemAtiva, setImagemAtiva] = useState('');
+  const [resultadoNumeral, setResultadoNumeral] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [animationMode, setAnimationMode] = useState(0);
+  const [modoAnimacao, setModoAnimacao] = useState(0);
 
   useEffect(() => {
-    if (searchValue) {
+    if (valorPesquisa) {
       asyncCall();
       return () => {
         if (tweets) {
         }
-        setSearchResponse('');
-        setSearchValue('');
+        setValorResposta('');
+        setValorPesquisa('');
       };
     }
   });
@@ -46,18 +50,16 @@ export default function Busca(props) {
     const intersectionObserver = new IntersectionObserver((entradas) => {
       if (entradas.some((scroll) => scroll.isIntersecting)) {
         setLoading(true);
-        console.log('Elemento está visível', entradas);
 
         function fetchMoreData() {
           const newSearch = document.getElementById('input').value;
-          setSearchValue(newSearch);
-          setResultsNumber(resultsNumber + 5);
+          setValorPesquisa(newSearch);
+          setResultadoNumeral(resultadoNumeral + 5);
         }
         setTimeout(() => setLoading(false), 2000);
         setTimeout(() => fetchMoreData(), 1500);
       } else if (entradas.some((scroll) => scroll.isVisible === false)) {
         setLoading(false);
-        console.log('Elemento está invisível', entradas);
       }
     });
     intersectionObserver.observe(document.querySelector('#sentinela'));
@@ -69,10 +71,8 @@ export default function Busca(props) {
     function posicaoScrollLoading() {
       if (window.scrollY <= 1000) {
         setLoading(false);
-        console.log('loading desativado');
       } else {
         setLoading(true);
-        console.log('loading ativado');
       }
     }
     window.addEventListener('scroll', posicaoScrollLoading);
@@ -81,45 +81,49 @@ export default function Busca(props) {
   /* Campo Input Search */
   const handleValue = (evento) => {
     if (evento.keyCode === 13) {
-
       /* Registra a busca digitada no AirTable */
       const registraHashtag = async () => {
         await airtableBuscaHashtag(evento.target.value);
       };
 
-      setSearchValue(
+      setValorPesquisa(
         evento.target.value.replace(/[^a-zA-Z0-9_]/g, '').replace(' ', '')
       );
 
-      setSearchResponse(<Loader />);
-      setResultsNumber(10);
-      setMoreRequest(10);
+      /* Ativa o Loading (animação) */
+      /* Ativa 10 imagens da galeria */
+      /* Ativa 10 cartões (cards) do Twitter */
+      /* Registra a hashtag digitada no Airtable */
+      setValorResposta(<Loader />);
+      setResultadoNumeral(10);
+      setMaisRequisicao(10);
       registraHashtag();
 
       if (evento.target.value === '') {
-        setSearchResponse(
+        setValorResposta(
           <div className={styles.textoErro}>Preencha este campo...⚠️</div>
         );
-        setSearchValue('');
+        setValorPesquisa('');
       }
     }
 
     if (evento.keyCode === 8) {
-      setSearchResponse('');
-      setSearchValue('');
-      setTitleTag('');
-      setResultsNumber(0);
+      setValorResposta('');
+      setValorPesquisa('');
+      setTituloTag('');
+      setResultadoNumeral(0);
     }
 
     if (evento.target.value.length >= 20) {
-      setSearchResponse(
+      setValorResposta(
         <div className={styles.textoErro}>Limite máximo de caracteres 🚫</div>
       );
     }
   };
 
+  /* Função para chamar os Twitters (Galeria + Cards) */
   const asyncCall = () => {
-    getTweets(searchValue, moreRequest)
+    getTweets(valorPesquisa, maisRequisicao)
       .then((tweetCall) => {
         const tweetSet = tweetCall.data.map((tweet) => {
           const user = tweetCall.includes.users.find(
@@ -134,16 +138,16 @@ export default function Busca(props) {
           };
         });
 
-        setImageActive(false);
+        setImagemAtiva(false);
 
         setTweets(tweetSet);
 
-        getTweetImgs(searchValue, moreRequest).then((tweetImgs) => {
-          const imgSet = tweetImgs.data.map((tweet) => {
-            const user = tweetImgs.includes.users.find(
+        getTweetImagens(valorPesquisa, maisRequisicao).then((tweetImagens) => {
+          const imgSet = tweetImagens.data.map((tweet) => {
+            const user = tweetImagens.includes.users.find(
               (user) => tweet.author_id === user.id
             );
-            const img = tweetImgs.includes.media.find(
+            const img = tweetImagens.includes.media.find(
               (img) => tweet.attachments.media_keys[0] === img.media_key
             );
 
@@ -155,13 +159,13 @@ export default function Busca(props) {
             };
           });
 
-          setTweetImgs(imgSet);
-          setTitleTag(searchValue);
-          setMoreRequest(moreRequest + 10);
+          setTweetImagens(imgSet);
+          setTituloTag(valorPesquisa);
+          setMaisRequisicao(maisRequisicao + 10);
         });
       })
       .catch(() => {
-        setSearchResponse(
+        setValorResposta(
           <div className={styles.textoErro}>
             Nenhum tweet foi achado, tente novamente... ❌
           </div>
@@ -178,9 +182,9 @@ export default function Busca(props) {
             className={styles.campoBuscaIcone}
             src={IconeBusca}
             onClick={() => {
-              setSearchResponse(<Loader />);
-              setMoreRequest(10);
-              setSearchValue(
+              setValorResposta(<Loader />);
+              setMaisRequisicao(10);
+              setValorPesquisa(
                 document
                   .getElementById('input')
                   .value.replace(/[^a-zA-Z0-9_]/g, '')
@@ -188,13 +192,12 @@ export default function Busca(props) {
               );
 
               if (!document.getElementById('input').value.length) {
-                setSearchResponse(
+                setValorResposta(
                   <div className={styles.textoErro}>
                     Preencha este campo...⚠️
                   </div>
                 );
-                console.log('teste');
-                setSearchValue('');
+                setValorPesquisa('');
               }
             }}
             alt='icone busca'
@@ -221,30 +224,30 @@ export default function Busca(props) {
           {tweets ? (
             <div className={styles.containerTextoResultado}>
               <p className={styles.TextoResultado}>
-                Exibindo os {moreRequest > 0 ? moreRequest - 10 : null}{' '}
-                resultados mais recentes para #{titleTag}
+                Exibindo os {maisRequisicao > 0 ? maisRequisicao - 10 : null}{' '}
+                resultados mais recentes para #{tituloTag}
               </p>
             </div>
           ) : null}
         </div>
       </div>
 
-      <div className={tweetImgs ? styles.container : styles.containerOculto}>
+      <div className={tweetImagens ? styles.container : styles.containerOculto}>
         <Slider settings={settingSlider}>
-          {tweetImgs?.map(({ user, username, img, id }) => {
+          {tweetImagens?.map(({ user, username, img, id }) => {
             return (
               <Slide key={id}>
-                <div className={styles2.bgImageGallery}>
+                <div className={styles2.fundoImagemGaleria}>
                   <img
                     src={img}
                     alt={user}
                     height='287px'
                     width='287px'
                     onClick={() => {
-                      setImageActive({ user, username, img, id });
+                      setImagemAtiva({ user, username, img, id });
                     }}
                   />
-                  <div className={styles2.bgPostUser}>
+                  <div className={styles2.fundoPostUsuario}>
                     <a
                       href={`https://twitter.com/${username}/status/${id}`}
                       target='_blank'
@@ -260,29 +263,29 @@ export default function Busca(props) {
           })}
         </Slider>
 
-        {imageActive && (
+        {imagemAtiva && (
           <div
-            key={imageActive.id}
-            className={imageActive ? styles.modal : styles.modalDisabled}
+            key={imagemAtiva.id}
+            className={imagemAtiva ? styles.modal : styles.modalDesabilitado}
             onClick={() => {
-              setImageActive(false);
+              setImagemAtiva(false);
             }}>
             <div className={styles.modalContainer}>
-              <img src={imageActive.img} alt={imageActive.username} />
+              <img src={imagemAtiva.img} alt={imagemAtiva.username} />
               <button
                 onClick={() => {
-                  setImageActive(false);
+                  setImagemAtiva(false);
                 }}>
                 X
               </button>
               <div className={styles.modalData} id='modaldata'>
                 <a
-                  href={`https://twitter.com/${imageActive.username}/status/${imageActive.id}`}
+                  href={`https://twitter.com/${imagemAtiva.username}/status/${imagemAtiva.id}`}
                   target='_blank'
                   rel='noreferrer'
                   alt=''>
                   <span>Postado por: </span>
-                  <h4>@{imageActive.username}</h4>
+                  <h4>@{imagemAtiva.username}</h4>
                 </a>
               </div>
               <div className={styles.boxshadow}></div>
@@ -310,14 +313,14 @@ export default function Busca(props) {
       </div>
 
       <div className={styles.container}>
-        {searchResponse ? (
+        {valorResposta ? (
           <motion.div
-            initial={{ y: animationMode, opacity: 1 }}
-            animate={{ y: animationMode, opacity: 1 }}
-            onClick={() => setAnimationMode(animationMode)}
+            initial={{ y: modoAnimacao, opacity: 1 }}
+            animate={{ y: modoAnimacao, opacity: 1 }}
+            onClick={() => setModoAnimacao(modoAnimacao)}
             transition={{ duration: 0.5, delay: 0.4 }}>
             <div className={tweets ? styles.bgResponse : styles.bgLoader}>
-              <div className={styles.textResponse}>{searchResponse}</div>
+              <div className={styles.textResponse}>{valorResposta}</div>
             </div>
           </motion.div>
         ) : null}
@@ -326,9 +329,9 @@ export default function Busca(props) {
       <div className={styles.container}>
         {loading ? (
           <motion.div
-            initial={{ y: animationMode, opacity: 0 }}
-            animate={{ y: animationMode, opacity: 1 }}
-            onClick={() => setAnimationMode(animationMode)}
+            initial={{ y: modoAnimacao, opacity: 0 }}
+            animate={{ y: modoAnimacao, opacity: 1 }}
+            onClick={() => setModoAnimacao(modoAnimacao)}
             transition={{ duration: 0.7, delay: 0.4 }}
             className={styles.bgLoader}>
             <Loader />
