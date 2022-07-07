@@ -1,7 +1,8 @@
 .fundo {
   background: url(../../imagens/login/login-bg.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
+  position: fixed;
   width: 100%;
   height: 100%;
 }

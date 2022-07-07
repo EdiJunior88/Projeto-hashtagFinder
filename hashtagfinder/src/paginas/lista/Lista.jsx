@@ -5,7 +5,6 @@ import BotaoHome from "../../componentes/botoes/botaoHome";
 import BotaoSair from "../../componentes/botoes/botaoSair";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-/* import BuscaPost from "../../componentes/buscaPost/buscaPost"; */
 
 function Lista() {
   const [lista, setLista] = useState([]);
@@ -17,9 +16,8 @@ function Lista() {
         "&pageSize=10&&sort" +
         encodeURI("[0][field]=Data") +
         "&sort" +
-        encodeURI("[0][direction]=desc") +
-        "&offset=" +
-        encodeURI("itrrwwWDEoqQiZU8o/rechmUIKNO7TSHZJC"),
+        encodeURI("[0][direction]=desc"),
+
       {
         headers: {
           Authorization: "Bearer key2CwkHb0CKumjuM",
@@ -27,9 +25,11 @@ function Lista() {
       }
     )
       .then((response) => response.json())
-      .then((result) => console.log("sucess", result.records))
+      .then((result) => setLista(result.records))
       .catch((error) => console.log("error", error));
   }, []);
+
+  //"&offset=" + encodeURI("itrrwwWDEoqQiZU8o/rechmUIKNO7TSHZJC"),
 
   // Estou usando a api Intl para formatar data e hora regional com pouco código
   // Link com exemplos de uso https://devhints.io/wip/intl-datetime
@@ -89,8 +89,6 @@ function Lista() {
             </div>
           ))}
         </div>
-
-       {/*  <BuscaPost valor="teste 2" /> */}
       </Container>
     </div>
   );
