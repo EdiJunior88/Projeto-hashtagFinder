@@ -2,7 +2,6 @@
   background: url(../../imagens/login/login-bg.jpg);
   background-repeat: no-repeat;
   background-size: auto;
-  position: fixed;
   width: 100%;
   height: 100%;
 }
@@ -10,7 +9,7 @@
 .titulo {
   font-size: 2em;
   font-weight: 500;
-  margin-top: 50px;
+  margin-top: 150px;
   margin-bottom: 49px;
   text-align: center;
 }
@@ -65,5 +64,11 @@
 
   .alinhamento div {
     width: 80px;
+  }
+
+  .titulo {
+    
+    margin-top: 100px;
+    
   }
 }
