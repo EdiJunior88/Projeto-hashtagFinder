@@ -8,12 +8,45 @@ import { useEffect, useState } from "react";
 
 function Lista() {
   const [lista, setLista] = useState([]);
+  const [pagina, setPagina] = useState(0);
 
+  //"&offset=" + encodeURI("itrrwwWDEoqQiZU8o/rechmUIKNO7TSHZJC"),
   useEffect(() => {
+    const intersectionObserver = new IntersectionObserver((entradas) => {
+      // se o elemento que estiver observando estiver visivel irá executar o código para trazer a próxima página de conteúdo
+      if (entradas.some((scroll) => scroll.isIntersecting)) {
+        //setLoading(true);
+        console.log("Elemento está visível", entradas);
+
+        /*
+        function fetchMoreData() {
+          const newSearch = document.getElementById("input").value;
+          setSearchValue(newSearch);
+          setResultsNumber(resultsNumber + 5);
+        }
+        setTimeout(() => setLoading(false), 2000);
+        setTimeout(() => fetchMoreData(), 1500);
+
+        */
+      }
+
+      /*
+      else if (entradas.some((scroll) => scroll.isVisible === false)) {
+        setLoading(false);
+        console.log("Elemento está invisível", entradas);
+      }
+      */
+    });
+
+    //esse metodo observa algum elemento da página
+    intersectionObserver.observe(document.querySelector("#sentinela"));
+
     fetch(
       "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas?filterByFormula=" +
         encodeURI("({Squad}='04-22')") +
-        "&pageSize=10&&sort" +
+        "&offset:" +
+        encodeURI("itrngCtv1y345v2yq/recg9JPSSqLO6IfzD") +
+        "&pageSize=20&&sort" +
         encodeURI("[0][field]=Data") +
         "&sort" +
         encodeURI("[0][direction]=desc"),
@@ -26,10 +59,10 @@ function Lista() {
     )
       .then((response) => response.json())
       .then((result) => setLista(result.records))
-      .catch((error) => console.log("error", error));
-  }, []);
+      .catch((error) => console.log("errorssss", error));
 
-  //"&offset=" + encodeURI("itrrwwWDEoqQiZU8o/rechmUIKNO7TSHZJC"),
+    return () => intersectionObserver.disconnect();
+  }, []);
 
   // Estou usando a api Intl para formatar data e hora regional com pouco código
   // Link com exemplos de uso https://devhints.io/wip/intl-datetime
@@ -90,6 +123,7 @@ function Lista() {
           ))}
         </div>
       </Container>
+      <div id="sentinela"></div>
     </div>
   );
 }
