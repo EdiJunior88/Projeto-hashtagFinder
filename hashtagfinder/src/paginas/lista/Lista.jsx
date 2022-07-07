@@ -5,7 +5,7 @@ import BotaoHome from "../../componentes/botoes/botaoHome";
 import BotaoSair from "../../componentes/botoes/botaoSair";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import BuscaPost from "../../componentes/buscaPost/buscaPost";
+/* import BuscaPost from "../../componentes/buscaPost/buscaPost"; */
 
 function Lista() {
   const [lista, setLista] = useState([]);
@@ -90,7 +90,7 @@ function Lista() {
           ))}
         </div>
 
-        <BuscaPost valor="teste 2" />
+       {/*  <BuscaPost valor="teste 2" /> */}
       </Container>
     </div>
   );

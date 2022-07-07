@@ -109,7 +109,7 @@ export default function Busca(props) {
     }
   };
 
-  function buscaPost() {
+ /*  function buscaPost() {
     fetch("https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas", {
       method: "POST",
       headers: {
@@ -128,7 +128,7 @@ export default function Busca(props) {
         ],
       }),
     });
-  }
+  } */
 
   const asyncCall = () => {
     //------------------------------- INICIO DO FETCH -------------------------------
