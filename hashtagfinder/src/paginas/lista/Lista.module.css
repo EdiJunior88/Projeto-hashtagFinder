@@ -11,7 +11,7 @@
   font-weight: 500;
   margin-top: 150px;
   margin-bottom: 49px;
-  text-align: center;
+  text-align: left;
 }
 
 .listagem {
@@ -56,10 +56,9 @@
   width: 100%;
 }
 
-
 @media screen and (max-width: 500px) {
-  .alinhamento div:first-child {    
-    padding-left: 20px;  
+  .alinhamento div:first-child {
+    padding-left: 20px;
   }
 
   .alinhamento div {
@@ -67,8 +66,7 @@
   }
 
   .titulo {
-    
-    margin-top: 100px;
-    
+    margin-top: 112px;
+    text-align: center;
   }
 }
