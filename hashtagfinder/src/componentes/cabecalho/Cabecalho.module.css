@@ -124,7 +124,7 @@
 
 /* Responsividade - Tela 414 pixels */
 @media screen and (max-width: 414px) {
-  .ativaCabecalho {
+  .ativaCabecalho .containerCabecalho {
     top: 0px;
     padding: 12px 20px;
   }
