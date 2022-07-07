@@ -1,26 +1,28 @@
-import React, { useEffect, useState } from "react";
-import styles from "./Busca.module.css";
-import IconeBusca from "../../imagens/icones/icon-search.svg";
+import React, { useEffect, useState } from 'react';
+import styles from './Busca.module.css';
+import IconeBusca from '../../imagens/icones/icon-search.svg';
 
-import { getTweets } from "../../api/GETTweets";
-import { getTweetImgs } from "../../api/GETTweetImages";
+import { getTweets } from '../../api/GETTweets';
+import { getTweetImgs } from '../../api/GETTweetImages';
 
-import Loader from "../../componentes/loader/Loader";
-import Twitter from "../twitter/twitter";
-import { motion } from "framer-motion";
+import Loader from '../../componentes/loader/Loader';
+import Twitter from '../twitter/twitter';
+import { motion } from 'framer-motion';
 
-import { Slider, Slide } from "../../componentes/galeria/ExportPattern";
-import { settingSlider } from "../../componentes/galeria/settings";
-import styles2 from "../../componentes/galeria/sliderImage.module.css";
+import { Slider, Slide } from '../../componentes/galeria/ExportPattern';
+import { settingSlider } from '../../componentes/galeria/settings';
+import styles2 from '../../componentes/galeria/sliderImage.module.css';
+
+import { airtableBuscaHashtag } from '../../api/airtableBuscaHashtag';
 
 export default function Busca(props) {
-  const [searchValue, setSearchValue] = useState("");
-  const [searchResponse, setSearchResponse] = useState("");
+  const [searchValue, setSearchValue] = useState('');
+  const [searchResponse, setSearchResponse] = useState('');
   const [tweets, setTweets] = useState(null);
   const [tweetImgs, setTweetImgs] = useState(null);
   const [moreRequest, setMoreRequest] = useState(10);
   const [titleTag, setTitleTag] = useState();
-  const [imageActive, setImageActive] = useState("");
+  const [imageActive, setImageActive] = useState('');
   const [resultsNumber, setResultsNumber] = useState(0);
   const [loading, setLoading] = useState(false);
   const [animationMode, setAnimationMode] = useState(0);
@@ -31,8 +33,8 @@ export default function Busca(props) {
       return () => {
         if (tweets) {
         }
-        setSearchResponse("");
-        setSearchValue("");
+        setSearchResponse('');
+        setSearchValue('');
       };
     }
   });
@@ -44,10 +46,10 @@ export default function Busca(props) {
     const intersectionObserver = new IntersectionObserver((entradas) => {
       if (entradas.some((scroll) => scroll.isIntersecting)) {
         setLoading(true);
-        console.log("Elemento está visível", entradas);
+        console.log('Elemento está visível', entradas);
 
         function fetchMoreData() {
-          const newSearch = document.getElementById("input").value;
+          const newSearch = document.getElementById('input').value;
           setSearchValue(newSearch);
           setResultsNumber(resultsNumber + 5);
         }
@@ -55,10 +57,10 @@ export default function Busca(props) {
         setTimeout(() => fetchMoreData(), 1500);
       } else if (entradas.some((scroll) => scroll.isVisible === false)) {
         setLoading(false);
-        console.log("Elemento está invisível", entradas);
+        console.log('Elemento está invisível', entradas);
       }
     });
-    intersectionObserver.observe(document.querySelector("#sentinela"));
+    intersectionObserver.observe(document.querySelector('#sentinela'));
     return () => intersectionObserver.disconnect();
   }, []);
 
@@ -67,42 +69,49 @@ export default function Busca(props) {
     function posicaoScrollLoading() {
       if (window.scrollY <= 1000) {
         setLoading(false);
-        console.log("loading desativado");
+        console.log('loading desativado');
       } else {
         setLoading(true);
-        console.log("loading ativado");
+        console.log('loading ativado');
       }
     }
-    window.addEventListener("scroll", posicaoScrollLoading);
+    window.addEventListener('scroll', posicaoScrollLoading);
   }, []);
 
   /* Campo Input Search */
-  const handleValue = (e) => {
-    if (e.keyCode === 13) {
+  const handleValue = (evento) => {
+    if (evento.keyCode === 13) {
+
+      /* Registra a busca digitada no AirTable */
+      const registraHashtag = async () => {
+        await airtableBuscaHashtag(evento.target.value);
+      };
+
       setSearchValue(
-        e.target.value.replace(/[^a-zA-Z0-9_]/g, "").replace(" ", "")
+        evento.target.value.replace(/[^a-zA-Z0-9_]/g, '').replace(' ', '')
       );
 
       setSearchResponse(<Loader />);
       setResultsNumber(10);
       setMoreRequest(10);
+      registraHashtag();
 
-      if (e.target.value === "") {
+      if (evento.target.value === '') {
         setSearchResponse(
           <div className={styles.textoErro}>Preencha este campo...⚠️</div>
         );
-        setSearchValue("");
+        setSearchValue('');
       }
     }
 
-    if (e.keyCode === 8) {
-      setSearchResponse("");
-      setSearchValue("");
-      setTitleTag("");
+    if (evento.keyCode === 8) {
+      setSearchResponse('');
+      setSearchValue('');
+      setTitleTag('');
       setResultsNumber(0);
     }
 
-    if (e.target.value.length >= 20) {
+    if (evento.target.value.length >= 20) {
       setSearchResponse(
         <div className={styles.textoErro}>Limite máximo de caracteres 🚫</div>
       );
@@ -110,30 +119,6 @@ export default function Busca(props) {
   };
 
   const asyncCall = () => {
-    //------------------------------- INICIO DO FETCH -------------------------------
-    // Esse fetch salva a pesquisa no airtable para depois ser puxado na listagem de histórico
-    fetch("https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas", {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer key2CwkHb0CKumjuM",
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        records: [
-          {
-            fields: {
-              Squad: "04-22",
-              Hashtag: searchValue,
-              Data: new Date().getTime(),
-            },
-          },
-        ],
-      }),
-    });
-
-    //console.log("sucess");
-    //------------------------------- FIM DO FETCH -------------------------------
-
     getTweets(searchValue, moreRequest)
       .then((tweetCall) => {
         const tweetSet = tweetCall.data.map((tweet) => {
@@ -197,26 +182,26 @@ export default function Busca(props) {
               setMoreRequest(10);
               setSearchValue(
                 document
-                  .getElementById("input")
-                  .value.replace(/[^a-zA-Z0-9_]/g, "")
-                  .replace(" ", "")
+                  .getElementById('input')
+                  .value.replace(/[^a-zA-Z0-9_]/g, '')
+                  .replace(' ', '')
               );
 
-              if (!document.getElementById("input").value.length) {
+              if (!document.getElementById('input').value.length) {
                 setSearchResponse(
                   <div className={styles.textoErro}>
                     Preencha este campo...⚠️
                   </div>
                 );
-                console.log("teste");
-                setSearchValue("");
+                console.log('teste');
+                setSearchValue('');
               }
             }}
-            alt="icone busca"
+            alt='icone busca'
           />
 
           <input
-            id="input"
+            id='input'
             className={styles.campoBuscaInput}
             type={props.type}
             placeholder={props.placeholder}
@@ -232,12 +217,11 @@ export default function Busca(props) {
             tweets
               ? styles.containerTextoResultado
               : styles.containerTextoResultadoDesabilitada
-          }
-        >
+          }>
           {tweets ? (
             <div className={styles.containerTextoResultado}>
               <p className={styles.TextoResultado}>
-                Exibindo os {moreRequest > 0 ? moreRequest - 10 : null}{" "}
+                Exibindo os {moreRequest > 0 ? moreRequest - 10 : null}{' '}
                 resultados mais recentes para #{titleTag}
               </p>
             </div>
@@ -254,8 +238,8 @@ export default function Busca(props) {
                   <img
                     src={img}
                     alt={user}
-                    height="287px"
-                    width="287px"
+                    height='287px'
+                    width='287px'
                     onClick={() => {
                       setImageActive({ user, username, img, id });
                     }}
@@ -263,10 +247,9 @@ export default function Busca(props) {
                   <div className={styles2.bgPostUser}>
                     <a
                       href={`https://twitter.com/${username}/status/${id}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      alt={username}
-                    >
+                      target='_blank'
+                      rel='noreferrer'
+                      alt={username}>
                       <p>Postado por:</p>
                       <h3>@{username}</h3>
                     </a>
@@ -283,24 +266,21 @@ export default function Busca(props) {
             className={imageActive ? styles.modal : styles.modalDisabled}
             onClick={() => {
               setImageActive(false);
-            }}
-          >
+            }}>
             <div className={styles.modalContainer}>
               <img src={imageActive.img} alt={imageActive.username} />
               <button
                 onClick={() => {
                   setImageActive(false);
-                }}
-              >
+                }}>
                 X
               </button>
-              <div className={styles.modalData} id="modaldata">
+              <div className={styles.modalData} id='modaldata'>
                 <a
                   href={`https://twitter.com/${imageActive.username}/status/${imageActive.id}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  alt=""
-                >
+                  target='_blank'
+                  rel='noreferrer'
+                  alt=''>
                   <span>Postado por: </span>
                   <h4>@{imageActive.username}</h4>
                 </a>
@@ -314,8 +294,7 @@ export default function Busca(props) {
       <div
         className={
           tweets ? styles.containerTwitterCartao : styles.containerOculto
-        }
-      >
+        }>
         {tweets?.map(({ user, username, text, id, photo }) => {
           return (
             <Twitter
@@ -336,8 +315,7 @@ export default function Busca(props) {
             initial={{ y: animationMode, opacity: 1 }}
             animate={{ y: animationMode, opacity: 1 }}
             onClick={() => setAnimationMode(animationMode)}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
+            transition={{ duration: 0.5, delay: 0.4 }}>
             <div className={tweets ? styles.bgResponse : styles.bgLoader}>
               <div className={styles.textResponse}>{searchResponse}</div>
             </div>
@@ -352,14 +330,13 @@ export default function Busca(props) {
             animate={{ y: animationMode, opacity: 1 }}
             onClick={() => setAnimationMode(animationMode)}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className={styles.bgLoader}
-          >
+            className={styles.bgLoader}>
             <Loader />
           </motion.div>
         ) : null}
       </div>
 
-      <div id="sentinela"></div>
+      <div id='sentinela'></div>
     </section>
   );
 }
