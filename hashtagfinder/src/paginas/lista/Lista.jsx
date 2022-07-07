@@ -10,7 +10,6 @@ function Lista() {
   const [lista, setLista] = useState([]);
   const [pagina, setPagina] = useState(0);
 
-  //"&offset=" + encodeURI("itrrwwWDEoqQiZU8o/rechmUIKNO7TSHZJC"),
   useEffect(() => {
     const intersectionObserver = new IntersectionObserver((entradas) => {
       // se o elemento que estiver observando estiver visivel irá executar o código para trazer a próxima página de conteúdo
@@ -41,11 +40,11 @@ function Lista() {
     //esse metodo observa algum elemento da página
     intersectionObserver.observe(document.querySelector("#sentinela"));
 
+    //"&offset=" +  encodeURI("itrngCtv1y345v2yq/recg9JPSSqLO6IfzD") +
+
     fetch(
       "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas?filterByFormula=" +
         encodeURI("({Squad}='04-22')") +
-        "&offset:" +
-        encodeURI("itrngCtv1y345v2yq/recg9JPSSqLO6IfzD") +
         "&pageSize=20&&sort" +
         encodeURI("[0][field]=Data") +
         "&sort" +

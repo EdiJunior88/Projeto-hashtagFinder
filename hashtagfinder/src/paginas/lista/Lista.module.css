@@ -9,7 +9,7 @@
 .titulo {
   font-size: 2em;
   font-weight: 500;
-  margin-top: 50px;
+  margin-top: 150px;
   margin-bottom: 49px;
   text-align: center;
 }
@@ -64,5 +64,11 @@
 
   .alinhamento div {
     width: 80px;
+  }
+
+  .titulo {
+    
+    margin-top: 100px;
+    
   }
 }
