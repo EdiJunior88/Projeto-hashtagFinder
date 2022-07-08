@@ -31,11 +31,10 @@ export default function Formulario() {
       senha: yup
         .string()
         .required("Por favor, insira sua senha.")
-        .matches(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
-          "Senha inválida. A senha deve conter 8 caracteres, 1 letra maiúscula, 1 letra minúscula, 1 número e 1 caractere especial."
-        ),
     }),
+
+    validateOnChange: false,
+    validateOnBlur: false,
 
     // Função onSubmit do Formik
 
@@ -43,7 +42,7 @@ export default function Formulario() {
       // Inserção dos dados da API do Airtable para checagem dos dados do usuario
       fetch(
         "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Login?filterByFormula=AND" +
-          encodeURI`({Squad} = '04-22')`,
+          encodeURI`({Squad} = '04-22', {Email} = 'usuario@newtab.academy', {Senha} = 'S3nh4123!')`,
         {
           method: "GET",
           headers: {
@@ -77,7 +76,7 @@ export default function Formulario() {
     }
   };
   const handleChangeWhiteSpace = (e) => {
-    e.target.value = e.target.value.trim();
+    e.target.value = e.target.value.replace(/\s/g, "");
   };
 
   return (
@@ -89,6 +88,7 @@ export default function Formulario() {
           onSubmit={(e) => {
             e.preventDefault();
             formik.handleSubmit(e);
+            
           }}
           className="formulario"
         >
@@ -104,7 +104,6 @@ export default function Formulario() {
                 handleChangeWhiteSpace(e);
               }}
               onKeyDown={handleKeyDown}
-              onBlur={formik.handleBlur}
               value={formik.values.email}
             />
           </div>
@@ -119,7 +118,6 @@ export default function Formulario() {
               id="senha"
               name="senha"
               onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
               value={formik.values.senha}
             />
           </div>
