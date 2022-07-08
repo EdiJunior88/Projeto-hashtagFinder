@@ -28,9 +28,7 @@ export default function Formulario() {
         .string()
         .email("E-mail inválido.")
         .required("Por favor, insira seu e-mail."),
-      senha: yup
-        .string()
-        .required("Por favor, insira sua senha.")
+      senha: yup.string().required("Por favor, insira sua senha."),
     }),
 
     validateOnChange: false,
@@ -40,25 +38,25 @@ export default function Formulario() {
 
     onSubmit: (values) => {
       // Inserção dos dados da API do Airtable para checagem dos dados do usuario
-      var url = "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Login?filterByFormula=AND"+`({Squad}='04-22',{Email}='${values.email}',{Senha}='${values.senha}')`
-      
-      fetch(encodeURI(url),
-        {
-          method: "GET",
-          headers: {
-            Authorization: "Bearer key2CwkHb0CKumjuM",
-          },
-        }
-      ) // Fazendo login se senha e e-mail forem iguais ao recuperado na Squad 04-22
+      var url =
+        "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Login?filterByFormula=AND" +
+        `({Squad}='04-22',{Email}='${values.email}',{Senha}='${values.senha}')`;
+
+      fetch(encodeURI(url), {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer key2CwkHb0CKumjuM",
+        },
+      }) // Fazendo login se senha e e-mail forem iguais ao recuperado na Squad 04-22
         .then((response) => response.json())
         .then(function (response) {
           if (response.records[0] !== undefined) {
             autenticacao.login(true);
             navegacao("/lista", { replace: true });
           }
-            return setDadosInvalidos(
-              "Usuário e/ou senha inválidos! Verifique seus dados e tente novamente."
-            );
+          return setDadosInvalidos(
+            "Usuário e/ou senha inválidos! Verifique seus dados e tente novamente."
+          );
         });
     },
   });
@@ -70,7 +68,7 @@ export default function Formulario() {
       e.preventDefault();
     }
   };
-  const handleChangeWhiteSpace = (e) => {
+  const handleChangeWhiteSpaces = (e) => {
     e.target.value = e.target.value.replace(/\s/g, "");
   };
 
@@ -83,7 +81,6 @@ export default function Formulario() {
           onSubmit={(e) => {
             e.preventDefault();
             formik.handleSubmit(e);
-            
           }}
           className="formulario"
         >
@@ -96,7 +93,7 @@ export default function Formulario() {
               name="email"
               onChange={(e) => {
                 formik.handleChange(e);
-                handleChangeWhiteSpace(e);
+                handleChangeWhiteSpaces(e);
               }}
               onKeyDown={handleKeyDown}
               value={formik.values.email}
