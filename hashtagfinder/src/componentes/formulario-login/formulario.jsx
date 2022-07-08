@@ -71,7 +71,7 @@ export default function Formulario() {
     }
   };
   const handleChangeWhiteSpace = (e) => {
-    e.target.value = e.target.value.replace(/\s/g, "");
+    e.target.value = e.target.value.replace(/\s+/g, "");
   };
 
   return (
