@@ -68,13 +68,8 @@ export default function Formulario() {
       e.preventDefault();
     }
   };
-<<<<<<< HEAD
-  const handleChangeWhiteSpaces = (e) => {
-    e.target.value = e.target.value.replace(/\s/g, "");
-=======
   const handleChangeWhiteSpace = (e) => {
     e.target.value = e.target.value.replace(/\s+/g, "");
->>>>>>> efe4807211e92a7c9bcac52e39d53cb2db9de9d3
   };
 
   return (
@@ -98,7 +93,7 @@ export default function Formulario() {
               name="email"
               onChange={(e) => {
                 formik.handleChange(e);
-                handleChangeWhiteSpaces(e);
+                handleChangeWhiteSpace(e);
               }}
               onKeyDown={handleKeyDown}
               value={formik.values.email}
