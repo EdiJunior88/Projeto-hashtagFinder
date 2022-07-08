@@ -28,43 +28,35 @@ export default function Formulario() {
         .string()
         .email("E-mail inválido.")
         .required("Por favor, insira seu e-mail."),
-      senha: yup
-        .string()
-        .required("Por favor, insira sua senha.")
-        .matches(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
-          "Senha inválida. A senha deve conter 8 caracteres, 1 letra maiúscula, 1 letra minúscula, 1 número e 1 caractere especial."
-        ),
+      senha: yup.string().required("Por favor, insira sua senha."),
     }),
+
+    validateOnChange: false,
+    validateOnBlur: false,
 
     // Função onSubmit do Formik
 
     onSubmit: (values) => {
       // Inserção dos dados da API do Airtable para checagem dos dados do usuario
-      fetch(
+      var url =
         "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Login?filterByFormula=AND" +
-          encodeURI`({Squad} = '04-22')`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: "Bearer key2CwkHb0CKumjuM",
-          },
-        }
-      ) // Mapeando os dados da API e fazendo login se senha e e-mail forem iguais ao recuperado na Squad 04-22
+        `({Squad}='04-22',{Email}='${values.email}',{Senha}='${values.senha}')`;
+
+      fetch(encodeURI(url), {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer key2CwkHb0CKumjuM",
+        },
+      }) // Fazendo login se senha e e-mail forem iguais ao recuperado na Squad 04-22
         .then((response) => response.json())
-        .then(function (dados) {
-          dados.records.map((dado) => {
-            if (
-              dado.fields.Email === values.email &&
-              dado.fields.Senha === values.senha
-            ) {
-              autenticacao.login(true);
-              navegacao("/lista", { replace: true });
-            }
-            return setDadosInvalidos(
-              "Usuário e/ou senha inválidos! Verifique seus dados e tente novamente."
-            );
-          });
+        .then(function (response) {
+          if (response.records[0] !== undefined) {
+            autenticacao.login(true);
+            navegacao("/lista", { replace: true });
+          }
+          return setDadosInvalidos(
+            "Usuário e/ou senha inválidos! Verifique seus dados e tente novamente."
+          );
         });
     },
   });
@@ -77,7 +69,7 @@ export default function Formulario() {
     }
   };
   const handleChangeWhiteSpace = (e) => {
-    e.target.value = e.target.value.trim();
+    e.target.value = e.target.value.replace(/\s+/g, "");
   };
 
   return (
@@ -104,7 +96,6 @@ export default function Formulario() {
                 handleChangeWhiteSpace(e);
               }}
               onKeyDown={handleKeyDown}
-              onBlur={formik.handleBlur}
               value={formik.values.email}
             />
           </div>
@@ -119,7 +110,6 @@ export default function Formulario() {
               id="senha"
               name="senha"
               onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
               value={formik.values.senha}
             />
           </div>
