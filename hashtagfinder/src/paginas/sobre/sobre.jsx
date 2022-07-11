@@ -14,6 +14,7 @@ const Sobre = () => {
   const [texto, setTexto] = useState('');
   const [equipe, setEquipe] = useState([]);
   const [ativaNav, setAtivaNav] = useState(false);
+  const mailto = 'mailto:informacao.fields.Email';
 
   useEffect(() => {
     document.title = 'hashtagfinder | Sobre';
@@ -68,7 +69,7 @@ const Sobre = () => {
 
   return (
     <div className={styles.sobre}>
-        <Cabecalho acao={ativaNav} />
+      <Cabecalho acao={ativaNav} />
       <header className={styles.fundo}>
         <div className={styles.titulo}>
           <h1 className={styles.tituloTexto}>Sobre o projeto</h1>
@@ -132,11 +133,9 @@ const Sobre = () => {
                       title="Github"
                     />
                   </a>
-                  <a
-                    href={informacao.fields.Email}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href={mailto} 
+                  target="_blank" 
+                  rel="noreferrer">
                     <img
                       src={IconeEmail}
                       alt="icone"
