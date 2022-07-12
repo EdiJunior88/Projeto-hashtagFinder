@@ -13,8 +13,7 @@ import styles from '../../paginas/sobre/Sobre.module.css';
 const Sobre = () => {
   const [texto, setTexto] = useState('');
   const [equipe, setEquipe] = useState([]);
-  const [ativaNav, setAtivaNav] = useState(false);
-  const mailto = 'mailto:informacao.fields.Email';
+  const [ativaNav] = useState(false);
 
   useEffect(() => {
     document.title = 'hashtagfinder | Sobre';
@@ -53,18 +52,6 @@ const Sobre = () => {
         setEquipe(response.records);
       })
       .catch((erro) => console.log(erro));
-  }, []);
-
-  /* Ativa o cabeçalho após a posição vertical (y) 900 da página */
-  useEffect(() => {
-    function posicaoScroll() {
-      if (window.scrollY >= 400) {
-        setAtivaNav(true);
-      } else {
-        setAtivaNav(false);
-      }
-    }
-    window.addEventListener('scroll', posicaoScroll);
   }, []);
 
   return (
@@ -133,9 +120,11 @@ const Sobre = () => {
                       title="Github"
                     />
                   </a>
-                  <a href={mailto} 
-                  target="_blank" 
-                  rel="noreferrer">
+                  <a
+                    href={`mailto:${informacao.fields.Email}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img
                       src={IconeEmail}
                       alt="icone"
