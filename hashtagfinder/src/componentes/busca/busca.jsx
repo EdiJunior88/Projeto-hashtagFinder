@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import $ from 'jquery';
 import styles from './Busca.module.css';
 import IconeBusca from '../../imagens/icones/icon-search.svg';
 
@@ -31,94 +32,60 @@ export default function Busca(props) {
   const [loading, setLoading] = useState(false);
   const [modoAnimacao, setModoAnimacao] = useState(0);
 
+  function fetchMoreData() {
+    setLoading(true);
+    setResultadoNumeral(resultadoNumeral + 5);
+    asyncCall();
+    setLoading(false);
+  }
+
+  function posicaoScrollLoading() {
+    if ($(window).height() + $(window).scrollTop() >= $(document).height()) {
+      setTimeout(() => fetchMoreData(), 1500);
+    }
+  }
+
   useEffect(() => {
+    window.addEventListener('scroll', posicaoScrollLoading);
     if (valorPesquisa) {
       asyncCall();
-      return () => {
-        if (tweets) {
-        }
-        setValorResposta('');
-        setValorPesquisa('');
-      };
     }
-  });
-
-  /* função callback intersectionObserver para observar e disparar um evento */
-  /* semelhante ao evento addEventListener */
-  /* Fica observando o scroll da página até chegar no id="sentinela" */
-  useEffect(() => {
-    const intersectionObserver = new IntersectionObserver((entradas) => {
-      if (entradas.some((scroll) => scroll.isIntersecting)) {
-        setLoading(true);
-
-        function fetchMoreData() {
-          const newSearch = document.getElementById('input').value;
-          setValorPesquisa(newSearch);
-          setResultadoNumeral(resultadoNumeral + 5);
-        }
-        setTimeout(() => setLoading(false), 2000);
-        setTimeout(() => fetchMoreData(), 1500);
-      } else if (entradas.some((scroll) => scroll.isVisible === false)) {
-        setLoading(false);
-      }
-    });
-    intersectionObserver.observe(document.querySelector('#sentinela'));
-    return () => intersectionObserver.disconnect();
   }, []);
 
-  /* Desativa o loading após a posição vertical (y) for menor ou igual a 1000px da página */
-  useEffect(() => {
-    function posicaoScrollLoading() {
-      if (window.scrollY <= 1000) {
-        setLoading(false);
-      } else {
-        setLoading(true);
-      }
-    }
-    window.addEventListener('scroll', posicaoScrollLoading);
-  }, []);
+  // const registraHashtag = async () => {
+  //   await airtableBuscaHashtag(evento.target.value);
+  // };
 
   /* Campo Input Search */
   const handleValue = (evento) => {
     if (evento.keyCode === 13) {
-      /* Registra a busca digitada no AirTable */
-      const registraHashtag = async () => {
-        await airtableBuscaHashtag(evento.target.value);
-      };
-
-      setValorPesquisa(
-        evento.target.value.replace(/[^a-zA-Z0-9_]/g, '').replace(' ', '')
-      );
-
-      /* Ativa o Loading (animação) */
-      /* Ativa 10 imagens da galeria */
-      /* Ativa 10 cartões (cards) do Twitter */
-      /* Registra a hashtag digitada no Airtable */
-      setValorResposta(<Loader />);
-      setResultadoNumeral(10);
-      setMaisRequisicao(10);
-      registraHashtag();
-
       if (evento.target.value === '') {
         setValorResposta(
           <div className={styles.textoErro}>Preencha este campo...⚠️</div>
         );
         setValorPesquisa('');
+      } else {
+        setValorResposta(<Loader />);
+        setMaisRequisicao(10);
+        // registraHashtag();
+        fetchMoreData();
       }
+      return;
     }
 
-    if (evento.keyCode === 8) {
-      setValorResposta('');
-      setValorPesquisa('');
-      setTituloTag('');
-      setResultadoNumeral(0);
-    }
-
-    if (evento.target.value.length >= 20) {
+    if (evento.keyCode != 8 && evento.target.value.length >= 20) {
+      evento.preventDefault();
       setValorResposta(
         <div className={styles.textoErro}>Limite máximo de caracteres 🚫</div>
       );
+      return;
     }
+
+    setValorResposta('');
+    setValorPesquisa('');
+    setTituloTag('');
+    setResultadoNumeral(0);
+    return;
   };
 
   /* Função para chamar os Twitters (Galeria + Cards) */
@@ -181,25 +148,19 @@ export default function Busca(props) {
           <img
             className={styles.campoBuscaIcone}
             src={IconeBusca}
-            onClick={() => {
-              setValorResposta(<Loader />);
-              setMaisRequisicao(10);
-              setValorPesquisa(
-                document
-                  .getElementById('input')
-                  .value.replace(/[^a-zA-Z0-9_]/g, '')
-                  .replace(' ', '')
-              );
+            // onClick={() => {
+            //   setValorResposta(<Loader />);
+            //   setMaisRequisicao(10);
 
-              if (!document.getElementById('input').value.length) {
-                setValorResposta(
-                  <div className={styles.textoErro}>
-                    Preencha este campo...⚠️
-                  </div>
-                );
-                setValorPesquisa('');
-              }
-            }}
+            //   if (valorPesquisa.value == '') {
+            //     setValorResposta(
+            //       <div className={styles.textoErro}>
+            //         Preencha este campo...⚠️
+            //       </div>
+            //     );
+            //     setValorPesquisa('');
+            //   }
+            // }}
             alt='icone busca'
           />
 
@@ -209,6 +170,11 @@ export default function Busca(props) {
             type={props.type}
             placeholder={props.placeholder}
             onKeyDown={handleValue}
+            onChange={(e) => {
+              setValorPesquisa(
+                e.target.value.replace(/[^a-zA-Z0-9_]/g, '').replace(' ', '')
+              );
+            }}
             maxLength={props.maxLength}
           />
         </div>
@@ -338,8 +304,6 @@ export default function Busca(props) {
           </motion.div>
         ) : null}
       </div>
-
-      <div id='sentinela'></div>
     </section>
   );
 }
