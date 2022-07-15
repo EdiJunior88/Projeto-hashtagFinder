@@ -33,23 +33,34 @@ export default function Busca(props) {
   const [modoAnimacao, setModoAnimacao] = useState(0);
 
   function fetchMoreData() {
-    setLoading(true);
-    setResultadoNumeral(resultadoNumeral + 5);
-    asyncCall();
-    setLoading(false);
+    if (valorPesquisa !== '') {
+      setLoading(true);
+      console.log('loading TRUE');
+
+      const pegaTexto = document.getElementById('input').value;
+      setValorPesquisa(pegaTexto);
+      console.log('PegaTexto: ' + pegaTexto);
+
+      console.log('valorPesquisa: ' + valorPesquisa);
+
+      setLoading(false);
+      console.log('loading FALSE');
+
+      asyncCall();
+      console.log('asyncCall');
+    }
   }
 
   function posicaoScrollLoading() {
     if ($(window).height() + $(window).scrollTop() >= $(document).height()) {
       setTimeout(() => fetchMoreData(), 1500);
+      console.log('posicaoScrollLoading');
     }
   }
 
+  
   useEffect(() => {
     window.addEventListener('scroll', posicaoScrollLoading);
-    if (valorPesquisa) {
-      asyncCall();
-    }
   }, []);
 
   // const registraHashtag = async () => {
@@ -69,6 +80,7 @@ export default function Busca(props) {
         setMaisRequisicao(10);
         // registraHashtag();
         fetchMoreData();
+        console.log('Tecla digitada: ' + evento.target.value);
       }
       return;
     }
@@ -85,6 +97,7 @@ export default function Busca(props) {
     setValorPesquisa('');
     setTituloTag('');
     setResultadoNumeral(0);
+    console.log('ZERANDO TUDO');
     return;
   };
 
