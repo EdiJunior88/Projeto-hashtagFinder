@@ -34,7 +34,6 @@ export default function Busca(props) {
 
   function fetchMoreData() {
     setLoading(true);
-    setResultadoNumeral(resultadoNumeral + 5);
     asyncCall();
     setLoading(false);
   }
@@ -47,9 +46,6 @@ export default function Busca(props) {
 
   useEffect(() => {
     window.addEventListener('scroll', posicaoScrollLoading);
-    if (valorPesquisa) {
-      asyncCall();
-    }
   }, []);
 
   // const registraHashtag = async () => {
@@ -63,7 +59,7 @@ export default function Busca(props) {
         setValorResposta(
           <div className={styles.textoErro}>Preencha este campo...⚠️</div>
         );
-        setValorPesquisa('');
+        // setValorPesquisa('');
       } else {
         setValorResposta(<Loader />);
         setMaisRequisicao(10);
@@ -81,15 +77,16 @@ export default function Busca(props) {
       return;
     }
 
-    setValorResposta('');
-    setValorPesquisa('');
-    setTituloTag('');
-    setResultadoNumeral(0);
+    // setValorResposta('');
+    // setValorPesquisa('');
+    // setTituloTag('');
+    // setResultadoNumeral(0);
     return;
   };
 
   /* Função para chamar os Twitters (Galeria + Cards) */
   const asyncCall = () => {
+    console.log('Valor Pesquisa: ' + valorPesquisa)
     getTweets(valorPesquisa, maisRequisicao)
       .then((tweetCall) => {
         const tweetSet = tweetCall.data.map((tweet) => {
@@ -128,7 +125,7 @@ export default function Busca(props) {
 
           setTweetImagens(imgSet);
           setTituloTag(valorPesquisa);
-          setMaisRequisicao(maisRequisicao + 10);
+          setMaisRequisicao(maisRequisicao);
         });
       })
       .catch(() => {
@@ -172,7 +169,7 @@ export default function Busca(props) {
             onKeyDown={handleValue}
             onChange={(e) => {
               setValorPesquisa(
-                e.target.value.replace(/[^a-zA-Z0-9_]/g, '').replace(' ', '')
+                e.target.value.replace(/[^a-zA-Z0-9_]/g, '')
               );
             }}
             maxLength={props.maxLength}
@@ -190,7 +187,7 @@ export default function Busca(props) {
           {tweets ? (
             <div className={styles.containerTextoResultado}>
               <p className={styles.TextoResultado}>
-                Exibindo os {maisRequisicao > 0 ? maisRequisicao - 10 : null}{' '}
+                Exibindo os {maisRequisicao}{' '}
                 resultados mais recentes para #{tituloTag}
               </p>
             </div>
