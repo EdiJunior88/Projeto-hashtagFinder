@@ -33,14 +33,16 @@ export default function Busca(props) {
   const [modoAnimacao, setModoAnimacao] = useState(0);
 
   function fetchMoreData() {
-    if (valorPesquisa !== '') {
-      asyncCall();
-    }
+    asyncCall();
   }
 
   function posicaoScrollLoading() {
-    if ($(window).height() + $(window).scrollTop() >= $(document).height()) {
-      setTimeout(() => fetchMoreData(), 1500);
+    if (
+      $(window).height() + $(window).scrollTop() >= $(document).height() &&
+      document.getElementById('twitter')
+    ) {
+      setTimeout(() => setMaisRequisicao(maisRequisicao + 10), asyncCall());
+      console.log('posicaoScrollLoading');
     }
   }
 
@@ -62,7 +64,6 @@ export default function Busca(props) {
         setValorPesquisa('');
       } else {
         setValorResposta(<Loader />);
-        setMaisRequisicao(10);
         // registraHashtag();
         fetchMoreData();
       }
@@ -151,7 +152,6 @@ export default function Busca(props) {
                 setTituloTag('');
               } else {
                 setValorResposta(<Loader />);
-                setMaisRequisicao(10);
                 fetchMoreData();
               }
             }}
