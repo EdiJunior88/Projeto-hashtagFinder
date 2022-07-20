@@ -5,7 +5,7 @@ const Twitter = ({ userImage, user, userName, tweetText, tweetId }) => {
   return (
     /* <section className={`${styles.container} ${styles.TwitterFlex}`}> */
     <div className={styles.containerTwitter}>
-      <div className={styles.twitter}>
+      <div className={styles.twitter} id='twitter'>
         <div className={styles.containerTwitterFoto}>
           <img
             className={styles.twitterFoto}
