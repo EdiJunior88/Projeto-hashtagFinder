@@ -33,9 +33,9 @@ export default function Busca(props) {
   const [modoAnimacao, setModoAnimacao] = useState(0);
 
   function fetchMoreData() {
-    setLoading(true);
-    asyncCall();
-    setLoading(false);
+    if (valorPesquisa !== '') {
+      asyncCall();
+    }
   }
 
   function posicaoScrollLoading() {
@@ -59,7 +59,7 @@ export default function Busca(props) {
         setValorResposta(
           <div className={styles.textoErro}>Preencha este campo...⚠️</div>
         );
-        // setValorPesquisa('');
+        setValorPesquisa('');
       } else {
         setValorResposta(<Loader />);
         setMaisRequisicao(10);
@@ -76,17 +76,12 @@ export default function Busca(props) {
       );
       return;
     }
-
-    // setValorResposta('');
-    // setValorPesquisa('');
-    // setTituloTag('');
-    // setResultadoNumeral(0);
     return;
   };
 
   /* Função para chamar os Twitters (Galeria + Cards) */
   const asyncCall = () => {
-    console.log('Valor Pesquisa: ' + valorPesquisa)
+    console.log('Valor Pesquisa: ' + valorPesquisa);
     getTweets(valorPesquisa, maisRequisicao)
       .then((tweetCall) => {
         const tweetSet = tweetCall.data.map((tweet) => {
@@ -145,19 +140,21 @@ export default function Busca(props) {
           <img
             className={styles.campoBuscaIcone}
             src={IconeBusca}
-            // onClick={() => {
-            //   setValorResposta(<Loader />);
-            //   setMaisRequisicao(10);
-
-            //   if (valorPesquisa.value == '') {
-            //     setValorResposta(
-            //       <div className={styles.textoErro}>
-            //         Preencha este campo...⚠️
-            //       </div>
-            //     );
-            //     setValorPesquisa('');
-            //   }
-            // }}
+            onClick={() => {
+              if (valorPesquisa === '') {
+                setValorResposta(
+                  <div className={styles.textoErro}>
+                    Preencha este campo...⚠️
+                  </div>
+                );
+                setValorPesquisa('');
+                setTituloTag('');
+              } else {
+                setValorResposta(<Loader />);
+                setMaisRequisicao(10);
+                fetchMoreData();
+              }
+            }}
             alt='icone busca'
           />
 
@@ -168,9 +165,7 @@ export default function Busca(props) {
             placeholder={props.placeholder}
             onKeyDown={handleValue}
             onChange={(e) => {
-              setValorPesquisa(
-                e.target.value.replace(/[^a-zA-Z0-9_]/g, '')
-              );
+              setValorPesquisa(e.target.value.replace(/[^a-zA-Z0-9_]/g, ''));
             }}
             maxLength={props.maxLength}
           />
@@ -187,8 +182,8 @@ export default function Busca(props) {
           {tweets ? (
             <div className={styles.containerTextoResultado}>
               <p className={styles.TextoResultado}>
-                Exibindo os {maisRequisicao}{' '}
-                resultados mais recentes para #{tituloTag}
+                Exibindo os {maisRequisicao} resultados mais recentes para #
+                {tituloTag}
               </p>
             </div>
           ) : null}
