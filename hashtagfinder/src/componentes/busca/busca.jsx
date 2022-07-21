@@ -28,7 +28,6 @@ export default function Busca(props) {
   const [maisRequisicao, setMaisRequisicao] = useState(10);
   const [tituloTag, setTituloTag] = useState();
   const [imagemAtiva, setImagemAtiva] = useState('');
-  const [resultadoNumeral, setResultadoNumeral] = useState(0);
   const [loading, setLoading] = useState(false);
   const [modoAnimacao, setModoAnimacao] = useState(0);
 
@@ -41,7 +40,7 @@ export default function Busca(props) {
       $(window).height() + $(window).scrollTop() >= $(document).height() &&
       document.getElementById('twitter')
     ) {
-      setTimeout(() => setMaisRequisicao(maisRequisicao + 10), asyncCall());
+      setTimeout(() => fetchMoreData());
       console.log('posicaoScrollLoading');
     }
   }
