@@ -1,52 +1,53 @@
-import React, { useEffect, useState } from 'react';
-import $ from 'jquery';
-import styles from './Busca.module.css';
-import IconeBusca from '../../imagens/icones/icon-search.svg';
+import React, { useEffect, useState } from "react";
+import $ from "jquery";
+import styles from "./Busca.module.css";
+import IconeBusca from "../../imagens/icones/icon-search.svg";
 
 /* API do Twitter */
-import { getTweets } from '../../api/GETTweets';
-import { getTweetImagens } from '../../api/GETTweetImagens';
+import { getTweets } from "../../api/GETTweets";
+import { getTweetImagens } from "../../api/GETTweetImagens";
 
 /* Componentes Loader (Animação e Cards do Twitter) */
-import Loader from '../../componentes/loader/Loader';
-import Twitter from '../twitter/twitter';
-import { motion } from 'framer-motion';
+import Loader from "../../componentes/loader/Loader";
+import Twitter from "../twitter/twitter";
+import { motion } from "framer-motion";
 
 /* Componentes Galeria de Imagens (Twitter) */
-import { Slider, Slide } from '../../componentes/galeria/ExportPattern';
-import { settingSlider } from '../../componentes/galeria/settings';
-import styles2 from '../../componentes/galeria/sliderImage.module.css';
+import { Slider, Slide } from "../../componentes/galeria/ExportPattern";
+import { settingSlider } from "../../componentes/galeria/settings";
+import styles2 from "../../componentes/galeria/sliderImage.module.css";
 
 /* API do Airtable para registros de Twitter (busca) */
-import { airtableBuscaHashtag } from '../../api/airtableBuscaHashtag';
+import { airtableBuscaHashtag } from "../../api/airtableBuscaHashtag";
 
 export default function Busca(props) {
-  const [valorPesquisa, setValorPesquisa] = useState('');
-  const [valorResposta, setValorResposta] = useState('');
+  const [valorPesquisa, setValorPesquisa] = useState("cacto");
+  const [valorResposta, setValorResposta] = useState("");
   const [tweets, setTweets] = useState(null);
   const [tweetImagens, setTweetImagens] = useState(null);
   const [maisRequisicao, setMaisRequisicao] = useState(10);
   const [tituloTag, setTituloTag] = useState();
-  const [imagemAtiva, setImagemAtiva] = useState('');
+  const [imagemAtiva, setImagemAtiva] = useState("");
   const [loading, setLoading] = useState(false);
   const [modoAnimacao, setModoAnimacao] = useState(0);
 
-  function fetchMoreData() {
-    asyncCall();
-  }
+  // function fetchMoreData() {
+  //   asyncCall();
+  // }
 
-  function posicaoScrollLoading() {
+  const posicaoScrollLoading = () => {
     if (
       $(window).height() + $(window).scrollTop() >= $(document).height() &&
-      document.getElementById('twitter')
+      document.getElementById("twitter")
     ) {
-      setTimeout(() => fetchMoreData());
-      console.log('posicaoScrollLoading');
+      console.log(valorPesquisa);
+      asyncCall();
+      console.log("posicaoScrollLoading");
     }
-  }
+  };
 
   useEffect(() => {
-    window.addEventListener('scroll', posicaoScrollLoading);
+    window.addEventListener("scroll", posicaoScrollLoading);
   }, []);
 
   // const registraHashtag = async () => {
@@ -56,20 +57,20 @@ export default function Busca(props) {
   /* Campo Input Search */
   const handleValue = (evento) => {
     if (evento.keyCode === 13) {
-      if (evento.target.value === '') {
+      if (evento.target.value === "") {
         setValorResposta(
           <div className={styles.textoErro}>Preencha este campo...⚠️</div>
         );
-        setValorPesquisa('');
+        setValorPesquisa("");
       } else {
         setValorResposta(<Loader />);
         // registraHashtag();
-        fetchMoreData();
+        asyncCall();
       }
       return;
     }
 
-    if (evento.keyCode != 8 && evento.target.value.length >= 20) {
+    if (evento.keyCode !== 8 && evento.target.value.length >= 20) {
       evento.preventDefault();
       setValorResposta(
         <div className={styles.textoErro}>Limite máximo de caracteres 🚫</div>
@@ -80,11 +81,12 @@ export default function Busca(props) {
   };
 
   /* Função para chamar os Twitters (Galeria + Cards) */
-  const asyncCall = () => {
-    console.log('Valor Pesquisa: ' + valorPesquisa);
-    getTweets(valorPesquisa, maisRequisicao)
+  const asyncCall = (valor) => {
+    console.log("Valor Pesquisa: " + valorPesquisa);
+    getTweets(valorPesquisa || valor, maisRequisicao)
       .then((tweetCall) => {
         const tweetSet = tweetCall.data.map((tweet) => {
+          console.log(tweetCall.meta.next_token);
           const user = tweetCall.includes.users.find(
             (user) => tweet.author_id === user.id
           );
@@ -101,8 +103,10 @@ export default function Busca(props) {
 
         setTweets(tweetSet);
 
+        console.log("Valor Pesquisa Imagens: " + valorPesquisa);
         getTweetImagens(valorPesquisa, maisRequisicao).then((tweetImagens) => {
           const imgSet = tweetImagens.data.map((tweet) => {
+            console.log(tweetCall.meta.next_token);
             const user = tweetImagens.includes.users.find(
               (user) => tweet.author_id === user.id
             );
@@ -141,30 +145,30 @@ export default function Busca(props) {
             className={styles.campoBuscaIcone}
             src={IconeBusca}
             onClick={() => {
-              if (valorPesquisa === '') {
+              if (valorPesquisa === "") {
                 setValorResposta(
                   <div className={styles.textoErro}>
                     Preencha este campo...⚠️
                   </div>
                 );
-                setValorPesquisa('');
-                setTituloTag('');
+                setValorPesquisa("");
+                setTituloTag("");
               } else {
                 setValorResposta(<Loader />);
-                fetchMoreData();
+                asyncCall();
               }
             }}
-            alt='icone busca'
+            alt="icone busca"
           />
 
           <input
-            id='input'
+            id="input"
             className={styles.campoBuscaInput}
             type={props.type}
             placeholder={props.placeholder}
             onKeyDown={handleValue}
             onChange={(e) => {
-              setValorPesquisa(e.target.value.replace(/[^a-zA-Z0-9_]/g, ''));
+              setValorPesquisa(e.target.value.replace(/[^a-zA-Z0-9_]/g, ""));
             }}
             maxLength={props.maxLength}
           />
@@ -177,7 +181,8 @@ export default function Busca(props) {
             tweets
               ? styles.containerTextoResultado
               : styles.containerTextoResultadoDesabilitada
-          }>
+          }
+        >
           {tweets ? (
             <div className={styles.containerTextoResultado}>
               <p className={styles.TextoResultado}>
@@ -198,8 +203,8 @@ export default function Busca(props) {
                   <img
                     src={img}
                     alt={user}
-                    height='287px'
-                    width='287px'
+                    height="287px"
+                    width="287px"
                     onClick={() => {
                       setImagemAtiva({ user, username, img, id });
                     }}
@@ -207,9 +212,10 @@ export default function Busca(props) {
                   <div className={styles2.fundoPostUsuario}>
                     <a
                       href={`https://twitter.com/${username}/status/${id}`}
-                      target='_blank'
-                      rel='noreferrer'
-                      alt={username}>
+                      target="_blank"
+                      rel="noreferrer"
+                      alt={username}
+                    >
                       <p>Postado por:</p>
                       <h3>@{username}</h3>
                     </a>
@@ -226,21 +232,24 @@ export default function Busca(props) {
             className={imagemAtiva ? styles.modal : styles.modalDesabilitado}
             onClick={() => {
               setImagemAtiva(false);
-            }}>
+            }}
+          >
             <div className={styles.modalContainer}>
               <img src={imagemAtiva.img} alt={imagemAtiva.username} />
               <button
                 onClick={() => {
                   setImagemAtiva(false);
-                }}>
+                }}
+              >
                 X
               </button>
-              <div className={styles.modalData} id='modaldata'>
+              <div className={styles.modalData} id="modaldata">
                 <a
                   href={`https://twitter.com/${imagemAtiva.username}/status/${imagemAtiva.id}`}
-                  target='_blank'
-                  rel='noreferrer'
-                  alt=''>
+                  target="_blank"
+                  rel="noreferrer"
+                  alt=""
+                >
                   <span>Postado por: </span>
                   <h4>@{imagemAtiva.username}</h4>
                 </a>
@@ -254,7 +263,8 @@ export default function Busca(props) {
       <div
         className={
           tweets ? styles.containerTwitterCartao : styles.containerOculto
-        }>
+        }
+      >
         {tweets?.map(({ user, username, text, id, photo }) => {
           return (
             <Twitter
@@ -275,7 +285,8 @@ export default function Busca(props) {
             initial={{ y: modoAnimacao, opacity: 1 }}
             animate={{ y: modoAnimacao, opacity: 1 }}
             onClick={() => setModoAnimacao(modoAnimacao)}
-            transition={{ duration: 0.5, delay: 0.4 }}>
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             <div className={tweets ? styles.bgResponse : styles.bgLoader}>
               <div className={styles.textResponse}>{valorResposta}</div>
             </div>
@@ -290,7 +301,8 @@ export default function Busca(props) {
             animate={{ y: modoAnimacao, opacity: 1 }}
             onClick={() => setModoAnimacao(modoAnimacao)}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className={styles.bgLoader}>
+            className={styles.bgLoader}
+          >
             <Loader />
           </motion.div>
         ) : null}
