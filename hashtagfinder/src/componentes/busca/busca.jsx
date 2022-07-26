@@ -21,7 +21,7 @@ import styles2 from "../../componentes/galeria/sliderImage.module.css";
 import { airtableBuscaHashtag } from "../../api/airtableBuscaHashtag";
 
 export default function Busca(props) {
-  const [valorPesquisa, setValorPesquisa] = useState("cacto");
+  const [valorPesquisa, setValorPesquisa] = useState("");
   const [valorResposta, setValorResposta] = useState("");
   const [tweets, setTweets] = useState(null);
   const [tweetImagens, setTweetImagens] = useState(null);
@@ -40,6 +40,7 @@ export default function Busca(props) {
       $(window).height() + $(window).scrollTop() >= $(document).height() &&
       document.getElementById("twitter")
     ) {
+      setMaisRequisicao(10);
       asyncCall();
       console.log("posicaoScrollLoading");
     }
@@ -80,12 +81,11 @@ export default function Busca(props) {
   };
 
   /* Função para chamar os Twitters (Galeria + Cards) */
-  const asyncCall = (valor) => {
+  const asyncCall = () => {
     console.log("Valor Pesquisa: " + valorPesquisa);
-    getTweets(valorPesquisa || valor, maisRequisicao)
+    getTweets(valorPesquisa, maisRequisicao)
       .then((tweetCall) => {
         const tweetSet = tweetCall.data.map((tweet) => {
-          console.log(tweetCall.meta.next_token);
           const user = tweetCall.includes.users.find(
             (user) => tweet.author_id === user.id
           );
@@ -103,9 +103,8 @@ export default function Busca(props) {
         setTweets(tweetSet);
 
         console.log("Valor Pesquisa Imagens: " + valorPesquisa);
-        getTweetImagens(valorPesquisa || valor, maisRequisicao).then((tweetImagens) => {
+        getTweetImagens(valorPesquisa, maisRequisicao).then((tweetImagens) => {
           const imgSet = tweetImagens.data.map((tweet) => {
-            console.log(tweetCall.meta.next_token);
             const user = tweetImagens.includes.users.find(
               (user) => tweet.author_id === user.id
             );

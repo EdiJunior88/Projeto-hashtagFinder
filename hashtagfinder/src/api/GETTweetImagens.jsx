@@ -15,8 +15,11 @@ const getTweetImagens = async (valorPesquisa, maisRequisicao) => {
   const response = await fetch(url, requestOptions);
   const body = await response.json();
 
-  console.log(body);
-  return body;
+  if (body.meta.next_token) {
+    console.log(body);
+    console.log('GETTWITTERIMAGENS: ' + body.meta.next_token);
+    return body;
+  }
 };
 
 export { getTweetImagens };
