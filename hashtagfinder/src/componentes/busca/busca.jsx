@@ -31,28 +31,30 @@ export default function Busca(props) {
   const [loading, setLoading] = useState(false);
   const [modoAnimacao, setModoAnimacao] = useState(0);
 
-  // function fetchMoreData() {
-  //   asyncCall();
-  // }
-
-  const posicaoScrollLoading = () => {
-    if (
-      $(window).height() + $(window).scrollTop() >= $(document).height() &&
-      document.getElementById("twitter")
-    ) {
-      setMaisRequisicao(10);
-      asyncCall();
-      console.log("posicaoScrollLoading");
-    }
-  };
+  const [isBottom, setIsBottom] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", posicaoScrollLoading);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // const registraHashtag = async () => {
-  //   await airtableBuscaHashtag(evento.target.value);
-  // };
+  useEffect(() => {
+    if (isBottom) {
+      asyncCall();
+    }
+  }, [isBottom]);
+
+  function handleScroll() {
+    const scrollTop = (document.documentElement
+      && document.documentElement.scrollTop)
+      || document.body.scrollTop;
+    const scrollHeight = (document.documentElement
+      && document.documentElement.scrollHeight)
+      || document.body.scrollHeight;
+    if (scrollTop + window.innerHeight + 50 >= scrollHeight){
+      setIsBottom(true);
+    }
+  }
 
   /* Campo Input Search */
   const handleValue = (evento) => {
