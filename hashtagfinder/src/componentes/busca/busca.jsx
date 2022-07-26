@@ -40,7 +40,6 @@ export default function Busca(props) {
       $(window).height() + $(window).scrollTop() >= $(document).height() &&
       document.getElementById("twitter")
     ) {
-      console.log(valorPesquisa);
       asyncCall();
       console.log("posicaoScrollLoading");
     }
@@ -104,7 +103,7 @@ export default function Busca(props) {
         setTweets(tweetSet);
 
         console.log("Valor Pesquisa Imagens: " + valorPesquisa);
-        getTweetImagens(valorPesquisa, maisRequisicao).then((tweetImagens) => {
+        getTweetImagens(valorPesquisa || valor, maisRequisicao).then((tweetImagens) => {
           const imgSet = tweetImagens.data.map((tweet) => {
             console.log(tweetCall.meta.next_token);
             const user = tweetImagens.includes.users.find(
