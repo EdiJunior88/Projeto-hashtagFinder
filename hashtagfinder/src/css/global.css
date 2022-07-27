@@ -58,6 +58,9 @@ footer {
   --cor-usuario-twitter: #292929;
   --cor-twitter-link: #3634f7;
 
+   /* Página HOME - Botão Carregar mais Twitter */
+   --cor-botao-carregarMaisTwitter-texto: #3634f7;
+
   /* Página HOME - RODAPÉ */
   --cor-fundo-rodape: #d842bd;
 

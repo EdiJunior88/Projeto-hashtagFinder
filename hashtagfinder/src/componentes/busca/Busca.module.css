@@ -185,6 +185,11 @@ span {
   text-decoration: none;
 }
 
+/* Botão Carregar Mais Twitters */
+.botaoCarregarTwitter {
+  color: var(--cor-botao-carregarMaisTwitter-texto);
+}
+
 /* Responsividade - Tela 1400 pixels */
 @media (min-width: 1501px) {
   .containerTwitterCartao {

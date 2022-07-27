@@ -283,7 +283,13 @@ export default function Busca(props) {
       </div>
 
       <div className={tweets ? styles.container : styles.containerOculto}>
-        <button onClick={() => maisTwitters()}>Carregar Mais Twitters</button>
+        <div>
+          <button
+            className={styles.botaoCarregarTwitter}
+            onClick={() => maisTwitters()}>
+            Mais Twitters
+          </button>
+        </div>
       </div>
     </section>
   );
