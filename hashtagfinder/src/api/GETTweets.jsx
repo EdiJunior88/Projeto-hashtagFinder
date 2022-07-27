@@ -15,11 +15,8 @@ const getTweets = async (valorPesquisa, maisRequisicao) => {
   const response = await fetch(url, requestOptions);
   const body = await response.json();
 
-  if (body.meta.next_token) {
-    console.log(body);
-    console.log('GETTWITTER: ' + body.meta.next_token);
-    return body;
-  }
+  console.log(body);
+  return body;
 };
 
 export { getTweets };

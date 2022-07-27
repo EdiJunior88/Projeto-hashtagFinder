@@ -31,23 +31,11 @@ export default function Busca(props) {
   const [loading, setLoading] = useState(false);
   const [modoAnimacao, setModoAnimacao] = useState(0);
 
-  function fetchMoreData() {
-    asyncCall();
-  }
-
-  function posicaoScrollLoading() {
-    if (
-      $(window).height() + $(window).scrollTop() >= $(document).height() &&
-      document.getElementById('twitter')
-    ) {
-      setTimeout(() => fetchMoreData());
-    }
-  }
-
   useEffect(() => {
-    window.addEventListener('scroll', posicaoScrollLoading);
+    if (valorPesquisa !== '') {
+      setTimeout(() => asyncCall(), 1500);
+    }
   }, []);
-
 
   /* Campo Input Search */
   const handleValue = (evento) => {
@@ -60,7 +48,7 @@ export default function Busca(props) {
       } else {
         setValorResposta(<Loader />);
         // registraHashtag();
-        fetchMoreData();
+        asyncCall();
       }
       return;
     }
@@ -78,6 +66,7 @@ export default function Busca(props) {
   /* Função para chamar os Twitters (Galeria + Cards) */
   const asyncCall = () => {
     console.log('Valor Pesquisa: ' + valorPesquisa);
+    console.log('Valor Requisicao: ' + maisRequisicao);
     getTweets(valorPesquisa, maisRequisicao)
       .then((tweetCall) => {
         const tweetSet = tweetCall.data.map((tweet) => {
@@ -116,7 +105,7 @@ export default function Busca(props) {
 
           setTweetImagens(imgSet);
           setTituloTag(valorPesquisa);
-          setMaisRequisicao(maisRequisicao);
+          setMaisRequisicao(maisRequisicao + 10);
         });
       })
       .catch(() => {
@@ -127,6 +116,11 @@ export default function Busca(props) {
         );
         setTweets();
       });
+  };
+
+  const maisTwitters = () => {
+    setMaisRequisicao(maisRequisicao + 10);
+    asyncCall();
   };
 
   return (
@@ -147,7 +141,7 @@ export default function Busca(props) {
                 setTituloTag('');
               } else {
                 setValorResposta(<Loader />);
-                fetchMoreData();
+                asyncCall();
               }
             }}
             alt='icone busca'
@@ -166,7 +160,6 @@ export default function Busca(props) {
           />
         </div>
       </div>
-
       <div className={styles.container}>
         <div
           className={
@@ -177,14 +170,13 @@ export default function Busca(props) {
           {tweets ? (
             <div className={styles.containerTextoResultado}>
               <p className={styles.TextoResultado}>
-                Exibindo os {maisRequisicao} resultados mais recentes para #
-                {tituloTag}
+                Exibindo os {maisRequisicao > 0 ? maisRequisicao - 10 : null}{' '}
+                resultados mais recentes para #{tituloTag}
               </p>
             </div>
           ) : null}
         </div>
       </div>
-
       <div className={tweetImagens ? styles.container : styles.containerOculto}>
         <Slider settings={settingSlider}>
           {tweetImagens?.map(({ user, username, img, id }) => {
@@ -246,7 +238,6 @@ export default function Busca(props) {
           </div>
         )}
       </div>
-
       <div
         className={
           tweets ? styles.containerTwitterCartao : styles.containerOculto
@@ -264,8 +255,7 @@ export default function Busca(props) {
           );
         })}
       </div>
-
-      <div className={styles.container}>
+      {/* <div className={styles.container}>
         {valorResposta ? (
           <motion.div
             initial={{ y: modoAnimacao, opacity: 1 }}
@@ -277,12 +267,12 @@ export default function Busca(props) {
             </div>
           </motion.div>
         ) : null}
-      </div>
+      </div> */}
 
       <div className={styles.container}>
         {loading ? (
           <motion.div
-            initial={{ y: modoAnimacao, opacity: 0 }}
+            initial={{ y: modoAnimacao, opacity: 1 }}
             animate={{ y: modoAnimacao, opacity: 1 }}
             onClick={() => setModoAnimacao(modoAnimacao)}
             transition={{ duration: 0.7, delay: 0.4 }}
@@ -290,6 +280,10 @@ export default function Busca(props) {
             <Loader />
           </motion.div>
         ) : null}
+      </div>
+
+      <div className={tweets ? styles.container : styles.containerOculto}>
+        <button onClick={() => maisTwitters()}>Carregar Mais Twitters</button>
       </div>
     </section>
   );
