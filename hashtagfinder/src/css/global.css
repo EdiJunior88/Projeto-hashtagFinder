@@ -50,7 +50,7 @@ footer {
   --cor-fundo-galeria-modal-botao-x: rgba(0, 0, 0, 0.616);
 
   /* Página HOME - GALERIA (Setas Scroll) */
-  --cor-fundo-galeria-setas: #FFF;
+  --cor-fundo-galeria-setas: #fff;
 
   /* Página HOME - BUSCA (Texto Erro) */
   --cor-sombra-texto-erro: 1px 1px 10px #fff, 1px 1px 2px #fff;
@@ -61,10 +61,15 @@ footer {
   --cor-usuario-twitter: #292929;
   --cor-twitter-link: #3634f7;
 
-   /* Página HOME - Botão Carregar mais Twitter */
-   --cor-botao-texto-carregar-twitter: #3634f7;
-   --cor-sombra-botao-carregar-twitter: 8px 14px 30px #5538ee29;
-   --cor-sombra-escura-botao-carregar-twitter: 8px 14px 6px #5538ee29;
+  /* Página HOME - Botão Carregar mais Twitter */
+  --cor-botao-texto-carregar-twitter: #3634f7;
+  --cor-sombra-botao-carregar-twitter: 8px 14px 30px #5538ee29;
+  --cor-sombra-escura-botao-carregar-twitter: 8px 14px 6px #5538ee29;
+
+  /* Página HOME - Botão Topo da Página */
+  --cor-fundo-botao-topo-pagina: #d842bd;
+  --cor-texto-botao-topo-pagina: 0px 0px 0px #FFF;
+  --cor-sombra-botao-topo-pagina: 8px 14px 30px #5538ee29;
 
   /* Página HOME - RODAPÉ */
   --cor-fundo-rodape: #d842bd;

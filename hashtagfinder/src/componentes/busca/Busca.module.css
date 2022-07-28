@@ -48,6 +48,7 @@ section.container {
 }
 
 .campoBuscaIcone {
+  cursor: pointer;
   padding-left: 60px;
 }
 
@@ -232,16 +233,21 @@ span {
 
 /*Botão Lateral Topo da Página*/
 .botaoTopoPagina {
-  width: 153px;
-  height: 36px;
-  font-size: 1.18em;
+  width: 53px;
+  height: 48px;
+  font-size: 1.8em;
   font-weight: 400;
-  background: none;
+  background: var(--cor-fundo-botao-topo-pagina);
   border: none;
   cursor: pointer;
-  color: var(--cor-botao-texto-carregar-twitter);
-  border-radius: 75px;
-  box-shadow: var(--cor-sombra-botao-carregar-twitter);
+  color: transparent;
+  text-shadow: var(--cor-texto-botao-topo-pagina);
+  box-shadow: var(--cor-sombra-botao-topo-pagina);
+  border-radius: 12px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99999;
 }
 
 /* Responsividade - Tela 1400 pixels */

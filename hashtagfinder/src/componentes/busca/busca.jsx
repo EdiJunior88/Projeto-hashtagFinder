@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import $ from 'jquery';
+// import $ from 'jquery';
 import styles from './Busca.module.css';
 import IconeBusca from '../../imagens/icones/icon-search.svg';
 
@@ -18,7 +18,7 @@ import { settingSlider } from '../../componentes/galeria/settings';
 import styles2 from '../../componentes/galeria/sliderImage.module.css';
 
 /* API do Airtable para registros de Twitter (busca) */
-import { airtableBuscaHashtag } from '../../api/airtableBuscaHashtag';
+// import { airtableBuscaHashtag } from '../../api/airtableBuscaHashtag';
 
 export default function Busca(props) {
   const [valorPesquisa, setValorPesquisa] = useState('');
@@ -44,8 +44,10 @@ export default function Busca(props) {
         setValorResposta(
           <div className={styles.textoErro}>Preencha este campo...⚠️</div>
         );
+        console.log('Preencha este campo...⚠️');
         setValorPesquisa('');
       } else {
+        setValorResposta('');
         setLoading(true);
         // registraHashtag();
         asyncCall();
@@ -53,7 +55,7 @@ export default function Busca(props) {
       return;
     }
 
-    if (evento.keyCode != 8 && evento.target.value.length >= 20) {
+    if (evento.keyCode !== 8 && evento.target.value.length >= 20) {
       evento.preventDefault();
       setValorResposta(
         <div className={styles.textoErro}>Limite máximo de caracteres 🚫</div>
@@ -127,7 +129,7 @@ export default function Busca(props) {
   const botaoTopoPagina = () => {
     const elemento = document.getElementById('input');
     elemento.scrollIntoView({ behavior: 'smooth' });
-  }
+  };
 
   return (
     <section className={styles.container}>
@@ -143,11 +145,13 @@ export default function Busca(props) {
                     Preencha este campo...⚠️
                   </div>
                 );
+                console.log('Preencha este campo...⚠️');
                 setValorPesquisa('');
                 setTituloTag('');
               } else {
+                setValorResposta('');
                 setLoading(true);
-                setTimeout(() => asyncCall(), 1000);
+                setTimeout(() => asyncCall(), 500);
               }
             }}
             alt='icone busca'
@@ -265,19 +269,12 @@ export default function Busca(props) {
         })}
       </div>
 
-      {/* <div className={styles.container}>
-        {valorResposta ? (
-          <motion.div
-            initial={{ y: modoAnimacao, opacity: 1 }}
-            animate={{ y: modoAnimacao, opacity: 1 }}
-            onClick={() => setModoAnimacao(modoAnimacao)}
-            transition={{ duration: 0.5, delay: 0.4 }}>
-            <div className={tweets ? styles.bgResponse : styles.bgLoader}>
-              <div className={styles.textResponse}>{valorResposta}</div>
-            </div>
-          </motion.div>
-        ) : null}
-      </div> */}
+      <div className={styles.container}>
+        {valorResposta ? valorPesquisa === '' : null}
+          <div className={tweets ? styles.bgResponse : styles.bgLoader}>
+            <div className={styles.textResponse}>{valorResposta}</div>
+          </div>
+      </div>
 
       <div className={styles.container}>
         {loading ? (
@@ -285,7 +282,7 @@ export default function Busca(props) {
             initial={{ y: modoAnimacao, opacity: 1 }}
             animate={{ y: modoAnimacao, opacity: 1 }}
             onClick={() => setModoAnimacao(modoAnimacao)}
-            transition={{ duration: 1.8, delay: 0.4 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
             className={styles.bgLoader}>
             <Loader />
           </motion.div>
@@ -302,13 +299,13 @@ export default function Busca(props) {
         </div>
       </div>
 
-      <div className={tweets ? styles.container : styles.container}>
+      <div className={tweets ? styles.container : styles.containerOculto}>
         <div className={styles.containerBotaoTopoPagina}>
           <button
             className={styles.botaoTopoPagina}
             id='botaoTopoPagina'
             onClick={() => botaoTopoPagina()}>
-            TOPO
+            🔺
           </button>
         </div>
       </div>
