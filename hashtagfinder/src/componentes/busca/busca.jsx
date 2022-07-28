@@ -33,7 +33,7 @@ export default function Busca(props) {
 
   useEffect(() => {
     if (valorPesquisa !== '') {
-      setTimeout(() => asyncCall(), 1500);
+      asyncCall();
     }
   }, []);
 
@@ -46,7 +46,7 @@ export default function Busca(props) {
         );
         setValorPesquisa('');
       } else {
-        setValorResposta(<Loader />);
+        setLoading(true);
         // registraHashtag();
         asyncCall();
       }
@@ -106,6 +106,7 @@ export default function Busca(props) {
           setTweetImagens(imgSet);
           setTituloTag(valorPesquisa);
           setMaisRequisicao(maisRequisicao + 10);
+          setLoading(false);
         });
       })
       .catch(() => {
@@ -122,6 +123,11 @@ export default function Busca(props) {
     setMaisRequisicao(maisRequisicao + 10);
     asyncCall();
   };
+
+  const botaoTopoPagina = () => {
+    const elemento = document.getElementById('input');
+    elemento.scrollIntoView({ behavior: 'smooth' });
+  }
 
   return (
     <section className={styles.container}>
@@ -140,8 +146,8 @@ export default function Busca(props) {
                 setValorPesquisa('');
                 setTituloTag('');
               } else {
-                setValorResposta(<Loader />);
-                asyncCall();
+                setLoading(true);
+                setTimeout(() => asyncCall(), 1000);
               }
             }}
             alt='icone busca'
@@ -160,6 +166,7 @@ export default function Busca(props) {
           />
         </div>
       </div>
+
       <div className={styles.container}>
         <div
           className={
@@ -177,6 +184,7 @@ export default function Busca(props) {
           ) : null}
         </div>
       </div>
+
       <div className={tweetImagens ? styles.container : styles.containerOculto}>
         <Slider settings={settingSlider}>
           {tweetImagens?.map(({ user, username, img, id }) => {
@@ -238,6 +246,7 @@ export default function Busca(props) {
           </div>
         )}
       </div>
+
       <div
         className={
           tweets ? styles.containerTwitterCartao : styles.containerOculto
@@ -255,6 +264,7 @@ export default function Busca(props) {
           );
         })}
       </div>
+
       {/* <div className={styles.container}>
         {valorResposta ? (
           <motion.div
@@ -275,7 +285,7 @@ export default function Busca(props) {
             initial={{ y: modoAnimacao, opacity: 1 }}
             animate={{ y: modoAnimacao, opacity: 1 }}
             onClick={() => setModoAnimacao(modoAnimacao)}
-            transition={{ duration: 0.7, delay: 0.4 }}
+            transition={{ duration: 1.8, delay: 0.4 }}
             className={styles.bgLoader}>
             <Loader />
           </motion.div>
@@ -283,11 +293,22 @@ export default function Busca(props) {
       </div>
 
       <div className={tweets ? styles.container : styles.containerOculto}>
-        <div>
+        <div className={styles.containerBotaoCarregaTwitter}>
           <button
             className={styles.botaoCarregarTwitter}
             onClick={() => maisTwitters()}>
             Mais Twitters
+          </button>
+        </div>
+      </div>
+
+      <div className={tweets ? styles.container : styles.container}>
+        <div className={styles.containerBotaoTopoPagina}>
+          <button
+            className={styles.botaoTopoPagina}
+            id='botaoTopoPagina'
+            onClick={() => botaoTopoPagina()}>
+            TOPO
           </button>
         </div>
       </div>

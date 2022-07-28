@@ -20,7 +20,7 @@ section.container {
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  box-shadow: 8px 14px 30px #5538ee29;
+  box-shadow: var(--cor-sombra-busca);
 }
 
 .campoBusca,
@@ -91,7 +91,6 @@ section.container {
   width: 100%;
   text-align: center;
   padding-top: 10px;
-
 }
 
 /* MODAL */
@@ -186,8 +185,63 @@ span {
 }
 
 /* Botão Carregar Mais Twitters */
+.containerBotaoCarregaTwitter {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 60px;
+}
+
 .botaoCarregarTwitter {
-  color: var(--cor-botao-carregarMaisTwitter-texto);
+  width: 153px;
+  height: 36px;
+  font-size: 1.18em;
+  font-weight: 400;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--cor-botao-texto-carregar-twitter);
+  border-radius: 75px;
+  box-shadow: var(--cor-sombra-botao-carregar-twitter);
+}
+
+.botaoCarregarTwitter:hover {
+  -webkit-animation: shadow-drop-2-center 0.4s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: shadow-drop-2-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* Animação do Botão Carregar Mais Twitters */
+@keyframes shadow-drop-2-center {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translateZ(50px);
+            transform: translateZ(50px);
+    -webkit-box-shadow: var(--cor-sombra-escura-botao-carregar-twitter);
+            box-shadow: var(--cor-sombra-escura-botao-carregar-twitter);
+  }
+}
+/* ------------------------------------------------------- */
+
+/*Botão Lateral Topo da Página*/
+.botaoTopoPagina {
+  width: 153px;
+  height: 36px;
+  font-size: 1.18em;
+  font-weight: 400;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--cor-botao-texto-carregar-twitter);
+  border-radius: 75px;
+  box-shadow: var(--cor-sombra-botao-carregar-twitter);
 }
 
 /* Responsividade - Tela 1400 pixels */
