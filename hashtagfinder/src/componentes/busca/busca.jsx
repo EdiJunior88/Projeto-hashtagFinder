@@ -18,7 +18,7 @@ import { settingSlider } from '../../componentes/galeria/settings';
 import styles2 from '../../componentes/galeria/sliderImage.module.css';
 
 /* API do Airtable para registros de Twitter (busca) */
-// import { airtableBuscaHashtag } from '../../api/airtableBuscaHashtag';
+import { airtableBuscaHashtag } from '../../api/airtableBuscaHashtag';
 
 export default function Busca(props) {
   const [valorPesquisa, setValorPesquisa] = useState('');
@@ -31,15 +31,24 @@ export default function Busca(props) {
   const [loading, setLoading] = useState(false);
   const [modoAnimacao, setModoAnimacao] = useState(0);
 
+  /* Ao carregar a primeira vez a página só irá chamar a função
+  caso tenha algum valor digitado no input search */
   useEffect(() => {
     if (valorPesquisa !== '') {
-      asyncCall();
+      chamandoTwitter();
     }
   }, []);
 
   /* Campo Input Search */
-  const handleValue = (evento) => {
+  const inputTeclado = (evento) => {
     if (evento.keyCode === 13) {
+
+      /* Registra a busca digitada no AirTable */
+      const registraHashtag = async () => {
+        await airtableBuscaHashtag(evento.target.value);
+      };
+      
+      /* Verifica se o input "search" está vazio */
       if (evento.target.value === '') {
         setValorResposta(
           <div className={styles.textoErro}>Preencha este campo...⚠️</div>
@@ -47,14 +56,20 @@ export default function Busca(props) {
         console.log('Preencha este campo...⚠️');
         setValorPesquisa('');
       } else {
+        /* Se o input não estiver vazio:
+        - reseta a mensagem de erro
+        - aparece o loading
+        - registra a palavra no Airtable
+        - chama a função chamandoTwitter()  */
         setValorResposta('');
         setLoading(true);
-        // registraHashtag();
-        asyncCall();
+        registraHashtag();
+        chamandoTwitter();
       }
       return;
     }
 
+    /* Verifica se os caracteres digitados são diferentes que 8 ou maiores que 20 caracteres */
     if (evento.keyCode !== 8 && evento.target.value.length >= 20) {
       evento.preventDefault();
       setValorResposta(
@@ -66,9 +81,8 @@ export default function Busca(props) {
   };
 
   /* Função para chamar os Twitters (Galeria + Cards) */
-  const asyncCall = () => {
-    console.log('Valor Pesquisa: ' + valorPesquisa);
-    console.log('Valor Requisicao: ' + maisRequisicao);
+  const chamandoTwitter = () => {
+    /* Cards (Cartões) dos tweets */
     getTweets(valorPesquisa, maisRequisicao)
       .then((tweetCall) => {
         const tweetSet = tweetCall.data.map((tweet) => {
@@ -84,10 +98,12 @@ export default function Busca(props) {
           };
         });
 
+        /* Modal da galeria de imagens está fechado e
+        chama os tweets cards (cartões com os tweets) */
         setImagemAtiva(false);
-
         setTweets(tweetSet);
 
+        /* Galeria de imagens dos Tweets */
         getTweetImagens(valorPesquisa, maisRequisicao).then((tweetImagens) => {
           const imgSet = tweetImagens.data.map((tweet) => {
             const user = tweetImagens.includes.users.find(
@@ -105,6 +121,10 @@ export default function Busca(props) {
             };
           });
 
+          /* - Chama a galeria de imagens dos tweets
+          - Atualiza o título da descrição dos twitters
+          - Acrescenta mais 10 tweets a cada chamada
+          - Desativa o loading */
           setTweetImagens(imgSet);
           setTituloTag(valorPesquisa);
           setMaisRequisicao(maisRequisicao + 10);
@@ -121,11 +141,13 @@ export default function Busca(props) {
       });
   };
 
-  const maisTwitters = () => {
+  /* Função para carregar mais 10 tweets a cada clique no botão "mais tweets" */
+  const maisTweets = () => {
     setMaisRequisicao(maisRequisicao + 10);
-    asyncCall();
+    chamandoTwitter();
   };
 
+  /* Função dar scroll no topo da página através de um botão lateral  */
   const botaoTopoPagina = () => {
     const elemento = document.getElementById('input');
     elemento.scrollIntoView({ behavior: 'smooth' });
@@ -151,7 +173,7 @@ export default function Busca(props) {
               } else {
                 setValorResposta('');
                 setLoading(true);
-                setTimeout(() => asyncCall(), 500);
+                setTimeout(() => chamandoTwitter(), 500);
               }
             }}
             alt='icone busca'
@@ -162,7 +184,7 @@ export default function Busca(props) {
             className={styles.campoBuscaInput}
             type={props.type}
             placeholder={props.placeholder}
-            onKeyDown={handleValue}
+            onKeyDown={inputTeclado}
             onChange={(e) => {
               setValorPesquisa(e.target.value.replace(/[^a-zA-Z0-9_]/g, ''));
             }}
@@ -271,9 +293,9 @@ export default function Busca(props) {
 
       <div className={styles.container}>
         {valorResposta ? valorPesquisa === '' : null}
-          <div className={tweets ? styles.bgResponse : styles.bgLoader}>
-            <div className={styles.textResponse}>{valorResposta}</div>
-          </div>
+        <div className={tweets ? styles.bgResponse : styles.bgLoader}>
+          <div className={styles.textResponse}>{valorResposta}</div>
+        </div>
       </div>
 
       <div className={styles.container}>
@@ -293,8 +315,8 @@ export default function Busca(props) {
         <div className={styles.containerBotaoCarregaTwitter}>
           <button
             className={styles.botaoCarregarTwitter}
-            onClick={() => maisTwitters()}>
-            Mais Twitters
+            onClick={() => maisTweets()}>
+            Mais Tweets
           </button>
         </div>
       </div>

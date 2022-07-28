@@ -4,7 +4,7 @@ export const settingSlider = {
   slidesPerView: 5,
   navigation: true,
   pagination: {
-    clickable: true,
+    dynamicBullets: true,
   },
   breakpoints: {
     1112: {
