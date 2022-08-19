@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../../css/reset.css";
 import styles from "../../componentes/formulario-login/formulario.module.css";
 import * as yup from "yup";
@@ -6,17 +6,21 @@ import { useFormik } from "formik";
 import { UsarAutenticacao } from "../../providers/autenticar";
 import { useNavigate } from "react-router-dom";
 
+/* Título da página */
+import useDocumentTitle from "@tanem/use-document-title";
+
 export default function Formulario() {
   const autenticacao = UsarAutenticacao();
   const navegacao = useNavigate();
   const [dadosInvalidos, setDadosInvalidos] = useState("");
 
-  useEffect(() => {
-    document.title = "hashtagfinder | Login";
-  }, []);
+  /* Título da Página */
+  useDocumentTitle("hashtag | Login");
+
+  /* Chave da API AirTable oculta */
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
   //  Validação e-mail e senha com yup e formik
-
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -35,17 +39,16 @@ export default function Formulario() {
     validateOnBlur: false,
 
     // Função onSubmit do Formik
-
     onSubmit: (values) => {
       // Inserção dos dados da API do Airtable para checagem dos dados do usuario
       var url =
-        "https://api.airtable.com/v0/app6wQWfM6eJngkD4/Login?filterByFormula=AND" +
+        "https://api.airtable.com/v0/appUf3f0O3QvA6QMd/Login?filterByFormula=AND" +
         `({Squad}='04-22',{Email}='${values.email}',{Senha}='${values.senha}')`;
 
       fetch(encodeURI(url), {
         method: "GET",
         headers: {
-          Authorization: "Bearer key2CwkHb0CKumjuM",
+          Authorization: `Bearer ${API_KEY}`,
         },
       }) // Fazendo login se senha e e-mail forem iguais ao recuperado na Squad 04-22
         .then((response) => response.json())
@@ -62,7 +65,6 @@ export default function Formulario() {
   });
 
   // Removendo espaços em branco no campo e-mail
-
   const handleKeyDown = (e) => {
     if (e.key === " ") {
       e.preventDefault();

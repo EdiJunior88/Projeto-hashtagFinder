@@ -1,33 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import Cabecalho from '../../componentes/cabecalho/cabecalho';
+import React, { useState, useEffect } from "react";
+import Cabecalho from "../../componentes/cabecalho/cabecalho";
+
+/* Título da página */
+import useDocumentTitle from "@tanem/use-document-title";
 
 /* Ícones dos Cartões dos Membros */
-import Figura from '../../imagens/icones/about-illustration.svg';
-import IconeGitHub from '../../imagens/icones/icon-github.svg';
-import IconeEmail from '../../imagens/icones/icon-envelope.svg';
-import IconeLikedIn from '../../imagens/icones/icon-linkedin.svg';
+import Figura from "../../imagens/icones/about-illustration.svg";
+import IconeGitHub from "../../imagens/icones/icon-github.svg";
+import IconeEmail from "../../imagens/icones/icon-envelope.svg";
+import IconeLikedIn from "../../imagens/icones/icon-linkedin.svg";
 
-import Rodape from '../../componentes/rodape/rodape';
-import styles from '../../paginas/sobre/Sobre.module.css';
+import Rodape from "../../componentes/rodape/rodape";
+import styles from "../../paginas/sobre/Sobre.module.css";
 
 const Sobre = () => {
-  const [texto, setTexto] = useState('');
+  const [texto, setTexto] = useState("");
   const [equipe, setEquipe] = useState([]);
-  const [ativaNav] = useState(false);
+  const [ativaMenu, setAtivaMenu] = useState(false);
 
-  useEffect(() => {
-    document.title = 'hashtagfinder | Sobre';
-  }, []);
+  /* Chave da API AirTable oculta */
+  const API_KEY = process.env.REACT_APP_API_KEY;
+
+  /* Título da Página */
+  useDocumentTitle("hashtagfinder | Sobre");
 
   /* Utilizando a API AirTable */
   useEffect(() => {
     fetch(
-      'https://api.airtable.com/v0/app6wQWfM6eJngkD4/Projeto?filterByFormula=' +
+      "https://api.airtable.com/v0/appUf3f0O3QvA6QMd/Projeto?filterByFormula=" +
         encodeURI(`({Squad} = '04-22')`),
       {
-        method: 'GET',
+        method: "GET",
         headers: {
-          Authorization: 'Bearer key2CwkHb0CKumjuM',
+          Authorization: `Bearer ${API_KEY}`,
         },
       }
     )
@@ -39,11 +44,11 @@ const Sobre = () => {
 
     /* Fazendo fetch da API para pegar os dados do Squad */
     fetch(
-      'https://api.airtable.com/v0/app6wQWfM6eJngkD4/Equipe?filterByFormula=' +
+      "https://api.airtable.com/v0/appUf3f0O3QvA6QMd/Equipe?filterByFormula=" +
         encodeURI(`({Squad} = '04-22')`),
       {
         headers: {
-          Authorization: 'Bearer key2CwkHb0CKumjuM',
+          Authorization: `Bearer ${API_KEY}`,
         },
       }
     )
@@ -52,11 +57,21 @@ const Sobre = () => {
         setEquipe(response.records);
       })
       .catch((erro) => console.log(erro));
+
+      /* Ativa o cabeçalho após a posição vertical (y) 900 da página */
+      function posicaoScroll() {
+        if (window.scrollY >= 600) {
+          setAtivaMenu(true);
+        } else {
+          setAtivaMenu(false);
+        }
+      }
+      window.addEventListener('scroll', posicaoScroll);
   }, []);
 
   return (
     <div className={styles.sobre}>
-      <Cabecalho acao={ativaNav} />
+      <Cabecalho acao={ativaMenu} />
       <header className={styles.fundo}>
         <div className={styles.titulo}>
           <h1 className={styles.tituloTexto}>Sobre o projeto</h1>

@@ -13,11 +13,11 @@ const Rotas = () => {
     <ProvedorDeAutenticacao>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/sobre" element={<Sobre />} />
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='/sobre' element={<Sobre />} />
           <Route
             exact
-            path="/login"
+            path='/login'
             element={
               <ChecarLogin>
                 <Login />
@@ -26,7 +26,7 @@ const Rotas = () => {
           />
           <Route
             exact
-            path="/lista"
+            path='/lista'
             element={
               <ExigirLogin>
                 <Lista />

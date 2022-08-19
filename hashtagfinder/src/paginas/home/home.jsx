@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import Busca from '../../componentes/busca/busca';
-import Cabecalho from '../../componentes/cabecalho/cabecalho';
-import Descricao from '../../componentes/descricao/descricao';
-import Rodape from '../../componentes/rodape/rodape';
+import React, { useEffect, useState } from "react";
+import useDocumentTitle from "@tanem/use-document-title";
+import Busca from "../../componentes/busca/busca";
+import Cabecalho from "../../componentes/cabecalho/cabecalho";
+import Descricao from "../../componentes/descricao/descricao";
+import Rodape from "../../componentes/rodape/rodape";
 
-import styles from './Home.module.css';
-import '../../css/global.css';
+import styles from "./Home.module.css";
+import "../../css/global.css";
 
 export default function Home() {
   const [ativaMenu, setAtivaMenu] = useState(false);
@@ -20,14 +21,13 @@ export default function Home() {
       }
     }
     window.addEventListener('scroll', posicaoScroll);
-
-    /* Altera o título da aba da página */
-    document.title = 'hashtagfinder | Home';
   }, []);
+
+  useDocumentTitle("hashtagfinder | Home");
 
   return (
     <div className={styles.home}>
-      <Cabecalho acao={ativaMenu} />
+      <Cabecalho acao={ativaMenu}/>
       <Descricao />
       <Busca type='search' placeholder='Buscar...' maxLength={20} />
       <Rodape />

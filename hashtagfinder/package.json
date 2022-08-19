@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tanem/use-document-title": "^1.0.114",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "airtable": "^0.11.4",
     "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
     "formik": "^2.2.9",
     "framer-motion": "^6.3.16",
     "jquery": "^3.6.0",
@@ -17,6 +19,7 @@
     "react-scripts": "5.0.1",
     "swiper": "^8.2.4",
     "swiper-react": "^1.0.0",
+    "use-document-title": "^1.0.4",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },

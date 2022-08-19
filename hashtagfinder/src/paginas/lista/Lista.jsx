@@ -1,41 +1,49 @@
-import Container from '../../componentes/container/Container';
-import styles from './Lista.module.css';
-import styles2 from '../../componentes/cabecalho/Cabecalho.module.css';
-import BotaoHome from '../../componentes/botoes/botaoHome';
-import BotaoSair from '../../componentes/botoes/botaoSair';
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import Container from "../../componentes/container/Container";
+import styles from "./Lista.module.css";
+import styles2 from "../../componentes/cabecalho/Cabecalho.module.css";
+import BotaoHome from "../../componentes/botoes/botaoHome";
+import BotaoSair from "../../componentes/botoes/botaoSair";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+/* Título da página */
+import useDocumentTitle from "@tanem/use-document-title";
 
 function Lista() {
   const [lista, setLista] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
 
+  /* Título da Página */
+  useDocumentTitle("hashtagfinder | Lista");
+
+  /* Chave da API AirTable oculta */
+  const API_KEY = process.env.REACT_APP_API_KEY;
+
   /* API AIRTABLE para pegar os dados digitados no componente BUSCA */
   useEffect(() => {
     fetch(
-      'https://api.airtable.com/v0/app6wQWfM6eJngkD4/Buscas?filterByFormula=' +
+      "https://api.airtable.com/v0/appUf3f0O3QvA6QMd/Buscas?filterByFormula=" +
         encodeURI("({Squad}='04-22')") +
         `&pageSize=${currentPage}&&sort` +
-        encodeURI('[0][field]=Data') +
-        '&sort' +
-        encodeURI('[0][direction]=desc'),
+        encodeURI("[0][field]=Data") +
+        "&sort" +
+        encodeURI("[0][direction]=desc"),
 
       {
         headers: {
-          Authorization: 'Bearer key2CwkHb0CKumjuM',
+          Authorization: `Bearer ${API_KEY}`,
         },
       }
     )
       .then((response) => response.json())
       .then((result) => setLista(result.records))
-      .catch((error) => console.log('error', error));
+      .catch((error) => console.log("error", error));
   }, [currentPage]);
 
   useEffect(() => {
     const intersectionObserver = new IntersectionObserver((entradas) => {
       // se o elemento que estiver observando estiver visivel irá executar o código para trazer a próxima página de conteúdo
       if (entradas.some((entrada) => entrada.isIntersecting)) {
-        console.log('elemento está visível', entradas);
         setTimeout(
           () =>
             setCurrentPage(
@@ -47,24 +55,24 @@ function Lista() {
     });
 
     //esse metodo observa algum elemento da página
-    intersectionObserver.observe(document.querySelector('#sentinela'));
+    intersectionObserver.observe(document.querySelector("#sentinela"));
     return () => intersectionObserver.disconnect();
   }, []);
 
   // Estou usando a api Intl para formatar data e hora regional com pouco código
   // Link com exemplos de uso https://devhints.io/wip/intl-datetime
   function formataData(data) {
-    let novaData = new Intl.DateTimeFormat('pt-br', {
-      day: '2-digit',
-      month: '2-digit',
+    let novaData = new Intl.DateTimeFormat("pt-br", {
+      day: "2-digit",
+      month: "2-digit",
     }).format(data);
     return novaData;
   }
 
   function formataHora(hora) {
-    let novaHora = new Intl.DateTimeFormat('pt-br', {
-      hour: 'numeric',
-      minute: 'numeric',
+    let novaHora = new Intl.DateTimeFormat("pt-br", {
+      hour: "numeric",
+      minute: "numeric",
     }).format(hora);
     return novaHora;
   }
@@ -84,15 +92,15 @@ function Lista() {
               to='/'
               text='Link para Home'
               className='linkHome'
-              style={{ textDecoration: 'none' }}>
+              style={{ textDecoration: "none" }}>
               <span>hashtag</span>
               <span className={styles2.tituloNegrito}>finder</span>
             </Link>
           </div>
 
           <div className={styles2.containerCabecalhoBotoes}>
-            <BotaoHome pagina={'Home'} />
-            <BotaoSair pagina={'Sair'} />
+            <BotaoHome pagina={"Home"} />
+            <BotaoSair pagina={"Sair"} />
           </div>
         </div>
       </header>
