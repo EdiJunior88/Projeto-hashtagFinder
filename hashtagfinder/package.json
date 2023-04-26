@@ -48,7 +48,7 @@
     ]
   },
   "devDependencies": {
-    "postcss": "^8.4.14",
+    "postcss": "^8.4.23",
     "postcss-loader": "^7.0.0"
   }
 }
