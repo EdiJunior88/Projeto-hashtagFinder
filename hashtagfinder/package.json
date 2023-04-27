@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@tanem/use-document-title": "^1.0.133",
-    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "airtable": "^0.11.4",
