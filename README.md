@@ -82,19 +82,19 @@
 <table>
  <tr>
     <td>
-      <img src="https://v5.airtableusercontent.com/v1/16/16/1682704800000/ITHegH2FD0jzwDYEzTHz_A/I9gPFj_B0oVZN8R1io38pRpk2CldT3JdLqs8AH6o6867i4gIl83959Y-b_LvmW6f3OmeOYfGT6aXsdHnW0FP8p9CI2KUKVON9uji1DRP0Nk/1GOAq5WPx7-bMZKUl9UdpQd26RAZ7cux6p0Cn7WSr6U" width="130px">
+      <img src="https://avatars.githubusercontent.com/u/80981694?v=4" width="130px">
       <p>Anderson Nascimento</p>
     </td>
     <td>
-      <img src="https://v5.airtableusercontent.com/v1/16/16/1682704800000/6ErN713Mc_hBMU2rnz0Cbw/TFEw9kbImMYI2_W_YWa19uRJ4A_6Jx8UlFaIyrlA1MHrJNe1ktZdcLacLUyoe2yftVYRCk0dbZBxeNjdRB2oEtgV9Xyicp4E7f25NV8nS5I/PcpAgvWqbWA5L4JGjEsjpKNDP4AnUeqFuHCiPlD2MxM" width="130px">
+      <img src="https://avatars.githubusercontent.com/u/13875907?v=4" width="130px">
       <p>Edivaldo Reis</p>
     </td>
      <td>
-      <img src="https://v5.airtableusercontent.com/v1/16/16/1682704800000/AtO0MarD1ca8ayCiUiTa9A/NC2uCldP871SJr5jhATpeRDkBdUY86BvUzLcAWEXsbNyl2ykw1s1PqkOvLyxAIjni6hbcCz2JokUt5BrbIzfTYVkf9nFEOkbT8uH6S1XCn4/6j8eJ6NVfv_WJP7BcpltG6DthY8ALrpiA5_N2nnl2w4" width="130px">
+      <img src="https://avatars.githubusercontent.com/u/52300436?v=4" width="130px">
       <p>Sarah Rúbia</p>
     </td>
     <td>
-      <img src="https://v5.airtableusercontent.com/v1/16/16/1682704800000/1wNcwZ7aAeALdoaxQr0YgA/0I4O7opL3l3cIajIuAu1sLlykYVauXpUeaexq15-RxZ-hpP_cLYREf5YLjZGQe_pT6YIuB7MavMXBuKJtLyym-hTEzGTWkBg648pqERz4Yo/j7TZ2hjaQPSblca_6vNmp1643vKzCyH7gCUgPE2Yx7Y" width="130px">
+      <img src="https://avatars.githubusercontent.com/u/87780829?v=4" width="130px">
       <p>Washington Santos</p>
     </td>
   </tr>
