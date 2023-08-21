@@ -7,7 +7,7 @@
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
-    "airtable": "^0.12.1",
+    "airtable": "^0.12.2",
     "axios": "^1.4.0",
     "dotenv": "^16.3.1",
     "formik": "^2.4.3",
