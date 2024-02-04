@@ -1,0 +1,284 @@
+repo_name: EdiJunior88/Projeto-hashtagFinder
+report_id: e85d9fbc94361f9dcef0c80cc69fc9b7
+version: 0.1
+repo_type: Public
+timestamp: '2024-02-04T14:36:12+00:00'
+requested_by: EdiJunior88
+provider: github
+branch: master
+detected_tools_count: 21
+tools:
+- name: CSS 3
+  description: The latest evolution of the Cascading Style Sheets language
+  website_url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/6727/css.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder
+  detection_source: Repo Metadata
+- name: JavaScript
+  description: Lightweight, interpreted, object-oriented language with first-class
+    functions
+  website_url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder
+  detection_source: Repo Metadata
+- name: PostCSS
+  description: Transform CSS with JS plugins
+  website_url: https://github.com/postcss/postcss
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: CSS Pre-processors / Extensions
+  image_url: https://img.stackshare.io/service/3339/rlFcjEdI.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: Edivaldo Junior
+  last_updated_on: 2022-06-16 04:25:28.000000000 Z
+- name: React
+  description: A JavaScript library for building user interfaces
+  website_url: https://reactjs.org/
+  version: 18.2.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Javascript UI Libraries
+  image_url: https://img.stackshare.io/service/1020/OYIaJ1KK.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package-lock.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2023-10-05 13:47:41.000000000 Z
+- name: React Router
+  description: A complete routing solution for React.js
+  website_url: https://github.com/rackt/react-router
+  version: 6.21.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: JavaScript Framework Components
+  image_url: https://img.stackshare.io/service/3350/8261421.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package-lock.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2023-10-05 13:47:41.000000000 Z
+- name: jQuery
+  description: The Write Less, Do More, JavaScript Library.
+  website_url: http://jquery.com/
+  version: 3.7.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Javascript UI Libraries
+  image_url: https://img.stackshare.io/service/1021/lxEKmMnB_400x400.jpg
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package-lock.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2023-09-04 14:47:51.000000000 Z
+- name: Dotenv
+  description: Loads environment variables from .env for Nodejs projects
+  website_url: https://github.com/motdotla/dotenv
+  license: BSD-2-Clause
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Server Configuration and Automation
+  image_url: https://img.stackshare.io/service/8067/default_90dcb1286af7685c68df319c764b80704df1155b.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2024-01-29 09:11:40.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder
+  detection_source: Repo Metadata
+- name: npm
+  description: The package manager for JavaScript.
+  website_url: https://www.npmjs.com/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Front End Package Manager
+  image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: Edivaldo Junior
+  last_updated_on: 2022-06-16 04:25:28.000000000 Z
+- name: Airtable
+  description: 'Real-time spreadsheet-database hybrid '
+  website_url: https://airtable.com
+  open_source: false
+  hosted_saas: true
+  category: Application Utilities
+  sub_category: Spreadsheets as a Backend
+  image_url: https://img.stackshare.io/service/1512/logo.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2023-08-21 09:39:57.000000000 Z
+- name: Formik
+  description: Build forms in React
+  website_url: https://jaredpalmer.com/formik/
+  version: 2.4.5
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Application Utilities
+  sub_category: Web Forms
+  image_url: https://img.stackshare.io/service/8846/preview.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package-lock.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2023-09-18 10:00:22.000000000 Z
+- name: axios
+  description: Promise based HTTP client for the browser and node.js
+  website_url: https://github.com/mzabriskie/axios
+  version: 1.6.7
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Javascript Utilities & Libraries
+  image_url: https://img.stackshare.io/no-img-open-source.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package-lock.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2024-01-29 13:12:15.000000000 Z
+- name: yup
+  website_url: https://github.com/jquense/yup
+  open_source: false
+  hosted_saas: false
+  image_url: https://img.stackshare.io/service/10756/339286.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: Edivaldo Junior
+  last_updated_on: 2022-06-16 04:25:28.000000000 Z
+- name: "@testing-library/jest-dom"
+  description: Custom jest matchers to test the state of the DOM
+  package_url: https://www.npmjs.com/@testing-library/jest-dom
+  version: 6.3.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17424/default_1cdcda15ebb7caed879f8340bc212b44c4ec9dac.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package-lock.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2024-01-29 09:10:47.000000000 Z
+- name: "@testing-library/react"
+  description: Simple and complete React DOM testing utilities that encourage good
+    testing practices
+  package_url: https://www.npmjs.com/@testing-library/react
+  version: 14.1.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16549/default_d522554c6a41cb28d922d6d3ad32ad4afa0e3bb5.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package-lock.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2024-01-29 09:10:47.000000000 Z
+- name: postcss-loader
+  description: PostCSS loader for webpack
+  package_url: https://www.npmjs.com/postcss-loader
+  version: 8.0.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15876/default_6743ba96cf149a3c3c68a185199f9705d6eff80e.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package-lock.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2024-01-21 14:44:19.000000000 Z
+- name: react-dom
+  description: React package for working with the DOM
+  package_url: https://www.npmjs.com/react-dom
+  version: 18.2.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15808/default_14fd11531839d935f920b6d55bd6f3528c890ad7.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package-lock.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2024-01-29 09:10:47.000000000 Z
+- name: react-router-dom
+  description: DOM bindings for React Router
+  package_url: https://www.npmjs.com/react-router-dom
+  version: 6.21.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16025/default_e25d1fbb04a118c79fb444294461417342bd03bf.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package-lock.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2024-01-29 09:10:47.000000000 Z
+- name: react-scripts
+  description: Configuration and scripts for Create React App
+  package_url: https://www.npmjs.com/react-scripts
+  version: 5.0.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15985/default_8b5680d4e916298d08363c291a0d6e34c07ceb15.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package-lock.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2023-10-05 13:47:41.000000000 Z
+- name: swiper
+  description: Most modern mobile touch slider and framework with hardware accelerated
+    transitions
+  package_url: https://www.npmjs.com/swiper
+  version: 11.0.5
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17656/default_b06ec1ccf403dac1459596b8571a4fb6a46577e1.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package-lock.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: renovate[bot]
+  last_updated_on: 2024-01-21 13:03:38.000000000 Z
+- name: yup
+  description: Dead simple Object schema validation
+  package_url: https://www.npmjs.com/yup
+  version: 1.3.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17215/default_37d9ccc57ae4d32e7ff46614e4f8bb2c4ddc7964.png
+  detection_source_url: https://github.com/EdiJunior88/Projeto-hashtagFinder/blob/master/hashtagfinder/package-lock.json
+  detection_source: hashtagfinder/package.json
+  last_updated_by: Edivaldo Junior
+  last_updated_on: 2022-06-16 04:25:28.000000000 Z
