@@ -13,69 +13,24 @@
 
 <hr>
 
-<h3><strong>Tecnologias Utilizadas</strong></h3>
+<h3>Tecnologias Utilizadas</h3>
 
-<table>
-  <tr>
-    <td>
-      <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-    </td>
-    <td>
-      <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-    </td>
-     <td>
-      <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
-    </td>
-    <td>
-      <img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white">
-    </td>
-    <td>
-      <img src="https://img.shields.io/badge/Git-E34F26?style=for-the-badge&logo=git&logoColor=white">
-    </td>
-    <td>
-      <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white">
-    </td> 
-    <td>
-      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-    </td>
-</table>
+- <img width='25' height='25' src='https://img.stackshare.io/service/1020/OYIaJ1KK.png' alt='React'/> [React](https://reactjs.org/) – Javascript UI Libraries
+- <img width='25' height='25' src='https://img.stackshare.io/service/1021/lxEKmMnB_400x400.jpg' alt='jQuery'/> [jQuery](http://jquery.com/) – Javascript UI Libraries
+- <img width='25' height='25' src='https://img.stackshare.io/service/1209/javascript.jpeg' alt='JavaScript'/> [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
+- <img width='25' height='25' src='https://img.stackshare.io/service/1512/logo.png' alt='Airtable'/> [Airtable](https://airtable.com) – Spreadsheets as a Backend
+- <img width='25' height='25' src='https://img.stackshare.io/service/3339/rlFcjEdI.png' alt='PostCSS'/> [PostCSS](https://github.com/postcss/postcss) – CSS Pre-processors / Extensions
+- <img width='25' height='25' src='https://img.stackshare.io/service/3350/8261421.png' alt='React Router'/> [React Router](https://github.com/rackt/react-router) – JavaScript Framework Components
+- <img width='25' height='25' src='https://img.stackshare.io/no-img-open-source.png' alt='axios'/> [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
+- <img width='25' height='25' src='https://img.stackshare.io/service/8846/preview.png' alt='Formik'/> [Formik](https://jaredpalmer.com/formik/) – Web Forms
+
+Para ver todas as tecnologias [clique aqui](/techstack.md)
 
 <hr>
 
-<h3><strong>Ferramentas Utilizadas</strong></h3>
+<strong>Link do Projeto:</strong> <a href="https://projeto-hashtagfinder.netlify.app/" target="_blank">https://projeto-hashtagfinder.netlify.app/</a>
 
-<table>
-  <tr>
-    <td>
-      <img src="https://badgen.net/npm/license/lodash">
-    </td>
-    <td>
-      <img src="https://badgen.net/npm/v/express">
-    </td>
-    <td>
-      <img src="https://badgen.net/npm/node/next">
-    </td>
-    <td>
-      <img src="https://badgen.net/badge/icon/visualstudio?icon=visualstudio&label">
-    </td>
-    <td>
-      <img src="https://badgen.net/badge/icon/git?icon=git&label">
-    </td>
-    <td>
-      <img src="https://badgen.net/badge/icon/twitter?icon=twitter&label">
-    </td>
-    <td>
-      <img src="https://badgen.net/badge/icon/github?icon=github&label">
-    </td>
-  </tr>
-</table>
-
-<hr>
-
-<h3><strong>Site do Projeto</strong></h3>
-<a href="https://projeto-hashtagfinder.netlify.app/" target="_blank">https://projeto-hashtagfinder.netlify.app/</a>
-
-<br>
+<h3>Status do Projeto</h3>
 
 <img src="https://api.netlify.com/api/v1/badges/1ad9f409-af75-439e-bd34-4e2bf0544843/deploy-status">
 
