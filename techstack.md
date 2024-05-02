@@ -3,14 +3,14 @@
 ## Tech Stack
 EdiJunior88/Projeto-hashtagFinder is built on the following main stack:
 
-- [React](https://reactjs.org/) – Javascript UI Libraries
-- [jQuery](http://jquery.com/) – Javascript UI Libraries
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
-- [Airtable](https://airtable.com) – Spreadsheets as a Backend
 - [PostCSS](https://github.com/postcss/postcss) – CSS Pre-processors / Extensions
+- [React](https://reactjs.org/) – Javascript UI Libraries
 - [React Router](https://github.com/rackt/react-router) – JavaScript Framework Components
-- [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
+- [jQuery](http://jquery.com/) – Javascript UI Libraries
+- [Airtable](https://airtable.com) – Spreadsheets as a Backend
 - [Formik](https://jaredpalmer.com/formik/) – Web Forms
+- [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
 
 Full tech stack [here](/techstack.md)
 
@@ -20,14 +20,14 @@ Full tech stack [here](/techstack.md)
 ## Tech Stack
 EdiJunior88/Projeto-hashtagFinder is built on the following main stack:
 
-- <img width='25' height='25' src='https://img.stackshare.io/service/1020/OYIaJ1KK.png' alt='React'/> [React](https://reactjs.org/) – Javascript UI Libraries
-- <img width='25' height='25' src='https://img.stackshare.io/service/1021/lxEKmMnB_400x400.jpg' alt='jQuery'/> [jQuery](http://jquery.com/) – Javascript UI Libraries
 - <img width='25' height='25' src='https://img.stackshare.io/service/1209/javascript.jpeg' alt='JavaScript'/> [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
-- <img width='25' height='25' src='https://img.stackshare.io/service/1512/logo.png' alt='Airtable'/> [Airtable](https://airtable.com) – Spreadsheets as a Backend
 - <img width='25' height='25' src='https://img.stackshare.io/service/3339/rlFcjEdI.png' alt='PostCSS'/> [PostCSS](https://github.com/postcss/postcss) – CSS Pre-processors / Extensions
+- <img width='25' height='25' src='https://img.stackshare.io/service/1020/OYIaJ1KK.png' alt='React'/> [React](https://reactjs.org/) – Javascript UI Libraries
 - <img width='25' height='25' src='https://img.stackshare.io/service/3350/8261421.png' alt='React Router'/> [React Router](https://github.com/rackt/react-router) – JavaScript Framework Components
-- <img width='25' height='25' src='https://img.stackshare.io/no-img-open-source.png' alt='axios'/> [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
+- <img width='25' height='25' src='https://img.stackshare.io/service/1021/lxEKmMnB_400x400.jpg' alt='jQuery'/> [jQuery](http://jquery.com/) – Javascript UI Libraries
+- <img width='25' height='25' src='https://img.stackshare.io/service/1512/logo.png' alt='Airtable'/> [Airtable](https://airtable.com) – Spreadsheets as a Backend
 - <img width='25' height='25' src='https://img.stackshare.io/service/8846/preview.png' alt='Formik'/> [Formik](https://jaredpalmer.com/formik/) – Web Forms
+- <img width='25' height='25' src='https://img.stackshare.io/no-img-open-source.png' alt='axios'/> [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
 
 Full tech stack [here](/techstack.md)
 
@@ -38,7 +38,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [EdiJunior88/Projeto-hashtagFinder](https://github.com/EdiJunior88/Projeto-hashtagFinder)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|21<br/>Tools used|02/04/24 <br/>Report generated|
+|21<br/>Tools used|05/02/24 <br/>Report generated|
 |------|------|
 </div>
 
@@ -86,7 +86,7 @@ Full tech stack [here](/techstack.md)
   <br>
   <sub><a href="https://github.com/rackt/react-router">React Router</a></sub>
   <br>
-  <sub>v6.21.3</sub>
+  <sub>v6.22.3</sub>
 </td>
 
 <td align='center'>
@@ -157,7 +157,7 @@ Full tech stack [here](/techstack.md)
   <br>
   <sub><a href="https://github.com/mzabriskie/axios">axios</a></sub>
   <br>
-  <sub>v1.6.7</sub>
+  <sub>v1.6.8</sub>
 </td>
 
 <td align='center'>
@@ -178,14 +178,14 @@ Full tech stack [here](/techstack.md)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
-|[@testing-library/jest-dom](https://www.npmjs.com/@testing-library/jest-dom)|v6.3.0|01/29/24|dependabot[bot] |MIT|N/A|
-|[@testing-library/react](https://www.npmjs.com/@testing-library/react)|v14.1.2|01/29/24|dependabot[bot] |MIT|N/A|
-|[postcss-loader](https://www.npmjs.com/postcss-loader)|v8.0.0|01/21/24|renovate[bot] |MIT|N/A|
-|[react-dom](https://www.npmjs.com/react-dom)|v18.2.0|01/29/24|dependabot[bot] |MIT|N/A|
-|[react-router-dom](https://www.npmjs.com/react-router-dom)|v6.21.3|01/29/24|dependabot[bot] |MIT|N/A|
-|[react-scripts](https://www.npmjs.com/react-scripts)|v5.0.1|10/05/23|dependabot[bot] |MIT|N/A|
-|[swiper](https://www.npmjs.com/swiper)|v11.0.5|01/21/24|renovate[bot] |MIT|N/A|
-|[yup](https://www.npmjs.com/yup)|v1.3.3|06/16/22|Edivaldo Junior |MIT|N/A|
+|[@testing-library/jest-dom](https://www.npmjs.com/@testing-library/jest-dom)|v6.4.2|04/15/24|dependabot[bot] |MIT|N/A|
+|[@testing-library/react](https://www.npmjs.com/@testing-library/react)|v15.0.2|04/15/24|dependabot[bot] |MIT|N/A|
+|[postcss-loader](https://www.npmjs.com/postcss-loader)|v8.1.1|03/25/24|dependabot[bot] |MIT|N/A|
+|[react-dom](https://www.npmjs.com/react-dom)|v18.2.0|04/15/24|dependabot[bot] |MIT|N/A|
+|[react-router-dom](https://www.npmjs.com/react-router-dom)|v6.22.3|04/15/24|dependabot[bot] |MIT|N/A|
+|[react-scripts](https://www.npmjs.com/react-scripts)|v5.0.1|04/15/24|dependabot[bot] |MIT|N/A|
+|[swiper](https://www.npmjs.com/swiper)|v11.1.1|04/15/24|dependabot[bot] |MIT|N/A|
+|[yup](https://www.npmjs.com/yup)|v1.4.0|06/16/22|Edivaldo Junior |MIT|N/A|
 
 <br/>
 <div align='center'>
